@@ -1,7 +1,5 @@
 const root = document.documentElement;
 const body = document.body;
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const saveData = Boolean(navigator.connection?.saveData);
 
 function setLanguage(language) {
   const nextLanguage = language === "zh" ? "zh" : "en";
@@ -231,8 +229,26 @@ if (sampleTabs.length) {
 
 const loopVideos = [...document.querySelectorAll("[data-loop-video]")];
 
+function videoButton(video) {
+  const frame = video.closest(".loop-frame");
+  let button = frame?.querySelector("[data-video-toggle]");
+  if (!frame || button) return button;
+  button = document.createElement("button");
+  button.type = "button";
+  button.dataset.videoToggle = "";
+  const english = document.createElement("span");
+  english.className = "lang-en";
+  english.textContent = "Play";
+  const chinese = document.createElement("span");
+  chinese.className = "lang-zh";
+  chinese.textContent = "播放";
+  button.append(english, chinese);
+  frame.append(button);
+  return button;
+}
+
 function updateVideoButton(video) {
-  const button = video.closest(".loop-frame")?.querySelector("[data-video-toggle]");
+  const button = videoButton(video);
   if (!button) return;
   const paused = video.paused;
   button.setAttribute("aria-label", paused ? "Play video" : "Pause video");
@@ -241,9 +257,13 @@ function updateVideoButton(video) {
 }
 
 loopVideos.forEach((video) => {
-  const button = video.closest(".loop-frame")?.querySelector("[data-video-toggle]");
+  video.preload = "none";
+  const button = videoButton(video);
   button?.addEventListener("click", () => {
     if (video.paused) {
+      loopVideos.forEach((otherVideo) => {
+        if (otherVideo !== video) otherVideo.pause();
+      });
       video.play().catch(() => {});
     } else {
       video.pause();
@@ -254,22 +274,6 @@ loopVideos.forEach((video) => {
   video.addEventListener("pause", () => updateVideoButton(video));
   updateVideoButton(video);
 });
-
-if (reducedMotion.matches || saveData) {
-  loopVideos.forEach((video) => video.pause());
-} else if ("IntersectionObserver" in window) {
-  const videoObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const video = entry.target;
-      if (entry.isIntersecting && document.visibilityState === "visible") {
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-      }
-    });
-  }, { threshold: 0.25 });
-  loopVideos.forEach((video) => videoObserver.observe(video));
-}
 
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "hidden") loopVideos.forEach((video) => video.pause());
