@@ -1263,6 +1263,7 @@ blockquote p { margin: 0; font-size: 20px; line-height: 1.45; }
 .benchmark-table-wrap td:first-child b,
 .benchmark-table-wrap td:first-child small { display: block; }
 .benchmark-table-wrap td:first-child small { margin-top: 3px; color: var(--muted); font-size: 14px; }
+.benchmark-source { margin: 8px 4px 0; color: var(--muted); font-size: 15px; line-height: 1.4; }
 .benchmark-ceiling { margin-top: 28px; overflow: hidden; color: #fff; background: #15151a; border-radius: 12px; }
 .benchmark-ceiling > header { padding: 22px 26px 20px; border-bottom: 1px solid rgba(255,255,255,.16); }
 .benchmark-ceiling > header h3 { max-width: none; margin: 0; font-size: clamp(24px, 2.75vw, 35px); font-weight: 570; letter-spacing: -.045em; line-height: 1.12; white-space: nowrap; }
@@ -1292,20 +1293,13 @@ th { color: var(--muted); background: #fbfbfc; font-weight: 500; }
 tbody tr:last-child td { border-bottom: 0; }
 td b { color: var(--accent); font-weight: 600; }
 
-.evaluation-note { width: var(--reading); margin: 22px auto 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.evaluation-note summary { display: flex; justify-content: space-between; padding: 14px 0; cursor: pointer; font-weight: 560; }
-.evaluation-note summary i { color: var(--accent); font-size: 22px; font-style: normal; font-weight: 300; transition: transform 180ms ease; }
-.evaluation-note[open] summary i { transform: rotate(45deg); }
-.evaluation-note > div { padding: 0 0 15px; color: var(--muted); font-size: 17px; }
-.evaluation-note p { margin: 0 0 15px; }
-
 .benchmark-integrity { display: grid; grid-template-columns: 170px 1fr; gap: 20px; width: var(--reading); margin: 20px auto 0; padding: 14px 0 0; border-top: 2px solid var(--ink); }
 .benchmark-integrity > span { padding-top: 4px; color: var(--accent); font-family: "IBM Plex Mono", monospace; font-size: 14px; font-weight: 540; letter-spacing: .06em; }
 .benchmark-integrity h3 { margin: 0 0 12px; font-size: 18px; font-weight: 570; letter-spacing: -.025em; }
 .benchmark-integrity p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.45; }
 .benchmark-integrity a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 
-.resource-list { margin-top: 26px; border-top: 1px solid var(--line); }
+.resource-list { margin-top: 0; border-top: 1px solid var(--line); }
 .resource-list > a { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; min-height: 64px; padding: 10px 4px; border-bottom: 1px solid var(--line); transition: padding 180ms ease, color 180ms ease; }
 .resource-list > a:hover { padding-inline: 14px; color: var(--accent); }
 .resource-list b { font-size: 20px; }

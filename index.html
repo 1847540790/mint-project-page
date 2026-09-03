@@ -14,7 +14,7 @@
     <title>MINT — World-Space Camera and Hand Motion Estimation</title>
     <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
     <link rel="preload" href="assets/fonts/space-grotesk-variable.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.min.css?v=3">
+    <link rel="stylesheet" href="styles.min.css?v=4">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -85,7 +85,7 @@
           <p class="authors lang-en">Zijie Zhu<sup>1,3,4</sup>, Weiren Cai<sup>3</sup>, Yizhou Wang<sup>1,3</sup>, Zhenjie Yang<sup>4</sup>, Yide Liu<sup>3,5</sup>, Jiahao Chen<sup>3,*</sup>, Guanqi He<sup>2,3,*</sup></p>
           <p class="authors lang-zh">朱子杰<sup>1,3,4</sup>，蔡为任<sup>3</sup>，王翌舟<sup>1,3</sup>，杨振杰<sup>4</sup>，刘一得<sup>3,5</sup>，陈嘉豪<sup>3,*</sup>，贺贯齐<sup>2,3,*</sup></p>
           <p class="affiliations lang-en"><span><sup>1</sup> ShanghaiTech University</span><span><sup>2</sup> Tsinghua University</span><span><sup>3</sup> Wuji Technology</span><span><sup>4</sup> The University of Hong Kong</span><span><sup>5</sup> Zhejiang University</span></p>
-          <p class="affiliations lang-zh"><span><sup>1</sup> 上海科技大学</span><span><sup>2</sup> 清华大学</span><span><sup>3</sup> 无界科技</span><span><sup>4</sup> 香港大学</span><span><sup>5</sup> 浙江大学</span></p>
+          <p class="affiliations lang-zh"><span><sup>1</sup> 上海科技大学</span><span><sup>2</sup> 清华大学</span><span><sup>3</sup> 舞肌科技</span><span><sup>4</sup> 香港大学</span><span><sup>5</sup> 浙江大学</span></p>
           <div class="hero-actions">
             <a class="button button-primary" href="assets/paper/mint-paper.pdf" target="_blank" rel="noreferrer"><span class="lang-en">Paper</span><span class="lang-zh">论文</span><i aria-hidden="true">↗</i></a>
             <a class="button button-secondary" href="https://github.com/wuji-technology/wuji-ego-mint" target="_blank" rel="noreferrer">GitHub <i aria-hidden="true">↗</i></a>
@@ -378,7 +378,7 @@
             <header><span>BENCHMARK 01</span><div><h3 class="lang-en">Camera-frame bimanual reconstruction</h3><h3 class="lang-zh">相机系下的双手重建</h3><p class="lang-en">MINT is zero-shot on both datasets. MINT + UKF is the same model with an optional inference-time filter; only the jitter row changes materially.</p><p class="lang-zh">MINT 在两个数据集上均为零样本。MINT + UKF 是同一模型加可选的推理时滤波，主要改变 jitter 指标。</p></div></header>
             <div class="table-wrap benchmark-table-wrap benchmark-complete-table" tabindex="0" aria-label="Complete camera-frame hand benchmark on ARCTIC and HOT3D">
               <table>
-                <caption><span class="lang-en">Camera-frame hand evaluation, complete table · pose errors on hand-presence true positives · bold marks the best value in each column · ViDiHand* trains on most of both benchmarks and is carried as a reference, not a zero-shot row · non-MINT rows as reported in the ViDiHand paper</span><span class="lang-zh">相机系手部评测完整表 · 位姿误差仅在手部存在的真阳性帧上统计 · 加粗为每列最优 · ViDiHand* 在两个 benchmark 的大部分数据上训练，仅作参考行，不属于零样本 · 非 MINT 行的数值引自 ViDiHand 论文</span></caption>
+                <caption><span class="lang-en">Camera-frame hand evaluation, complete table · pose errors on hand-presence true positives · bold marks the best value in each column · ViDiHand* trains on most of both benchmarks and is carried as a reference, not a zero-shot row</span><span class="lang-zh">相机系手部评测完整表 · 位姿误差仅在手部存在的真阳性帧上统计 · 加粗为每列最优 · ViDiHand* 在两个 benchmark 的大部分数据上训练，仅作参考行，不属于零样本</span></caption>
                 <thead><tr><th scope="col"><span class="lang-en">Dataset</span><span class="lang-zh">数据集</span></th><th scope="col"><span class="lang-en">Method</span><span class="lang-zh">方法</span></th><th scope="col">FAcc ↑</th><th scope="col">Recall ↑</th><th scope="col">F1 ↑</th><th scope="col">MPJPE-p ↓<br><small>mm</small></th><th scope="col">PA-MPJPE-p ↓<br><small>mm</small></th><th scope="col">GO-p ↓<br><small>deg</small></th><th scope="col">CT-p ↓<br><small>m</small></th><th scope="col">Jitter ↓<br><small>mm/frame²</small></th></tr></thead>
                 <tbody>
                   <tr><th scope="rowgroup" rowspan="11">ARCTIC</th><td>InterWild</td><td>0.878</td><td>0.943</td><td>0.959</td><td>30.82</td><td>15.95</td><td>25.39</td><td>0.097</td><td>46.58</td></tr>
@@ -406,6 +406,8 @@
                 </tbody>
               </table>
             </div>
+            <p class="benchmark-source lang-en">Results for all non-MINT methods are taken from the ViDiHand evaluation.</p>
+            <p class="benchmark-source lang-zh">表中除 MINT 系列外的结果均来自 ViDiHand 评测。</p>
           </article>
 
           <article class="benchmark-block">
@@ -440,13 +442,10 @@
             <p class="ceiling-conclusion lang-zh"><b>EGO数据的下一步应该是使用更大规模，更多样的EGO视频进入传统ego管线，大批量低成本产出带标签的ego数据，先解决泛化问题，</b>然后只需使用较少的高精度数据微调即可训练一个精度接近二阶段高精度数据且具有强大泛化能力的EGO数据模型。</p>
           </aside>
 
-          <details class="evaluation-note"><summary><span class="lang-en">Evaluation protocol and metric notes</span><span class="lang-zh">评测协议与指标说明</span><i aria-hidden="true">+</i></summary><div><p class="lang-en">Official splits are made by original video ID before clipping and by participant where available. Camera trajectories are evaluated over complete sequences with SE(3)-only alignment. RPE-T measures local relative camera motion; it does not imply low global drift.</p><p class="lang-zh">官方划分在切片前按原始视频 ID 完成，在参与者 ID 可用时也按参与者隔离。相机轨迹在完整序列上仅做 SE(3) 对齐。RPE-T 衡量局部相对相机运动，并不代表全局漂移很低。</p><p class="lang-en">ViDiHand trained on most of both hand benchmarks and is reference-only. The optional UKF is a separate inference filter. Benchmark implementations and aggregation logic are available in the project repository.</p><p class="lang-zh">ViDiHand 在两个手部 benchmark 的大部分数据上训练过，因此仅作参考。可选 UKF 属于独立推理滤波。benchmark 实现与聚合逻辑均已在项目仓库公开。</p></div></details>
-
           <aside class="benchmark-integrity" aria-labelledby="integrity-title"><span>REPRODUCIBILITY · INTEGRITY</span><div><h3 id="integrity-title" class="lang-en">Benchmark result integrity statement</h3><h3 class="lang-zh">Benchmark 结果诚信声明</h3><p class="lang-en">Every metric reported by this project is an actual result obtained under the stated evaluation protocol; no raw value has been manually altered. To reproduce another method or baseline exactly, use its official repository and original environment. MINT's metric definitions, alignment rules, aggregation logic, and reporting code are public in the <a href="https://github.com/wuji-technology/wuji-ego-mint/tree/main/eval/model_effect/benchmark" target="_blank" rel="noreferrer">benchmark implementation</a> for direct inspection.</p><p class="lang-zh">我们承诺，本项目报告的每一项测试指标均为按照所述评测协议实际运行所得的真实结果，不会对原始数值进行任何人为修改。如需精确复现其他方法或 baseline 的具体数值，请直接使用对应方法的官方仓库与原始环境。MINT 使用的指标定义、对齐规则、聚合逻辑和报告代码均公开在 <a href="https://github.com/wuji-technology/wuji-ego-mint/tree/main/eval/model_effect/benchmark" target="_blank" rel="noreferrer">benchmark 实现</a>中，可直接检查具体计算方式。</p></div></aside>
         </section>
 
-        <section class="article-section section-shell" id="resources" aria-labelledby="resources-title">
-          <div class="reading-column"><p class="section-kicker">OPEN RESOURCES</p><h2 id="resources-title" class="lang-en">Continue with MINT</h2><h2 class="lang-zh">继续探索 MINT</h2><p class="section-lead lang-en">Read the manuscript, run inference, inspect the released checkpoint, or work with the non-video structured supervision.</p><p class="section-lead lang-zh">阅读论文、运行推理、查看公开权重，或使用不含原始视频的结构化监督数据。</p></div>
+        <section class="article-section section-shell" id="resources" aria-label="MINT resources">
           <div class="resource-list"><a href="assets/paper/mint-paper.pdf" target="_blank" rel="noreferrer"><b class="lang-en">Paper</b><b class="lang-zh">论文</b><i>↗</i></a><a href="https://github.com/wuji-technology/wuji-ego-mint" target="_blank" rel="noreferrer"><b>GitHub</b><i>↗</i></a><a href="https://huggingface.co/ZZJAsher/mint_v1" target="_blank" rel="noreferrer"><b class="lang-en">Model weights</b><b class="lang-zh">模型权重</b><i>↗</i></a><a href="https://huggingface.co/datasets/ZZJAsher/wuji_ego_mint" target="_blank" rel="noreferrer"><b class="lang-en">Dataset</b><b class="lang-zh">数据集</b><i>↗</i></a></div>
         </section>
 
