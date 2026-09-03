@@ -26,7 +26,7 @@ L 979.2 504
 L 979.2 0 
 L 0 0 
 z
-" style="fill: #fcfcf8"/>
+" style="fill: none"/>
   </g>
   <g id="axes_1">
    <g id="patch_2">
@@ -31324,7 +31324,7 @@ z
    <text style="font-weight: 700; font-size: 6.5px; font-family: 'Lato'; fill: #173f5f" transform="translate(388.600053 243.35125)">SCHEDULING</text>
   </g>
   <g id="text_121">
-   <text style="font-weight: 700; font-size: 8px; font-family: 'Lato'; fill: #173f5f" transform="translate(401.627475 295.74375)">2.8x</text>
+   <text style="font-weight: 700; font-size: 8px; font-family: 'Lato'; fill: #173f5f" transform="translate(401.627475 295.74375)">3.4x</text>
    <text style="font-weight: 700; font-size: 8px; font-family: 'Lato'; fill: #173f5f" transform="translate(395.0381 304.21625)">FASTER</text>
   </g>
   <g id="text_122">

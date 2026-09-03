@@ -13,7 +13,7 @@ Source: `wuji_data_pipeline_distill.pdf`
 | Website asset | Manuscript source |
 | --- | --- |
 | `assets/overview.webp` | Figure 1, page 1 |
-| `assets/egopipeline.webp` | Figure 2, page 3 |
+| `assets/egopipeline.webp` | Figure 2, page 3; the P4 thumbnail is replaced with the supplied stage-5 world-frame hand-motion visual |
 | `assets/architecture.webp` | Figure 3, page 4 |
 | `assets/world-frame-hand-motion.webp` | EgoPipeline stage 5 world-frame hand-motion figure |
 

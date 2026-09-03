@@ -33,7 +33,7 @@ def build_horizontal_figure(overview, serial_rows, serial_events, serial_summary
     distributed = overview.distributed
     base = overview.base
 
-    fig = plt.figure(figsize=(13.6, 7.0), facecolor=colors["paper"])
+    fig = plt.figure(figsize=(13.6, 7.0), facecolor="none")
     outer = fig.add_gridspec(
         2,
         2,
@@ -197,7 +197,7 @@ def build_horizontal_figure(overview, serial_rows, serial_events, serial_summary
     fig.text(
         0.418,
         0.425,
-        "2.8x\nFASTER",
+        "3.4x\nFASTER",
         ha="center",
         va="top",
         fontsize=8.0,
@@ -254,7 +254,7 @@ def main() -> None:
     )
     output = args.out.resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
-    figure.savefig(output, facecolor=overview.COLORS["paper"])
+    figure.savefig(output, transparent=True)
     plt.close(figure)
     print(f"Wrote {output}")
 
