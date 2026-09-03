@@ -134,6 +134,12 @@ camera extrinsics or intrinsics.
 | `assets/media/samples/ep<NNN>-mujoco-{gt,pred}.mp4` | `Store.mujoco_video(eid, source=...)` |
 | `assets/media/samples/ep<NNN>-retarget-{gt,pred}.mp4` | `Store.retarget_video(eid, source=...)` |
 
+The Viewer now exposes these same four categories through **Download Individual
+GT/PRED Videos (ZIP)**. For a labeled LeRobot episode, the archive contains the
+eight independently rendered files using the same `ep<NNN>-<view>-<source>.mp4`
+naming convention shown above. The four website tabs use episodes 0, 2, 3, and
+7, for 32 videos in total.
+
 Each copy is cropped to remove the renderer's own `GT` / `PRED` HUD label, so
 the page's own captions are the only source of that distinction. The MuJoCo and
 retargeting copies additionally drop the empty sky and foreground above and
