@@ -287,6 +287,8 @@ function updateSamplePlayAll() {
   samplePlayAll.querySelector(".lang-zh").textContent = allPlaying
     ? "暂停全部 8 个视频"
     : "同步播放全部 8 个视频";
+  const icon = samplePlayAll.querySelector("[data-sample-play-icon]");
+  if (icon) icon.textContent = allPlaying ? "Ⅱ" : "▶";
 }
 
 function stopSampleAdvance() {
