@@ -28,6 +28,100 @@ try {
 }
 setLanguage(storedLanguage);
 
+const distributionLabels = {
+  "个人护理/穿戴": "Personal care / dressing",
+  "其他": "Other",
+  "办公/文具/阅读": "Office / stationery / reading",
+  "包装/拆封": "Packaging / unboxing",
+  "厨房/烹饪": "Kitchen / cooking",
+  "园艺/户外": "Gardening / outdoors",
+  "家居/家具/床品": "Home / furniture / bedding",
+  "手工/编织/饰品": "Crafts / knitting / jewelry",
+  "收纳/容器": "Storage / containers",
+  "木工/装修/建材": "Woodwork / renovation",
+  "机械/维修/工具": "Mechanical / repair / tools",
+  "模型/结构组装": "Model / structural assembly",
+  "清洁/洗涤": "Cleaning / washing",
+  "玩具/模型": "Toys / models",
+  "电子/线缆/设备": "Electronics / cables / devices",
+  "益智/桌游": "Puzzles / board games",
+  "纺织/衣物/洗衣": "Textile / clothing / laundry",
+  "绘画/艺术": "Painting / art",
+  "车辆/驾驶": "Vehicles / driving",
+  "运动/健身": "Sports / fitness",
+  "伸手/触碰": "Reach / touch",
+  "倾倒/装填": "Pour / fill",
+  "切削/剥皮": "Cut / peel",
+  "工具操作": "Tool use",
+  "开合": "Open / close",
+  "抓握/持握": "Grasp / hold",
+  "折叠/包裹": "Fold / wrap",
+  "拆卸/分离": "Disassemble / separate",
+  "拉动": "Pull",
+  "拿取/举起": "Pick up / lift",
+  "按压/推动": "Press / push",
+  "插入/移除": "Insert / remove",
+  "搅拌/混合": "Stir / mix",
+  "放置/放下": "Place / set down",
+  "旋转/翻转": "Rotate / flip",
+  "清洁/擦洗": "Clean / wash",
+  "移动/搬运": "Move / carry",
+  "组装/连接": "Assemble / connect",
+  "绘画/书写": "Draw / write",
+  "调整/整理": "Adjust / arrange",
+  "进食/饮用": "Eat / drink"
+};
+
+function distributionRow(label, count, total) {
+  const percent = count / total * 100;
+  const row = document.createElement("div");
+  row.className = "bar-row";
+
+  const heading = document.createElement("div");
+  const english = document.createElement("span");
+  english.className = "lang-en";
+  english.textContent = distributionLabels[label] || label;
+  const chinese = document.createElement("span");
+  chinese.className = "lang-zh";
+  chinese.textContent = label;
+  const value = document.createElement("b");
+  value.textContent = percent > 0 && percent < 0.05 ? "<0.1%" : `${percent.toFixed(1)}%`;
+  heading.append(english, chinese, value);
+
+  const track = document.createElement("i");
+  const fill = document.createElement("span");
+  fill.style.setProperty("--value", String(percent));
+  track.append(fill);
+  row.append(heading, track);
+  return row;
+}
+
+const completeDistributionLists = [...document.querySelectorAll("[data-distribution-dataset]")];
+if (completeDistributionLists.length) {
+  fetch("assets/data/diversity/result.json")
+    .then((response) => {
+      if (!response.ok) throw new Error(`Diversity report request failed: ${response.status}`);
+      return response.json();
+    })
+    .then((report) => {
+      completeDistributionLists.forEach((list) => {
+        const dataset = report.datasets.find((item) => item.dataset === list.dataset.distributionDataset);
+        const counts = dataset?.text?.[list.dataset.distributionKey];
+        const total = dataset?.text?.task_ids;
+        if (!counts || !total) return;
+        const fragment = document.createDocumentFragment();
+        Object.entries(counts)
+          .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]))
+          .forEach(([label, count]) => fragment.append(distributionRow(label, count, total)));
+        list.replaceChildren(fragment);
+        list.classList.add("is-complete");
+      });
+    })
+    .catch(() => {
+      // The six-row HTML fallback remains visible if the report cannot be loaded.
+    });
+}
+
 function toggleLanguage() {
   setLanguage(root.dataset.language === "en" ? "zh" : "en");
 }
