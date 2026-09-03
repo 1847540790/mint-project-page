@@ -1,7 +1,8 @@
 # Displayed asset sources
 
-Every raster image and video displayed by this site comes from either the MINT
-manuscript or the final compact project film. Dataset plots, decorative layout,
+Every raster image and video displayed by this site comes from the MINT
+manuscript, the final compact project film, or the project-provided qualitative
+and EgoPipeline material directories. Dataset plots, decorative layout,
 borders, and the favicon are code-native HTML/CSS/SVG rather than externally
 sourced imagery.
 
@@ -44,6 +45,35 @@ The feature wildcard denotes the `.mp4` and `.webm` versions of the same cut.
 The benchmark wildcard follows the same convention. No repository screenshots,
 generated illustrations, or imagery from the two visual-reference websites are
 displayed.
+
+## Qualitative videos
+
+All website copies are MP4 remuxes of complete 8-second project-provided clips.
+Posters are sampled at 4 seconds. Unless noted otherwise, the displayed video is
+`model_prediction.mp4` from the source directory.
+
+| Website asset | Project material source |
+| --- | --- |
+| `assets/media/cases/dough-mint.mp4` | `materials/curated/frequent_action/ego4d/ego4d_c000_f814_ep00076294_o009/model_prediction.mp4` |
+| `assets/media/cases/dough-original.mp4` | same clip, `original_rgb.mp4` |
+| `assets/media/cases/dough-pipeline.mp4` | same clip, `egopipeline_prediction.mp4` |
+| `assets/media/cases/rapid-camera.mp4` | `materials/curated/rapid_camera_motion/ego4d/ego4d_c002_f002_ep00187579_o006/model_prediction.mp4` |
+| `assets/media/cases/close-hands.mp4` | `materials/curated/close_hand_interaction/ego4d/ego4d_c001_f096_ep00102748_o076/model_prediction.mp4` |
+| `assets/media/cases/low-light.mp4` | `materials/curated/low_light/ego4d/ego4d_c000_f592_ep00055529_o018/model_prediction.mp4` |
+| `assets/media/cases/bimanual.mp4` | `materials/curated/bimanual_coordination/epickitchen/epickitchen_c000_f038_ep00014848_o120/model_prediction.mp4` |
+| `assets/media/cases/motion-blur.mp4` | `materials/curated/motion_blur/epickitchen/epickitchen_c000_f048_ep00019018_o015/model_prediction.mp4` |
+| `assets/media/cases/failure-01.mp4` | `materials/errors/ego4d_c000_f502_s00_ep00047158/model_prediction.mp4` |
+| `assets/media/cases/failure-02.mp4` | `materials/errors/ego4d_c001_f457_s00_ep00136602/model_prediction.mp4` |
+
+## EgoPipeline material
+
+| Website asset | Project material source |
+| --- | --- |
+| `assets/pipeline/execution-optimization.webp` | `materials/figures/ego_pipeline/execution_optimization/06_execution_optimization_v2.png` |
+| `assets/pipeline/filter-no-hand.webp` | crop from `materials/figures/ego_pipeline/ego_pipeline_compact_en_v2.png` |
+| `assets/pipeline/filter-many-hands.webp` | crop from `materials/figures/ego_pipeline/ego_pipeline_compact_en_v2.png` |
+| `assets/pipeline/filter-low-resolution.webp` | crop from `materials/figures/ego_pipeline/ego_pipeline_compact_en_v2.png` |
+| `assets/pipeline/filter-too-dark.webp` | crop from `materials/figures/ego_pipeline/ego_pipeline_compact_en_v2.png` |
 
 ## Dataset diversity analysis
 
