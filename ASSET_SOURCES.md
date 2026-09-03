@@ -14,7 +14,7 @@ Source: `wuji_data_pipeline_distill.pdf`
 | --- | --- |
 | `assets/overview.webp` | Figure 1, page 1 |
 | `assets/egopipeline.webp` | Figure 2, page 3; the P4 thumbnail is replaced with the supplied stage-5 world-frame hand-motion visual |
-| `assets/architecture.webp` | MINT architecture figure with the Camera Trajectory panel replaced by the supplied `assets/world_trajectory_subplot/camera_trajectory_black.png`; the source plot's lightness is inverted and lightly lavender-tinted to match the page |
+| `assets/architecture.webp` | MINT architecture figure recolored from neutral gray to the page's lavender palette, with the Camera Trajectory panel replaced by the supplied `assets/world_trajectory_subplot/camera_trajectory_black.png`; the source plot's lightness is inverted and lightly lavender-tinted |
 | `assets/world-frame-hand-motion.webp` | EgoPipeline stage 5 world-frame hand-motion figure |
 
 ## Project film

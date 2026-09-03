@@ -336,6 +336,8 @@ h1 {
   font-weight: 480;
 }
 
+html[data-language="zh"] .affiliations.lang-zh { display: flex !important; }
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -855,50 +857,6 @@ blockquote p { margin: 0; font-size: 20px; line-height: 1.45; }
 .pipeline-callout b { color: var(--accent); font-size: clamp(25px, 3vw, 38px); letter-spacing: -.045em; }
 .pipeline-callout small { color: #61606e; font-size: 16px; font-weight: 520; }
 
-.execution-figure {
-  width: 100%;
-  margin: clamp(34px, 3.8vw, 48px) auto 0;
-}
-
-.execution-figure > button {
-  position: relative;
-  display: block;
-  width: 100%;
-  padding: 0;
-  overflow: hidden;
-  background: transparent;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  cursor: zoom-in;
-}
-
-.execution-figure img { width: 100%; height: auto; }
-
-.execution-figure > button > span {
-  position: absolute;
-  right: 11px;
-  bottom: 11px;
-  padding: 7px 10px;
-  color: #fff;
-  background: rgb(34 34 34 / 84%);
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 540;
-}
-
-.execution-figure figcaption {
-  display: grid;
-  grid-template-columns: 185px 1fr;
-  gap: 22px;
-  padding: 12px 4px 0;
-  color: var(--muted);
-  font-size: 17px;
-  font-weight: 470;
-}
-
-.execution-figure figcaption b { color: var(--quiet); font: 14px/1.5 "IBM Plex Mono", monospace; letter-spacing: .06em; }
-.execution-figure figcaption p { margin: 0; }
-
 .prose { margin-top: 20px; }
 .prose p { margin: 0 0 12px; color: #3f3f46; font-size: 18px; line-height: 1.5; }
 
@@ -928,6 +886,14 @@ blockquote p { margin: 0; font-size: 20px; line-height: 1.45; }
   border-radius: 6px;
   font-size: 14px;
   font-weight: 540;
+}
+
+#method .paper-figure { margin-top: 24px; }
+#method .paper-figure > button {
+  padding: 14px;
+  background: linear-gradient(135deg, #faf9ff, #f1f2ff);
+  border-color: #d9d7f4;
+  box-shadow: 0 12px 34px rgb(49 40 105 / 7%);
 }
 
 .method-copy { margin-top: 28px; }
@@ -1456,7 +1422,6 @@ td b { color: var(--accent); font-weight: 600; }
   .pipeline-callout > p.lang-zh { white-space: normal; }
   .pipeline-callout > div,
   .pipeline-callout span { min-height: 82px; }
-  .execution-figure figcaption { grid-template-columns: 112px 1fr; gap: 12px; }
   .dataset-panel { padding: 20px 18px; }
   .dataset-header { grid-template-columns: 1fr; gap: 16px; }
   .dataset-header > strong { text-align: left; }
