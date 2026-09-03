@@ -125,7 +125,6 @@ function toggleLanguage() {
 }
 
 document.querySelector("[data-language-toggle]")?.addEventListener("click", toggleLanguage);
-document.querySelector("[data-language-toggle-inline]")?.addEventListener("click", toggleLanguage);
 
 const header = document.querySelector("[data-header]");
 const menuToggle = document.querySelector("[data-menu-toggle]");
@@ -203,31 +202,16 @@ projectFilm?.addEventListener("timeupdate", () => {
   if (activeChapter) setActiveChapter(activeChapter);
 });
 
+const loopVideos = [...document.querySelectorAll("[data-loop-video]")];
 const sampleTabs = [...document.querySelectorAll("[data-sample-tab]")];
 const samplePanels = [...document.querySelectorAll("[data-sample-panel]")];
-
-function showSample(key) {
-  samplePanels.forEach((panel) => {
-    const active = panel.dataset.samplePanel === key;
-    panel.hidden = !active;
-    if (!active) panel.querySelectorAll("video").forEach((video) => video.pause());
-  });
-  sampleTabs.forEach((tab) => {
-    const active = tab.dataset.sampleTab === key;
-    tab.classList.toggle("is-active", active);
-    tab.setAttribute("aria-selected", active ? "true" : "false");
-  });
-}
-
-if (sampleTabs.length) {
-  sampleTabs.forEach((tab) => {
-    tab.setAttribute("role", "tab");
-    tab.addEventListener("click", () => showSample(tab.dataset.sampleTab));
-  });
-  showSample(sampleTabs[0].dataset.sampleTab);
-}
-
-const loopVideos = [...document.querySelectorAll("[data-loop-video]")];
+const sampleSection = document.querySelector("#samples");
+const samplePlayAll = document.querySelector("[data-sample-play-all]");
+const sampleAdvanceDelay = 8000;
+let sampleAdvanceTimer;
+let samplesInView = false;
+let synchronizedVideos = [];
+let synchronizationFrame;
 
 function videoButton(video) {
   const frame = video.closest(".loop-frame");
@@ -256,27 +240,211 @@ function updateVideoButton(video) {
   button.querySelector(".lang-zh").textContent = paused ? "播放" : "暂停";
 }
 
+function videoProgress(video) {
+  const frame = video.closest(".loop-frame");
+  let progress = frame?.querySelector("[data-video-progress]");
+  if (!frame || progress) return progress;
+  progress = document.createElement("input");
+  progress.className = "video-progress";
+  progress.type = "range";
+  progress.min = "0";
+  progress.max = "1000";
+  progress.step = "1";
+  progress.value = "0";
+  progress.dataset.videoProgress = "";
+  progress.setAttribute("aria-label", "Video progress");
+  frame.append(progress);
+  return progress;
+}
+
+function updateVideoProgress(video) {
+  const progress = videoProgress(video);
+  if (!progress) return;
+  const fraction = Number.isFinite(video.duration) && video.duration > 0
+    ? Math.min(1, Math.max(0, video.currentTime / video.duration))
+    : 0;
+  progress.value = String(Math.round(fraction * 1000));
+  progress.style.setProperty("--video-progress", `${fraction * 100}%`);
+}
+
+function activeSamplePanel() {
+  return samplePanels.find((panel) => !panel.hidden);
+}
+
+function activeSampleVideos() {
+  return [...(activeSamplePanel()?.querySelectorAll("video") || [])];
+}
+
+function updateSamplePlayAll() {
+  if (!samplePlayAll) return;
+  const videos = activeSampleVideos();
+  const allPlaying = videos.length > 0 && videos.every((video) => !video.paused);
+  samplePlayAll.classList.toggle("is-playing", allPlaying);
+  samplePlayAll.setAttribute("aria-pressed", String(allPlaying));
+  samplePlayAll.querySelector(".lang-en").textContent = allPlaying
+    ? "Pause all 8 videos"
+    : "Play all 8 synchronously";
+  samplePlayAll.querySelector(".lang-zh").textContent = allPlaying
+    ? "暂停全部 8 个视频"
+    : "同步播放全部 8 个视频";
+}
+
+function stopSampleAdvance() {
+  window.clearTimeout(sampleAdvanceTimer);
+  sampleAdvanceTimer = undefined;
+  sampleTabs.forEach((tab) => tab.classList.remove("is-auto-counting"));
+}
+
+function scheduleSampleAdvance() {
+  stopSampleAdvance();
+  if (!sampleTabs.length || !samplesInView || document.hidden || activeSampleVideos().some((video) => !video.paused)) return;
+  const activeTab = sampleTabs.find((tab) => tab.classList.contains("is-active"));
+  if (activeTab) {
+    void activeTab.offsetWidth;
+    activeTab.classList.add("is-auto-counting");
+  }
+  sampleAdvanceTimer = window.setTimeout(() => {
+    const activeIndex = Math.max(0, sampleTabs.findIndex((tab) => tab.classList.contains("is-active")));
+    const nextTab = sampleTabs[(activeIndex + 1) % sampleTabs.length];
+    showSample(nextTab.dataset.sampleTab);
+  }, sampleAdvanceDelay);
+}
+
+function stopSynchronizedPlayback({ pause = true } = {}) {
+  window.cancelAnimationFrame(synchronizationFrame);
+  const previousVideos = synchronizedVideos;
+  synchronizedVideos = [];
+  if (pause) previousVideos.forEach((video) => video.pause());
+  updateSamplePlayAll();
+}
+
+function maintainSynchronization() {
+  if (!synchronizedVideos.length) return;
+  const leader = synchronizedVideos.find((video) => !video.paused);
+  if (leader) {
+    synchronizedVideos.forEach((video) => {
+      if (!video.paused && Math.abs(video.currentTime - leader.currentTime) > 0.12) {
+        video.currentTime = leader.currentTime;
+      }
+    });
+  }
+  synchronizationFrame = window.requestAnimationFrame(maintainSynchronization);
+}
+
+function showSample(key) {
+  const previousKey = activeSamplePanel()?.dataset.samplePanel;
+  if (previousKey && previousKey !== key) stopSynchronizedPlayback();
+  samplePanels.forEach((panel) => {
+    const active = panel.dataset.samplePanel === key;
+    panel.hidden = !active;
+    if (!active) panel.querySelectorAll("video").forEach((video) => video.pause());
+  });
+  sampleTabs.forEach((tab) => {
+    const active = tab.dataset.sampleTab === key;
+    tab.classList.toggle("is-active", active);
+    tab.setAttribute("aria-selected", active ? "true" : "false");
+  });
+  updateSamplePlayAll();
+  scheduleSampleAdvance();
+}
+
 loopVideos.forEach((video) => {
   video.preload = "none";
   const button = videoButton(video);
+  const progress = videoProgress(video);
   button?.addEventListener("click", () => {
     if (video.paused) {
+      stopSynchronizedPlayback();
       loopVideos.forEach((otherVideo) => {
         if (otherVideo !== video) otherVideo.pause();
       });
+      projectFilm?.pause();
       video.play().catch(() => {});
     } else {
       video.pause();
     }
     window.setTimeout(() => updateVideoButton(video), 0);
   });
-  video.addEventListener("play", () => updateVideoButton(video));
-  video.addEventListener("pause", () => updateVideoButton(video));
+  progress?.addEventListener("input", () => {
+    const seek = () => {
+      if (!Number.isFinite(video.duration) || video.duration <= 0) return;
+      video.currentTime = Number(progress.value) / Number(progress.max) * video.duration;
+      updateVideoProgress(video);
+    };
+    if (Number.isFinite(video.duration)) {
+      seek();
+    } else {
+      video.addEventListener("loadedmetadata", seek, { once: true });
+      video.load();
+    }
+  });
+  video.addEventListener("play", () => {
+    stopSampleAdvance();
+    updateVideoButton(video);
+    updateSamplePlayAll();
+  });
+  video.addEventListener("pause", () => {
+    updateVideoButton(video);
+    updateSamplePlayAll();
+    if (!activeSampleVideos().some((activeVideo) => !activeVideo.paused)) scheduleSampleAdvance();
+  });
+  video.addEventListener("timeupdate", () => updateVideoProgress(video));
+  video.addEventListener("durationchange", () => updateVideoProgress(video));
   updateVideoButton(video);
+  updateVideoProgress(video);
+});
+
+if (sampleTabs.length) {
+  sampleTabs.forEach((tab) => {
+    tab.setAttribute("role", "tab");
+    tab.addEventListener("click", () => showSample(tab.dataset.sampleTab));
+  });
+  showSample(sampleTabs[0].dataset.sampleTab);
+}
+
+if (sampleSection && "IntersectionObserver" in window) {
+  const sampleObserver = new IntersectionObserver(([entry]) => {
+    samplesInView = entry.isIntersecting;
+    if (samplesInView) scheduleSampleAdvance();
+    else stopSampleAdvance();
+  }, { threshold: 0.12 });
+  sampleObserver.observe(sampleSection);
+}
+
+samplePlayAll?.addEventListener("click", () => {
+  const videos = activeSampleVideos();
+  if (!videos.length) return;
+  if (videos.every((video) => !video.paused)) {
+    stopSynchronizedPlayback();
+    scheduleSampleAdvance();
+    return;
+  }
+  stopSampleAdvance();
+  stopSynchronizedPlayback();
+  loopVideos.forEach((video) => video.pause());
+  projectFilm?.pause();
+  synchronizedVideos = videos;
+  videos.forEach((video) => {
+    try { video.currentTime = 0; } catch (_) {}
+    video.play().catch(() => updateSamplePlayAll());
+  });
+  maintainSynchronization();
+  updateSamplePlayAll();
+});
+
+projectFilm?.addEventListener("play", () => {
+  stopSynchronizedPlayback();
+  loopVideos.forEach((video) => video.pause());
 });
 
 document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "hidden") loopVideos.forEach((video) => video.pause());
+  if (document.visibilityState === "hidden") {
+    stopSynchronizedPlayback();
+    loopVideos.forEach((video) => video.pause());
+    stopSampleAdvance();
+  } else {
+    scheduleSampleAdvance();
+  }
 });
 
 const lightbox = document.querySelector("[data-lightbox]");
