@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" data-language="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="MINT recovers world-space camera trajectories and bimanual hand motion from egocentric RGB video with one unified model.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MINT — World-Space Camera and Hand Motion">
+    <meta property="og:description" content="A unified model trained with scalable egocentric pipeline supervision.">
+    <meta property="og:image" content="assets/media/film-poster.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>MINT — World-Space Camera and Hand Motion</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="assets/fonts/space-grotesk-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles.min.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "name": "MINT: Minting a Unified Model for World-Space Camera and Hand Motion from Scalable Egocentric Pipeline Supervision",
+        "datePublished": "2026",
+        "author": [
+          {"@type": "Person", "name": "Zijie Zhu"},
+          {"@type": "Person", "name": "Weiren Cai"},
+          {"@type": "Person", "name": "Yizhou Wang"},
+          {"@type": "Person", "name": "Zhenjie Yang"},
+          {"@type": "Person", "name": "Yide Liu"},
+          {"@type": "Person", "name": "Jiahao Chen"},
+          {"@type": "Person", "name": "Guanqi He"}
+        ],
+        "associatedMedia": {
+          "@type": "VideoObject",
+          "name": "MINT project film",
+          "contentUrl": "assets/media/mint-film-compact.mp4",
+          "thumbnailUrl": "assets/media/film-poster.webp"
+        },
+        "codeRepository": "https://github.com/wuji-technology/wuji-ego-mint"
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link lang-en" href="#main">Skip to content</a>
+    <a class="skip-link lang-zh" href="#main">跳到正文</a>
+
+    <header class="site-header" data-header>
+      <div class="nav-shell">
+        <a class="wordmark" href="#top" aria-label="MINT home"><span class="wordmark-dot" aria-hidden="true"></span><b>MINT</b></a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#highlights"><span class="lang-en">Highlights</span><span class="lang-zh">亮点</span></a>
+          <a href="#videos"><span class="lang-en">Videos</span><span class="lang-zh">视频</span></a>
+          <a href="#method"><span class="lang-en">Method</span><span class="lang-zh">方法</span></a>
+          <a href="#results"><span class="lang-en">Results</span><span class="lang-zh">结果</span></a>
+          <a href="#resources"><span class="lang-en">Resources</span><span class="lang-zh">资源</span></a>
+        </nav>
+        <div class="nav-actions">
+          <button class="language-toggle" type="button" data-language-toggle aria-label="Switch language / 切换语言"><span data-language-option="en" class="is-active">EN</span><i aria-hidden="true">/</i><span data-language-option="zh">中文</span></button>
+          <a class="nav-code" href="https://github.com/wuji-technology/wuji-ego-mint" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu"><span class="sr-only lang-en">Open menu</span><span class="sr-only lang-zh">打开菜单</span><i></i><i></i></button>
+        </div>
+      </div>
+      <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Mobile navigation" hidden>
+        <a href="#highlights"><span class="lang-en">Highlights</span><span class="lang-zh">亮点</span><i>01</i></a>
+        <a href="#videos"><span class="lang-en">Videos</span><span class="lang-zh">视频</span><i>02</i></a>
+        <a href="#method"><span class="lang-en">Method</span><span class="lang-zh">方法</span><i>03</i></a>
+        <a href="#results"><span class="lang-en">Results</span><span class="lang-zh">结果</span><i>04</i></a>
+        <a href="#resources"><span class="lang-en">Resources</span><span class="lang-zh">资源</span><i>05</i></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <article>
+        <header class="article-hero" id="top">
+          <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"></span> MINT RESEARCH · 2026</p>
+          <h1>MINT: Minting a Unified Model for World-Space Camera and Hand Motion from Scalable Egocentric Pipeline Supervision</h1>
+          <p class="hero-deck lang-en">Recover camera trajectories and bimanual hand motion together from ordinary egocentric RGB video.</p>
+          <p class="hero-deck lang-zh">从普通第一视角 RGB 视频中，联合恢复相机轨迹与双手运动。</p>
+          <p class="article-meta"><span class="lang-en">Manuscript</span><span class="lang-zh">论文稿件</span><i>·</i> 2026 <i>·</i><button type="button" data-language-toggle-inline><span class="lang-en">中文版本</span><span class="lang-zh">English version</span></button></p>
+          <p class="authors">Zijie Zhu<sup>1,3,4</sup>, Weiren Cai<sup>3</sup>, Yizhou Wang<sup>1,3</sup>, Zhenjie Yang<sup>4</sup>, Yide Liu<sup>3,5</sup>, Jiahao Chen<sup>3,*</sup>, Guanqi He<sup>2,3,*</sup></p>
+          <p class="affiliations"><span><sup>1</sup> ShanghaiTech University</span><span><sup>2</sup> Tsinghua University</span><span><sup>3</sup> Wuji Technology</span><span><sup>4</sup> The University of Hong Kong</span><span><sup>5</sup> Zhejiang University</span></p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="assets/paper/mint-paper.pdf" target="_blank" rel="noreferrer"><span class="lang-en">Paper</span><span class="lang-zh">论文</span><i aria-hidden="true">↗</i></a>
+            <a class="button button-secondary" href="https://github.com/wuji-technology/wuji-ego-mint" target="_blank" rel="noreferrer">GitHub <i aria-hidden="true">↗</i></a>
+            <a class="button button-secondary" href="https://huggingface.co/ZZJAsher/mint_v1" target="_blank" rel="noreferrer"><span class="lang-en">Model</span><span class="lang-zh">模型</span><i aria-hidden="true">↗</i></a>
+            <a class="button button-secondary" href="https://huggingface.co/datasets/ZZJAsher/wuji_ego_mint" target="_blank" rel="noreferrer"><span class="lang-en">Dataset</span><span class="lang-zh">数据集</span><i aria-hidden="true">↗</i></a>
+          </div>
+        </header>
+
+        <section class="project-film section-shell" id="film" aria-labelledby="film-title">
+          <div class="section-heading film-heading"><div><p class="section-kicker">PROJECT FILM · 02:13</p><h2 id="film-title" class="lang-en">MINT in two minutes</h2><h2 class="lang-zh">两分钟了解 MINT</h2></div><p class="lang-en">From in-the-wild reconstruction to scalable supervision, model design, evaluation, and release.</p><p class="lang-zh">从真实场景重建，到规模化监督、模型设计、评测与开放发布。</p></div>
+          <figure class="main-film">
+            <div class="main-film-frame"><video id="project-film" data-project-film controls playsinline preload="metadata" poster="assets/media/film-poster.webp" width="1920" height="1080"><source src="assets/media/mint-film-compact.mp4" type="video/mp4"><source src="assets/media/mint-film-720p.webm" type="video/webm"><track kind="chapters" src="assets/media/mint-film-chapters-en.vtt" srclang="en" label="English" default><track kind="chapters" src="assets/media/mint-film-chapters-zh.vtt" srclang="zh" label="中文"><p class="lang-en">Your browser does not support HTML video. <a href="assets/media/mint-film-compact.mp4">Download the film.</a></p><p class="lang-zh">你的浏览器不支持 HTML 视频。<a href="assets/media/mint-film-compact.mp4">下载影片。</a></p></video></div>
+            <figcaption><span>VIDEO 01</span><p class="lang-en">The complete project film. Select a chapter to jump directly to a topic.</p><p class="lang-zh">完整项目影片。选择章节可直接跳转到对应主题。</p></figcaption>
+          </figure>
+          <nav class="film-chapters" aria-label="Film chapters">
+            <button type="button" class="is-active" data-chapter data-time="0"><b>00:00</b><span class="lang-en">In the wild</span><span class="lang-zh">真实场景</span></button>
+            <button type="button" data-chapter data-time="19.633"><b>00:20</b><span class="lang-en">Zero-shot</span><span class="lang-zh">零样本</span></button>
+            <button type="button" data-chapter data-time="36.633"><b>00:37</b><span class="lang-en">Training</span><span class="lang-zh">训练</span></button>
+            <button type="button" data-chapter data-time="60.233"><b>01:00</b><span class="lang-en">Pipeline</span><span class="lang-zh">管线</span></button>
+            <button type="button" data-chapter data-time="91.433"><b>01:31</b><span class="lang-en">Evaluation</span><span class="lang-zh">评测</span></button>
+            <button type="button" data-chapter data-time="122.433"><b>02:02</b><span class="lang-en">Release</span><span class="lang-zh">发布</span></button>
+          </nav>
+        </section>
+
+        <section class="article-section section-shell" id="highlights" aria-labelledby="highlights-title">
+          <div class="reading-column"><p class="section-kicker">KEY HIGHLIGHTS</p><h2 id="highlights-title" class="lang-en">One shared model for a coupled motion problem</h2><h2 class="lang-zh">用一个共享模型解决耦合运动问题</h2><p class="section-lead lang-en">MINT learns from the structured output of a large offline labeling pipeline, then replaces that cascade at inference with a unified visual-geometric model.</p><p class="section-lead lang-zh">MINT 学习大型离线标注管线的结构化输出，并在推理时用统一的视觉几何模型替代整条级联管线。</p></div>
+          <div class="highlight-grid"><article><strong>1,021 h</strong><p class="lang-en">structured egocentric supervision</p><p class="lang-zh">结构化第一视角监督数据</p></article><article><strong>560,649</strong><p class="lang-en">filtered video episodes</p><p class="lang-zh">筛选后的视频片段</p></article><article><strong>1.131 B</strong><p class="lang-en">trainable parameters</p><p class="lang-zh">可训练参数</p></article><article><strong>44.1 fps</strong><p class="lang-en">four-GPU steady-state throughput</p><p class="lang-zh">四卡稳态吞吐速度</p></article></div>
+          <blockquote><p class="lang-en">Camera motion changes how hands appear. Hand motion supplies geometric evidence about the scene. MINT models both in one shared representation.</p><p class="lang-zh">相机运动改变双手的视觉呈现，手部运动也为场景提供几何线索。MINT 在同一个共享表征中联合建模二者。</p></blockquote>
+        </section>
+
+        <section class="article-section section-shell video-section" id="videos" aria-labelledby="videos-title">
+          <div class="reading-column"><p class="section-kicker">VIDEO RESULTS</p><h2 id="videos-title" class="lang-en">Watch the system at work</h2><h2 class="lang-zh">直接观看系统效果</h2><p class="section-lead lang-en">Every visual in this gallery is taken directly from the project film.</p><p class="section-lead lang-zh">本组展示中的全部画面均直接来自项目宣传片。</p></div>
+          <div class="video-grid">
+            <figure class="video-card"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="metadata" poster="assets/media/feature-in-wild-poster.webp" width="854" height="480"><source src="assets/media/feature-in-wild.webm" type="video/webm"><source src="assets/media/feature-in-wild.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Pause video"><span class="lang-en">Pause</span><span class="lang-zh">暂停</span></button></div><figcaption><span>01</span><div><h3 class="lang-en">In-the-wild reconstruction</h3><h3 class="lang-zh">真实场景重建</h3><p class="lang-en">Fast motion, occlusion, and varied viewpoints.</p><p class="lang-zh">覆盖快速运动、遮挡与多样视角。</p></div></figcaption></figure>
+            <figure class="video-card"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="metadata" poster="assets/media/feature-zero-shot-poster.webp" width="854" height="480"><source src="assets/media/feature-zero-shot.webm" type="video/webm"><source src="assets/media/feature-zero-shot.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Pause video"><span class="lang-en">Pause</span><span class="lang-zh">暂停</span></button></div><figcaption><span>02</span><div><h3 class="lang-en">Zero-shot world motion</h3><h3 class="lang-zh">零样本世界坐标运动</h3><p class="lang-en">Image-space and world-space results on held-out HOT3D.</p><p class="lang-zh">在完全未见的 HOT3D 上展示图像空间与世界坐标结果。</p></div></figcaption></figure>
+            <figure class="video-card"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="metadata" poster="assets/media/feature-unified-pipeline-poster.webp" width="854" height="480"><source src="assets/media/feature-unified-pipeline.webm" type="video/webm"><source src="assets/media/feature-unified-pipeline.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Pause video"><span class="lang-en">Pause</span><span class="lang-zh">暂停</span></button></div><figcaption><span>03</span><div><h3 class="lang-en">Seven modules become one</h3><h3 class="lang-zh">七级管线合为一个模型</h3><p class="lang-en">The offline teacher produces supervision; one shared model serves inference.</p><p class="lang-zh">离线教师生成监督，一个共享模型负责推理。</p></div></figcaption></figure>
+            <figure class="video-card"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="metadata" poster="assets/media/feature-speed-poster.webp" width="854" height="480"><source src="assets/media/feature-speed.webm" type="video/webm"><source src="assets/media/feature-speed.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Pause video"><span class="lang-en">Pause</span><span class="lang-zh">暂停</span></button></div><figcaption><span>04</span><div><h3 class="lang-en">Throughput at scale</h3><h3 class="lang-zh">规模化吞吐速度</h3><p class="lang-en">44.1 fps on four RTX 4090D GPUs at 512 × 384.</p><p class="lang-zh">四张 RTX 4090D、512 × 384 设置下达到 44.1 fps。</p></div></figcaption></figure>
+          </div>
+        </section>
+
+        <section class="article-section section-shell" id="overview" aria-labelledby="overview-title">
+          <div class="reading-column"><p class="section-kicker">OVERVIEW</p><h2 id="overview-title" class="lang-en">From ordinary video to structured world-space motion</h2><h2 class="lang-zh">从普通视频到结构化世界坐标运动</h2><div class="prose"><p class="lang-en">World-space camera and bimanual hand trajectories are useful for activity understanding, robot learning, and augmented reality, yet paired supervision is scarce. MINT addresses both sides of that bottleneck: EgoPipeline creates structured pseudo-labels from public egocentric video, and MINT learns to recover the same coupled state with one model.</p><p class="lang-zh">世界坐标系下的相机与双手轨迹可服务于活动理解、机器人学习与增强现实，但成对监督数据十分稀缺。MINT 同时处理这一瓶颈的两端：EgoPipeline 从公开第一视角视频生成结构化伪标签，MINT 再用一个模型学习恢复相同的耦合状态。</p><p class="lang-en">After filtering and trajectory cleanup, the data retains 1,021.514 hours, 560,649 episodes, and 110,323,558 frames from Ego4D, EPIC-KITCHENS-100, and EgoDex.</p><p class="lang-zh">经过筛选与轨迹清理后，数据保留 1,021.514 小时、560,649 个片段和 110,323,558 帧，来源包括 Ego4D、EPIC-KITCHENS-100 与 EgoDex。</p></div></div>
+          <figure class="paper-figure"><button type="button" data-lightbox-src="assets/overview.webp" data-lightbox-alt="MINT paper Figure 1: scalable egocentric supervision and zero-shot world-space reconstruction"><img src="assets/overview.webp" alt="MINT paper Figure 1 showing large-scale egocentric videos, dataset diversity, and zero-shot world-space outputs" width="1700" height="656" loading="lazy"><span><span class="lang-en">Enlarge figure</span><span class="lang-zh">放大图片</span> ↗</span></button><figcaption><b>FIGURE 1 · PAPER</b><p class="lang-en">Large-scale supervision and zero-shot world-space reconstruction.</p><p class="lang-zh">规模化监督与零样本世界坐标重建。</p></figcaption></figure>
+        </section>
+
+        <section class="article-section section-shell" id="method" aria-labelledby="method-title">
+          <div class="reading-column"><p class="section-kicker">METHOD</p><h2 id="method-title" class="lang-en">Label once offline. Infer with one shared model.</h2><h2 class="lang-zh">离线标注一次，用一个共享模型推理</h2><div class="prose"><p class="lang-en">EgoPipeline combines hand filtering, camera calibration, monocular depth, camera tracking, bimanual reconstruction, and trajectory cleanup. Its outputs are pseudo-label supervision, not ground truth.</p><p class="lang-zh">EgoPipeline 组合手部筛选、相机标定、单目深度、相机跟踪、双手重建与轨迹清理。它的输出是伪标签监督，而不是真值。</p></div></div>
+          <figure class="paper-figure"><button type="button" data-lightbox-src="assets/egopipeline.webp" data-lightbox-alt="MINT paper Figure 2: EgoPipeline stages for structured supervision generation"><img src="assets/egopipeline.webp" alt="MINT paper Figure 2 showing EgoPipeline hand filtering, camera pose, hand reconstruction, and trajectory cleanup" width="1700" height="825" loading="lazy"><span><span class="lang-en">Enlarge figure</span><span class="lang-zh">放大图片</span> ↗</span></button><figcaption><b>FIGURE 2 · PAPER</b><p class="lang-en">The offline supervision generator, from video filtering to world-coordinate transformation.</p><p class="lang-zh">离线监督生成器：从视频筛选到世界坐标变换。</p></figcaption></figure>
+          <div class="reading-column method-copy"><div class="prose"><p class="lang-en">MINT adapts LingBot-Map's Geometric Context Transformer. A 32-frame window is encoded into a shared spatiotemporal representation, then four heads predict camera extrinsics, field of view, two-hand MANO states, and per-frame hand presence. Explicit rigid geometry composes camera-frame hands into one sequence-level world frame.</p><p class="lang-zh">MINT 适配 LingBot-Map 的 Geometric Context Transformer。每个 32 帧窗口被编码为共享时空表征，四个预测头分别输出相机外参、视场角、双手 MANO 状态与逐帧手部存在性，再通过显式刚体几何把相机坐标系双手组合到序列级世界坐标系中。</p></div></div>
+          <figure class="paper-figure"><button type="button" data-lightbox-src="assets/architecture.webp" data-lightbox-alt="MINT paper Figure 3: shared GCT backbone and four prediction heads"><img src="assets/architecture.webp" alt="MINT paper Figure 3 showing a shared GCT feeding camera, field-of-view, MANO, and presence heads" width="1800" height="679" loading="lazy"><span><span class="lang-en">Enlarge figure</span><span class="lang-zh">放大图片</span> ↗</span></button><figcaption><b>FIGURE 3 · PAPER</b><p class="lang-en">One visual-geometric representation, four task heads, and explicit world-space composition.</p><p class="lang-zh">一个视觉几何表征、四个任务预测头，以及显式世界坐标组合。</p></figcaption></figure>
+          <div class="method-points"><article><b>01</b><h3 class="lang-en">Shared geometry</h3><h3 class="lang-zh">共享几何</h3><p class="lang-en">Frame-wise and global attention couple appearance with motion.</p><p class="lang-zh">帧内与全局注意力把外观和运动联系起来。</p></article><article><b>02</b><h3 class="lang-en">Differentiable composition</h3><h3 class="lang-zh">可微组合</h3><p class="lang-en">World-frame consistency constrains camera and hand predictions together.</p><p class="lang-zh">世界坐标一致性同时约束相机与双手预测。</p></article><article><b>03</b><h3 class="lang-en">Long-video inference</h3><h3 class="lang-zh">长视频推理</h3><p class="lang-en">Overlapping 32-frame windows are aligned in SE(3) and fused.</p><p class="lang-zh">重叠的 32 帧窗口在 SE(3) 中对齐并融合。</p></article></div>
+        </section>
+
+        <section class="article-section section-shell" id="results" aria-labelledby="results-title">
+          <div class="reading-column"><p class="section-kicker">ZERO-SHOT EVALUATION</p><h2 id="results-title" class="lang-en">Unseen datasets, shared coordinates</h2><h2 class="lang-zh">未见过的数据，同一个坐标系</h2><p class="section-lead lang-en">MINT is evaluated zero-shot on HOT3D and ARCTIC. The base model uses no external hand detector or test-time optimization.</p><p class="section-lead lang-zh">MINT 在 HOT3D 与 ARCTIC 上进行零样本评测。基础模型不使用外部手部检测器或测试时优化。</p></div>
+          <div class="result-grid"><article><p>HOT3D · HAND DETECTION</p><strong>0.950</strong><span>F1 ↑</span></article><article><p>HOT3D · HAND POSE</p><strong>10.70</strong><span>PA-MPJPE-p · mm ↓</span></article><article><p>HOT3D · CAMERA</p><strong>4.69</strong><span>RPE-T · mm ↓</span></article><article><p>ARCTIC · CAMERA</p><strong>3.39</strong><span>RPE-T · mm ↓</span></article></div>
+          <div class="table-wrap" tabindex="0" aria-label="Scrollable MINT result summary"><table><caption><span class="lang-en">Selected results reported in the manuscript</span><span class="lang-zh">论文稿件中报告的部分结果</span></caption><thead><tr><th scope="col"><span class="lang-en">Evaluation</span><span class="lang-zh">评测</span></th><th scope="col">HOT3D</th><th scope="col">ARCTIC</th><th scope="col"><span class="lang-en">Protocol</span><span class="lang-zh">协议</span></th></tr></thead><tbody><tr><td>Hand detection F1 ↑</td><td><b>0.950</b></td><td><b>0.978</b></td><td>Zero-shot</td></tr><tr><td>PA-MPJPE-p ↓</td><td><b>10.70 mm</b></td><td>27.71 mm</td><td>Zero-shot</td></tr><tr><td>Camera RPE-T ↓</td><td>4.69 mm</td><td><b>3.39 mm</b></td><td><span class="lang-en">All sequences</span><span class="lang-zh">全部序列</span></td></tr><tr><td><span class="lang-en">Four-GPU throughput</span><span class="lang-zh">四卡吞吐速度</span></td><td colspan="2"><b>44.1 fps · 3.67× vs EgoPipeline</b></td><td>512 × 384 · 30 fps</td></tr></tbody></table></div>
+          <details class="evaluation-note"><summary><span class="lang-en">Evaluation notes and current limitations</span><span class="lang-zh">评测说明与当前局限</span><i aria-hidden="true">+</i></summary><div><p class="lang-en">ViDiHand is an in-domain reference in the paper and is not used to claim a zero-shot win. The optional UKF reduces hand jitter by roughly 79%, but is a separate inference filter.</p><p class="lang-zh">ViDiHand 是论文中的域内参考，不用于宣称零样本胜出。可选的 UKF 可将手部抖动降低约 79%，但它属于额外推理滤波。</p><p class="lang-en">RPE-T measures local relative camera motion, not global drift. The current checkpoint reports 181.7 mm ATE on HOT3D and a 1.412 arc-length ratio on ARCTIC. Monocular scale error and long-horizon drift can accumulate when overlapping windows are fused.</p><p class="lang-zh">RPE-T 衡量局部相对相机运动，并不代表全局无漂移。当前权重在 HOT3D 上的 ATE 为 181.7 mm，在 ARCTIC 上的轨迹弧长比为 1.412。融合重叠窗口时，单目尺度误差与长时漂移可能累积。</p></div></details>
+        </section>
+
+        <section class="article-section section-shell" id="resources" aria-labelledby="resources-title">
+          <div class="reading-column"><p class="section-kicker">OPEN RESOURCES</p><h2 id="resources-title" class="lang-en">Continue with MINT</h2><h2 class="lang-zh">继续探索 MINT</h2><p class="section-lead lang-en">Read the manuscript, run inference, inspect the released checkpoint, or work with the non-video structured supervision.</p><p class="section-lead lang-zh">阅读论文、运行推理、查看公开权重，或使用不含原始视频的结构化监督数据。</p></div>
+          <div class="resource-list"><a href="assets/paper/mint-paper.pdf" target="_blank" rel="noreferrer"><span>01</span><div><b class="lang-en">Paper</b><b class="lang-zh">论文</b><p class="lang-en">Current manuscript · PDF</p><p class="lang-zh">当前论文稿件 · PDF</p></div><i>↗</i></a><a href="https://github.com/wuji-technology/wuji-ego-mint" target="_blank" rel="noreferrer"><span>02</span><div><b>GitHub</b><p class="lang-en">Training, inference, viewer, and EgoPipeline reference</p><p class="lang-zh">训练、推理、Viewer 与 EgoPipeline 参考实现</p></div><i>↗</i></a><a href="https://huggingface.co/ZZJAsher/mint_v1" target="_blank" rel="noreferrer"><span>03</span><div><b class="lang-en">Model checkpoint</b><b class="lang-zh">模型权重</b><p>MINT v1 · 1.131 B</p></div><i>↗</i></a><a href="https://huggingface.co/datasets/ZZJAsher/wuji_ego_mint" target="_blank" rel="noreferrer"><span>04</span><div><b class="lang-en">Structured dataset</b><b class="lang-zh">结构化数据集</b><p class="lang-en">Non-video supervision · 1,021 h</p><p class="lang-zh">不含原始视频的监督数据 · 1,021 小时</p></div><i>↗</i></a></div>
+          <aside class="release-note" aria-label="Public release scope"><b class="lang-en">Release scope</b><b class="lang-zh">发布范围</b><p class="lang-en">The public dataset excludes source video. Its current camera trajectories show scale enlargement and are intended for pretraining—not metric evaluation or real-scale ground truth. Separately licensed weights, MANO assets, and internal integrations are not redistributed.</p><p class="lang-zh">公开数据集不包含原始视频。当前相机轨迹存在尺度放大，适合用于预训练，不应作为度量评测或真实尺度真值。受独立许可约束的权重、MANO 资产与内部集成不在分发范围内。</p><a href="https://github.com/wuji-technology/wuji-ego-mint#-release-status" target="_blank" rel="noreferrer"><span class="lang-en">Release details</span><span class="lang-zh">完整说明</span> ↗</a></aside>
+        </section>
+
+        <section class="article-section section-shell citation-section" id="citation" aria-labelledby="citation-title">
+          <div class="reading-column"><p class="section-kicker">CITATION</p><h2 id="citation-title" class="lang-en">Cite MINT</h2><h2 class="lang-zh">引用 MINT</h2></div>
+          <div class="bibtex-card"><div><span>BIBTEX</span><button type="button" data-copy-bibtex><span class="lang-en">Copy</span><span class="lang-zh">复制</span> <i aria-hidden="true">⧉</i></button></div><pre id="bibtex" tabindex="0" aria-label="BibTeX citation"><code>@misc{zhu2026mint,
+  title  = {MINT: Minting a Unified Model for World-Space Camera
+            and Hand Motion from Scalable Egocentric Pipeline Supervision},
+  author = {Zhu, Zijie and Cai, Weiren and Wang, Yizhou and Yang,
+            Zhenjie and Liu, Yide and Chen, Jiahao and He, Guanqi},
+  year   = {2026},
+  note   = {Manuscript under review}
+}</code></pre></div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="site-footer"><div class="footer-inner"><div><b>MINT</b><p class="lang-en">World-space camera and bimanual hand motion.</p><p class="lang-zh">世界坐标系下的相机与双手运动。</p></div><div><a href="mailto:3132544408@qq.com">Email</a><a href="https://github.com/wuji-technology/wuji-ego-mint" target="_blank" rel="noreferrer">GitHub</a><a href="#top"><span class="lang-en">Back to top</span><span class="lang-zh">回到顶部</span> ↑</a></div></div></footer>
+    <dialog class="lightbox" data-lightbox><button type="button" data-lightbox-close aria-label="Close image">×</button><img data-lightbox-image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E" alt=""></dialog>
+    <div class="copy-toast" data-copy-toast role="status" aria-live="polite" hidden><span class="lang-en">Citation copied</span><span class="lang-zh">引用已复制</span></div>
+    <script src="script.min.js" defer></script>
+  </body>
+</html>

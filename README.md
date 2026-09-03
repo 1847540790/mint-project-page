@@ -1,0 +1,33 @@
+# MINT project page
+
+This directory is a self-contained static website for the MINT research project.
+
+## Preview locally
+
+```bash
+npx --yes http-server@14.1.1 . -p 4174 -a 0.0.0.0 -c-1
+```
+
+Then open `http://127.0.0.1:4174`. In PAI DSW, open or expose custom port
+`4174` from the instance interface and use the HTTPS address DSW provides.
+
+This preview server supports byte-range requests, which are needed for reliable
+seeking in the project film. A basic `python3 -m http.server` preview also works,
+but may download an entire video before a distant chapter seek completes.
+
+## Files
+
+- `index.html` — semantic page content and bilingual English/Chinese copy
+- `styles.css` / `styles.min.css` — responsive layout source and deployed minified CSS
+- `script.js` / `script.min.js` — interaction source and deployed minified JavaScript
+- `assets/media/` — responsive WebM/MP4 video, posters, and chapter tracks
+- `assets/paper/mint-paper.pdf` — compressed paper for web delivery
+- `ASSET_SOURCES.md` — provenance of every displayed image and video
+
+All displayed raster imagery comes from the manuscript figures or from
+`MINT_v2_revised_music_enhanced_compact.mp4`. The page does not use unrelated
+repository screenshots or generated illustration assets.
+
+The site uses relative asset URLs and can be deployed at a domain root or a subpath on any static host.
+The host should serve `.webm`, `.mp4`, `.webp`, `.woff2`, and `.vtt` with their standard MIME types
+and enable byte-range requests for video.
