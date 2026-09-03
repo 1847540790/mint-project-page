@@ -25,6 +25,7 @@ both files have SHA-256
 | Website asset | Source interval or frame |
 | --- | --- |
 | `assets/media/film-poster.webp` | 00:14.500 frame |
+| `assets/media/hero-mint-wall.webp` | Eight frames sampled at 1 fps from 00:01.500-00:09.500; used only inside the hero `MINT` letterforms |
 | `assets/media/mint-film-720p.webm` | Complete film, browser fallback |
 | `assets/media/feature-in-wild.*` | 00:00.000-00:09.800 |
 | `assets/media/feature-in-wild-poster.webp` | 00:02.000 frame |
