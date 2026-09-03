@@ -205,6 +205,30 @@ projectFilm?.addEventListener("timeupdate", () => {
   if (activeChapter) setActiveChapter(activeChapter);
 });
 
+const sampleTabs = [...document.querySelectorAll("[data-sample-tab]")];
+const samplePanels = [...document.querySelectorAll("[data-sample-panel]")];
+
+function showSample(key) {
+  samplePanels.forEach((panel) => {
+    const active = panel.dataset.samplePanel === key;
+    panel.hidden = !active;
+    if (!active) panel.querySelectorAll("video").forEach((video) => video.pause());
+  });
+  sampleTabs.forEach((tab) => {
+    const active = tab.dataset.sampleTab === key;
+    tab.classList.toggle("is-active", active);
+    tab.setAttribute("aria-selected", active ? "true" : "false");
+  });
+}
+
+if (sampleTabs.length) {
+  sampleTabs.forEach((tab) => {
+    tab.setAttribute("role", "tab");
+    tab.addEventListener("click", () => showSample(tab.dataset.sampleTab));
+  });
+  showSample(sampleTabs[0].dataset.sampleTab);
+}
+
 const loopVideos = [...document.querySelectorAll("[data-loop-video]")];
 
 function updateVideoButton(video) {

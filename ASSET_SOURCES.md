@@ -48,8 +48,11 @@ displayed.
 
 ## Qualitative videos
 
-Case-grid copies are MP4 remuxes of complete 8-second project-provided clips,
-with posters sampled at 4 seconds. The three comparison copies preserve all
+Case-grid and failure copies are complete 8-second project-provided clips with
+the renderer's HUD strip removed: the Ego4D clips drop the top 34 pixels that
+carry the "Our MINT Pred" and presence labels, and the EPIC-KITCHENS clips are
+cropped to their 512x288 picture area, which removes the same strip together
+with the letterbox. Posters are sampled at 4 seconds. The three comparison copies preserve all
 frames but crop the source renderers' 48-pixel title and footer strips; their
 posters are sampled at 6 seconds where the pipeline/model difference is clear.
 Unless noted otherwise, the displayed video is `model_prediction.mp4` from the
@@ -113,6 +116,30 @@ version 8.
 - `assets/data/ego4d-intrinsics/result.json` and `summary.txt` publish the core
   generated statistics. The public copies use repository-relative source
   labels instead of machine-local absolute paths.
+
+## Held-out sample comparison
+
+Four episodes from `data/samples/lerobot_v3` in the MINT code repository
+(episode indices 0, 2, 3 and 7; HOT3D, 240 frames each at 30 fps). Every video
+was rendered offline through `eval/model_effect/visualization/viewer/store.py`
+with `checkpoints/model.safetensors` and
+`configs/training/mint_step2.yaml`. Ground truth and prediction are solved
+independently; the prediction path uses no ground-truth hands, presence,
+camera extrinsics or intrinsics.
+
+| Website asset | Renderer |
+| --- | --- |
+| `assets/media/samples/ep<NNN>-2d-{gt,pred}.mp4` | `Store.mp4(eid, "mesh_skel", "side", "both")`, split into its GT and PRED halves |
+| `assets/media/samples/ep<NNN>-world-{gt,pred}.mp4` | `Store.world_video(eid, render_source=...)` |
+| `assets/media/samples/ep<NNN>-mujoco-{gt,pred}.mp4` | `Store.mujoco_video(eid, source=...)` |
+| `assets/media/samples/ep<NNN>-retarget-{gt,pred}.mp4` | `Store.retarget_video(eid, source=...)` |
+
+Each copy is cropped to remove the renderer's own `GT` / `PRED` HUD label, so
+the page's own captions are the only source of that distinction. The MuJoCo and
+retargeting copies additionally drop the empty sky and foreground above and
+below the hand motion, using one window per episode that is shared by the GT and
+prediction videos so the two stay directly comparable. Posters are sampled at 3
+seconds.
 
 ## Benchmark values
 
