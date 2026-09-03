@@ -11,8 +11,8 @@ function setLanguage(language) {
     option.classList.toggle("is-active", option.dataset.languageOption === nextLanguage);
   });
   document.title = nextLanguage === "zh"
-    ? "MINT — 世界坐标系相机与双手运动"
-    : "MINT — World-Space Camera and Hand Motion";
+    ? "MINT — 世界坐标系相机与双手运动估计"
+    : "MINT: A Unified Model for World-Space Camera and Hand Motion Estimation";
   try {
     localStorage.setItem("mint-language", nextLanguage);
   } catch (_) {

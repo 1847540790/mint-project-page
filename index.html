@@ -7,11 +7,11 @@
     <meta name="color-scheme" content="light">
     <meta name="description" content="MINT recovers world-space camera trajectories and bimanual hand motion from egocentric RGB video with one unified model.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="MINT — World-Space Camera and Hand Motion">
+    <meta property="og:title" content="MINT: A Unified Model for World-Space Camera and Hand Motion Estimation from Scalable Egocentric Pipeline Supervision">
     <meta property="og:description" content="A unified model trained with scalable egocentric pipeline supervision.">
     <meta property="og:image" content="assets/media/film-poster.webp">
     <meta name="twitter:card" content="summary_large_image">
-    <title>MINT — World-Space Camera and Hand Motion</title>
+    <title>MINT — World-Space Camera and Hand Motion Estimation</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="preload" href="assets/fonts/space-grotesk-variable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.min.css">
@@ -19,7 +19,7 @@
       {
         "@context": "https://schema.org",
         "@type": "ScholarlyArticle",
-        "name": "MINT: Minting a Unified Model for World-Space Camera and Hand Motion from Scalable Egocentric Pipeline Supervision",
+        "name": "MINT: A Unified Model for World-Space Camera and Hand Motion Estimation from Scalable Egocentric Pipeline Supervision",
         "datePublished": "2026",
         "author": [
           {"@type": "Person", "name": "Zijie Zhu"},
@@ -48,10 +48,10 @@
       <div class="nav-shell">
         <a class="wordmark" href="#top" aria-label="MINT home"><span class="wordmark-dot" aria-hidden="true"></span><b>MINT</b></a>
         <nav class="desktop-nav" aria-label="Primary navigation">
-          <a href="#highlights"><span class="lang-en">Highlights</span><span class="lang-zh">亮点</span></a>
-          <a href="#videos"><span class="lang-en">Videos</span><span class="lang-zh">视频</span></a>
+          <a href="#film"><span class="lang-en">Film</span><span class="lang-zh">影片</span></a>
+          <a href="#diversity"><span class="lang-en">Data</span><span class="lang-zh">数据</span></a>
           <a href="#method"><span class="lang-en">Method</span><span class="lang-zh">方法</span></a>
-          <a href="#results"><span class="lang-en">Results</span><span class="lang-zh">结果</span></a>
+          <a href="#results"><span class="lang-en">Benchmarks</span><span class="lang-zh">评测</span></a>
           <a href="#resources"><span class="lang-en">Resources</span><span class="lang-zh">资源</span></a>
         </nav>
         <div class="nav-actions">
@@ -61,11 +61,12 @@
         </div>
       </div>
       <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Mobile navigation" hidden>
-        <a href="#highlights"><span class="lang-en">Highlights</span><span class="lang-zh">亮点</span><i>01</i></a>
-        <a href="#videos"><span class="lang-en">Videos</span><span class="lang-zh">视频</span><i>02</i></a>
-        <a href="#method"><span class="lang-en">Method</span><span class="lang-zh">方法</span><i>03</i></a>
-        <a href="#results"><span class="lang-en">Results</span><span class="lang-zh">结果</span><i>04</i></a>
-        <a href="#resources"><span class="lang-en">Resources</span><span class="lang-zh">资源</span><i>05</i></a>
+        <a href="#film"><span class="lang-en">Project film</span><span class="lang-zh">项目影片</span><i>01</i></a>
+        <a href="#diversity"><span class="lang-en">Data diversity</span><span class="lang-zh">数据多样性</span><i>02</i></a>
+        <a href="#intrinsics"><span class="lang-en">Camera intrinsics</span><span class="lang-zh">相机内参</span><i>03</i></a>
+        <a href="#method"><span class="lang-en">Method</span><span class="lang-zh">方法</span><i>04</i></a>
+        <a href="#results"><span class="lang-en">Benchmarks</span><span class="lang-zh">评测</span><i>05</i></a>
+        <a href="#resources"><span class="lang-en">Resources</span><span class="lang-zh">资源</span><i>06</i></a>
       </nav>
     </header>
 
@@ -73,9 +74,11 @@
       <article>
         <header class="article-hero" id="top">
           <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"></span> MINT RESEARCH · 2026</p>
-          <h1><span class="hero-title-mark">MINT</span><span class="sr-only">: </span><span class="hero-title-main">Minting a Unified Model for World-Space Camera and Hand Motion</span><span class="hero-title-tail">from Scalable Egocentric Pipeline Supervision</span></h1>
+          <h1><span class="hero-title-mark">MINT</span><span class="sr-only">: </span><span class="hero-title-main">A Unified Model for World-Space Camera and Hand Motion Estimation</span><span class="hero-title-tail">from Scalable Egocentric Pipeline Supervision</span></h1>
           <p class="hero-deck lang-en">Recover camera trajectories and bimanual hand motion together from ordinary egocentric RGB video.</p>
           <p class="hero-deck lang-zh">从普通第一视角 RGB 视频中，联合恢复相机轨迹与双手运动。</p>
+          <p class="hero-vision lang-en">We hope MINT can empower everyone to produce egocentric data, advance the field, and bring us closer to AGI.</p>
+          <p class="hero-vision lang-zh">我们希望 MINT 可以让所有人具备产出 Ego 数据的能力，推动 Ego 数据发展，早日奔赴 AGI。</p>
           <p class="article-meta"><span class="lang-en">Manuscript</span><span class="lang-zh">论文稿件</span><i>·</i> 2026 <i>·</i><button type="button" data-language-toggle-inline><span class="lang-en">中文版本</span><span class="lang-zh">English version</span></button></p>
           <p class="authors">Zijie Zhu<sup>1,3,4</sup>, Weiren Cai<sup>3</sup>, Yizhou Wang<sup>1,3</sup>, Zhenjie Yang<sup>4</sup>, Yide Liu<sup>3,5</sup>, Jiahao Chen<sup>3,*</sup>, Guanqi He<sup>2,3,*</sup></p>
           <p class="affiliations"><span><sup>1</sup> ShanghaiTech University</span><span><sup>2</sup> Tsinghua University</span><span><sup>3</sup> Wuji Technology</span><span><sup>4</sup> The University of Hong Kong</span><span><sup>5</sup> Zhejiang University</span></p>
@@ -124,6 +127,196 @@
           <figure class="paper-figure"><button type="button" data-lightbox-src="assets/overview.webp" data-lightbox-alt="MINT paper Figure 1: scalable egocentric supervision and zero-shot world-space reconstruction"><img src="assets/overview.webp" alt="MINT paper Figure 1 showing large-scale egocentric videos, dataset diversity, and zero-shot world-space outputs" width="1700" height="656" loading="lazy"><span><span class="lang-en">Enlarge figure</span><span class="lang-zh">放大图片</span> ↗</span></button><figcaption><b>FIGURE 1 · PAPER</b><p class="lang-en">Large-scale supervision and zero-shot world-space reconstruction.</p><p class="lang-zh">规模化监督与零样本世界坐标重建。</p></figcaption></figure>
         </section>
 
+        <section class="article-section section-shell diversity-section" id="diversity" aria-labelledby="diversity-title">
+          <div class="reading-column">
+            <p class="section-kicker">DATASET DIVERSITY · FRESH ANALYSIS</p>
+            <h2 id="diversity-title" class="lang-en">Three sources, three different kinds of breadth</h2>
+            <h2 class="lang-zh">三套数据，三种不同的多样性</h2>
+            <p class="section-lead lang-en">We analyze each source independently before comparing them. Semantic plots use all task labels; motion plots uniformly sample 96 annotated Parquet shards per dataset.</p>
+            <p class="section-lead lang-zh">我们先分别分析每套数据，再做统一口径对比。语义图使用全部任务标签；运动图则对每套数据均匀抽取 96 个标注 Parquet 分片。</p>
+          </div>
+
+          <div class="corpus-total" role="group" aria-label="Combined corpus totals">
+            <span><b>1,021.514 h</b><small class="lang-en">retained supervision</small><small class="lang-zh">保留监督数据</small></span>
+            <span><b>560,649</b><small class="lang-en">episodes</small><small class="lang-zh">片段</small></span>
+            <span><b>110,323,558</b><small class="lang-en">frames</small><small class="lang-zh">帧</small></span>
+            <span><b>1,750,317</b><small class="lang-en">task labels analyzed</small><small class="lang-zh">参与分析的任务标签</small></span>
+          </div>
+
+          <div class="dataset-panels">
+            <article class="dataset-panel" style="--dataset-color:#36aaa8">
+              <header class="dataset-header">
+                <div><span class="dataset-index">DATASET 01</span><h3>Ego4D</h3><p class="lang-en">Broad everyday environments with the largest sampled camera-motion range.</p><p class="lang-zh">覆盖广泛日常环境，并呈现三者中最大的相机运动范围。</p></div>
+                <strong>332.874 <small>hours</small></strong>
+              </header>
+              <div class="dataset-kpis">
+                <span><b>190,298</b><small>episodes</small></span>
+                <span><b>185,850</b><small class="lang-en">task labels</small><small class="lang-zh">任务标签</small></span>
+                <span><b>10.80</b><small class="lang-en">effective semantic categories</small><small class="lang-zh">语义有效类别数</small></span>
+                <span><b>85.0%</b><small class="lang-en">action-family coverage</small><small class="lang-zh">动作族覆盖率</small></span>
+              </div>
+              <div class="dataset-plots">
+                <section aria-label="Ego4D semantic scene distribution"><h4><span class="lang-en">Semantic scenes</span><span class="lang-zh">语义场景</span><small class="lang-en">top 6 · share of labels</small><small class="lang-zh">前 6 类 · 占标签比例</small></h4>
+                  <div class="bar-list">
+                    <div class="bar-row"><div><span class="lang-en">Kitchen / cooking</span><span class="lang-zh">厨房 / 烹饪</span><b>25.8%</b></div><i><span style="--value:25.8"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Woodwork / renovation</span><span class="lang-zh">木工 / 装修 / 建材</span><b>13.0%</b></div><i><span style="--value:13"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Mechanical / repair</span><span class="lang-zh">机械 / 维修 / 工具</span><b>9.0%</b></div><i><span style="--value:9"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Painting / art</span><span class="lang-zh">绘画 / 艺术</span><b>8.2%</b></div><i><span style="--value:8.2"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Other</span><span class="lang-zh">其他</span><b>7.9%</b></div><i><span style="--value:7.9"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Cleaning / washing</span><span class="lang-zh">清洁 / 洗涤</span><b>7.6%</b></div><i><span style="--value:7.6"></span></i></div>
+                  </div>
+                </section>
+                <section aria-label="Ego4D action distribution"><h4><span class="lang-en">Action families</span><span class="lang-zh">动作族</span><small class="lang-en">top 6 · multi-label</small><small class="lang-zh">前 6 类 · 多标签统计</small></h4>
+                  <div class="bar-list">
+                    <div class="bar-row"><div><span class="lang-en">Place / set down</span><span class="lang-zh">放置 / 放下</span><b>16.5%</b></div><i><span style="--value:16.5"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Draw / write</span><span class="lang-zh">绘画 / 书写</span><b>16.1%</b></div><i><span style="--value:16.1"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Cut / peel</span><span class="lang-zh">切削 / 剥皮</span><b>13.7%</b></div><i><span style="--value:13.7"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Pick up / lift</span><span class="lang-zh">拿取 / 举起</span><b>13.6%</b></div><i><span style="--value:13.6"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Tool use</span><span class="lang-zh">工具操作</span><b>11.6%</b></div><i><span style="--value:11.6"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Clean / wash</span><span class="lang-zh">清洁 / 擦洗</span><b>11.3%</b></div><i><span style="--value:11.3"></span></i></div>
+                  </div>
+                </section>
+              </div>
+              <div class="motion-strip"><span><small class="lang-en">motion sample</small><small class="lang-zh">运动样本</small><b>14,274 ep.</b></span><span><small class="lang-en">camera span · P50 / P90</small><small class="lang-zh">相机跨度 · P50 / P90</small><b>0.421 / 1.510 m</b></span><span><small class="lang-en">head sweep · P50 / P90</small><small class="lang-zh">头部转角 · P50 / P90</small><b>26.7° / 73.7°</b></span><span><small class="lang-en">hand workspace · P50 / P90</small><small class="lang-zh">手部工作区 · P50 / P90</small><b>0.442 / 0.806 m</b></span></div>
+            </article>
+
+            <article class="dataset-panel" style="--dataset-color:#e98245">
+              <header class="dataset-header">
+                <div><span class="dataset-index">DATASET 02</span><h3>EgoDex</h3><p class="lang-en">The largest source, with broad object-centric semantics and predominantly local camera motion.</p><p class="lang-zh">体量最大的来源，物体操作语义广泛，相机运动以局部范围为主。</p></div>
+                <strong>633.446 <small>hours</small></strong>
+              </header>
+              <div class="dataset-kpis">
+                <span><b>343,583</b><small>episodes</small></span>
+                <span><b>1,481,800</b><small class="lang-en">task labels</small><small class="lang-zh">任务标签</small></span>
+                <span><b>12.62</b><small class="lang-en">effective semantic categories</small><small class="lang-zh">语义有效类别数</small></span>
+                <span><b>93.4%</b><small class="lang-en">action-family coverage</small><small class="lang-zh">动作族覆盖率</small></span>
+              </div>
+              <div class="dataset-plots">
+                <section aria-label="EgoDex semantic scene distribution"><h4><span class="lang-en">Semantic scenes</span><span class="lang-zh">语义场景</span><small class="lang-en">top 6 · share of labels</small><small class="lang-zh">前 6 类 · 占标签比例</small></h4>
+                  <div class="bar-list">
+                    <div class="bar-row"><div><span class="lang-en">Storage / containers</span><span class="lang-zh">收纳 / 容器</span><b>14.4%</b></div><i><span style="--value:14.4"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Puzzles / board games</span><span class="lang-zh">益智 / 桌游</span><b>13.9%</b></div><i><span style="--value:13.9"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Kitchen / cooking</span><span class="lang-zh">厨房 / 烹饪</span><b>13.6%</b></div><i><span style="--value:13.6"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Other</span><span class="lang-zh">其他</span><b>13.0%</b></div><i><span style="--value:13"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Textile / laundry</span><span class="lang-zh">纺织 / 衣物 / 洗衣</span><b>8.5%</b></div><i><span style="--value:8.5"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Electronics / cables</span><span class="lang-zh">电子 / 线缆 / 设备</span><b>7.1%</b></div><i><span style="--value:7.1"></span></i></div>
+                  </div>
+                </section>
+                <section aria-label="EgoDex action distribution"><h4><span class="lang-en">Action families</span><span class="lang-zh">动作族</span><small class="lang-en">top 6 · multi-label</small><small class="lang-zh">前 6 类 · 多标签统计</small></h4>
+                  <div class="bar-list">
+                    <div class="bar-row"><div><span class="lang-en">Place / set down</span><span class="lang-zh">放置 / 放下</span><b>21.5%</b></div><i><span style="--value:21.5"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Grasp / hold</span><span class="lang-zh">抓握 / 持握</span><b>16.5%</b></div><i><span style="--value:16.5"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Pick up / lift</span><span class="lang-zh">拿取 / 举起</span><b>15.8%</b></div><i><span style="--value:15.8"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Reach / touch</span><span class="lang-zh">伸手 / 触碰</span><b>12.7%</b></div><i><span style="--value:12.7"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Move / carry</span><span class="lang-zh">移动 / 搬运</span><b>10.0%</b></div><i><span style="--value:10"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Draw / write</span><span class="lang-zh">绘画 / 书写</span><b>7.9%</b></div><i><span style="--value:7.9"></span></i></div>
+                  </div>
+                </section>
+              </div>
+              <div class="motion-strip"><span><small class="lang-en">motion sample</small><small class="lang-zh">运动样本</small><b>8,236 ep.</b></span><span><small class="lang-en">camera span · P50 / P90</small><small class="lang-zh">相机跨度 · P50 / P90</small><b>0.117 / 0.288 m</b></span><span><small class="lang-en">head sweep · P50 / P90</small><small class="lang-zh">头部转角 · P50 / P90</small><b>4.4° / 13.1°</b></span><span><small class="lang-en">hand workspace · P50 / P90</small><small class="lang-zh">手部工作区 · P50 / P90</small><b>0.319 / 0.553 m</b></span></div>
+            </article>
+
+            <article class="dataset-panel" style="--dataset-color:#6da53f">
+              <header class="dataset-header">
+                <div><span class="dataset-index">DATASET 03</span><h3>EPIC-KITCHENS-100</h3><p class="lang-en">A focused kitchen domain with varied actions and the largest median hand workspace.</p><p class="lang-zh">聚焦厨房场景，动作丰富，并具有三者中最大的手部工作区中位数。</p></div>
+                <strong>55.194 <small>hours</small></strong>
+              </header>
+              <div class="dataset-kpis">
+                <span><b>26,768</b><small>episodes</small></span>
+                <span><b>82,667</b><small class="lang-en">task labels</small><small class="lang-zh">任务标签</small></span>
+                <span><b>1.00</b><small class="lang-en">effective semantic category*</small><small class="lang-zh">语义有效类别数*</small></span>
+                <span><b>93.3%</b><small class="lang-en">action-family coverage</small><small class="lang-zh">动作族覆盖率</small></span>
+              </div>
+              <div class="dataset-plots">
+                <section aria-label="EPIC-KITCHENS semantic scene distribution"><h4><span class="lang-en">Semantic scenes</span><span class="lang-zh">语义场景</span><small class="lang-en">dataset-level taxonomy</small><small class="lang-zh">数据集级分类口径</small></h4>
+                  <div class="single-domain"><span class="lang-en">Kitchen / cooking</span><span class="lang-zh">厨房 / 烹饪</span><b>100%</b><i><span></span></i><small class="lang-en">*Assigned to the kitchen domain by protocol; not visual scene ground truth.</small><small class="lang-zh">*按分析协议统一归入厨房域，并非逐帧视觉场景真值。</small></div>
+                </section>
+                <section aria-label="EPIC-KITCHENS action distribution"><h4><span class="lang-en">Action families</span><span class="lang-zh">动作族</span><small class="lang-en">top 6 · multi-label</small><small class="lang-zh">前 6 类 · 多标签统计</small></h4>
+                  <div class="bar-list">
+                    <div class="bar-row"><div><span class="lang-en">Place / set down</span><span class="lang-zh">放置 / 放下</span><b>20.0%</b></div><i><span style="--value:20"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Cut / peel</span><span class="lang-zh">切削 / 剥皮</span><b>19.0%</b></div><i><span style="--value:19"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Clean / wash</span><span class="lang-zh">清洁 / 擦洗</span><b>18.7%</b></div><i><span style="--value:18.7"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Pick up / lift</span><span class="lang-zh">拿取 / 举起</span><b>14.2%</b></div><i><span style="--value:14.2"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Grasp / hold</span><span class="lang-zh">抓握 / 持握</span><b>11.0%</b></div><i><span style="--value:11"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Move / carry</span><span class="lang-zh">移动 / 搬运</span><b>8.9%</b></div><i><span style="--value:8.9"></span></i></div>
+                  </div>
+                </section>
+              </div>
+              <div class="motion-strip"><span><small class="lang-en">motion sample</small><small class="lang-zh">运动样本</small><b>7,316 ep.</b></span><span><small class="lang-en">camera span · P50 / P90</small><small class="lang-zh">相机跨度 · P50 / P90</small><b>0.346 / 0.998 m</b></span><span><small class="lang-en">head sweep · P50 / P90</small><small class="lang-zh">头部转角 · P50 / P90</small><b>22.5° / 60.4°</b></span><span><small class="lang-en">hand workspace · P50 / P90</small><small class="lang-zh">手部工作区 · P50 / P90</small><b>0.482 / 0.784 m</b></span></div>
+            </article>
+          </div>
+
+          <article class="combined-analysis" aria-labelledby="combined-title">
+            <header><p class="section-kicker">COMBINED VIEW</p><h3 id="combined-title" class="lang-en">Complementary coverage, compared directly</h3><h3 class="lang-zh">互补覆盖：统一尺度对比</h3><p class="lang-en">The corpus is not one homogeneous pool: its three sources contribute different semantic, camera, and hand-motion regimes.</p><p class="lang-zh">这批数据不是同质语料池：三套来源分别贡献不同的语义、相机运动与手部运动分布。</p></header>
+            <div class="frame-share" role="img" aria-label="Frame share by dataset: Ego4D 32.6%, EgoDex 62.0%, EPIC-KITCHENS-100 5.4%"><span class="ego4d" style="--share:32.586"><b>Ego4D</b><small>32.6%</small></span><span class="egodex" style="--share:62.010"><b>EgoDex</b><small>62.0%</small></span><span class="epic" style="--share:5.403"><b>EPIC</b><small>5.4%</small></span></div>
+            <div class="comparison-legend"><span><i class="ego4d"></i>Ego4D</span><span><i class="egodex"></i>EgoDex</span><span><i class="epic"></i>EPIC-KITCHENS-100</span><small class="lang-en">Bar lengths are normalized within each metric; labels show measured values.</small><small class="lang-zh">条长仅在每项指标内部归一化；标签展示真实数值。</small></div>
+            <div class="comparison-chart" role="img" aria-label="Comparison of semantic breadth, action coverage, median camera span, head sweep, and hand workspace">
+              <div class="comparison-row"><strong><span class="lang-en">Effective semantic categories</span><span class="lang-zh">语义有效类别数</span></strong><div><i class="ego4d" style="--value:85.6"><b>10.80</b></i><i class="egodex" style="--value:100"><b>12.62</b></i><i class="epic" style="--value:7.9"><b>1.00*</b></i></div></div>
+              <div class="comparison-row"><strong><span class="lang-en">Action-family coverage</span><span class="lang-zh">动作族覆盖率</span></strong><div><i class="ego4d" style="--value:90.9"><b>85.0%</b></i><i class="egodex" style="--value:100"><b>93.4%</b></i><i class="epic" style="--value:99.9"><b>93.3%</b></i></div></div>
+              <div class="comparison-row"><strong><span class="lang-en">Camera span · P50</span><span class="lang-zh">相机跨度 · P50</span></strong><div><i class="ego4d" style="--value:100"><b>0.421 m</b></i><i class="egodex" style="--value:27.7"><b>0.117 m</b></i><i class="epic" style="--value:82.1"><b>0.346 m</b></i></div></div>
+              <div class="comparison-row"><strong><span class="lang-en">Head sweep · P50</span><span class="lang-zh">头部转角 · P50</span></strong><div><i class="ego4d" style="--value:100"><b>26.7°</b></i><i class="egodex" style="--value:16.4"><b>4.4°</b></i><i class="epic" style="--value:84.6"><b>22.5°</b></i></div></div>
+              <div class="comparison-row"><strong><span class="lang-en">Hand workspace · P50</span><span class="lang-zh">手部工作区 · P50</span></strong><div><i class="ego4d" style="--value:91.9"><b>0.442 m</b></i><i class="egodex" style="--value:66.2"><b>0.319 m</b></i><i class="epic" style="--value:100"><b>0.482 m</b></i></div></div>
+            </div>
+            <p class="analysis-method lang-en">Method: language descriptions are assigned to keyword-based semantic and action families. A description may match multiple actions. Camera and hand ranges come from episode-level trajectories in 96 uniformly selected shards per dataset. Inspect the complete <a href="assets/data/diversity/result.json">JSON report</a> or <a href="assets/data/diversity/datasets.csv">CSV summary</a>.</p>
+            <p class="analysis-method lang-zh">口径：自然语言描述按关键词归入语义域和动作族；同一描述可命中多个动作。相机与手部范围来自每套数据均匀抽取的 96 个分片中的 episode 级轨迹。可查看完整 <a href="assets/data/diversity/result.json">JSON 报告</a>或 <a href="assets/data/diversity/datasets.csv">CSV 摘要</a>。</p>
+          </article>
+        </section>
+
+        <section class="article-section section-shell intrinsics-section" id="intrinsics" aria-labelledby="intrinsics-title">
+          <div class="reading-column">
+            <p class="section-kicker">EGO4D CAMERA INTRINSICS</p>
+            <h2 id="intrinsics-title" class="lang-en">A wide field-of-view distribution, measured episode by episode</h2>
+            <h2 class="lang-zh">逐 episode 测得的宽广视场角分布</h2>
+            <p class="section-lead lang-en">For every Ego4D LeRobot episode, we sample only its first-frame FOV and recover pixel focal length from the annotated video resolution. No ffprobe or per-frame duplication is used.</p>
+            <p class="section-lead lang-zh">对每个 Ego4D LeRobot episode 仅采样首帧 FOV，再结合标注视频分辨率反解像素焦距；不运行 ffprobe，也不重复统计逐帧内参。</p>
+          </div>
+
+          <div class="intrinsic-kpis">
+            <article><span class="kpi-label"><span class="lang-en">Sampling</span><span class="lang-zh">采样策略</span></span><strong>190,298</strong><p class="lang-en">first-frame FOV samples</p><p class="lang-zh">episode 首帧 FOV 样本</p><small>190,298 / 190,298 · 100.0%</small></article>
+            <article><span class="kpi-label"><span class="lang-en">Vertical FOV</span><span class="lang-zh">垂直 FOV</span></span><strong>63.40°</strong><p>median</p><small>P25 42.4° · P95 97.1°</small></article>
+            <article><span class="kpi-label"><span class="lang-en">Horizontal FOV</span><span class="lang-zh">水平 FOV</span></span><strong>78.94°</strong><p>median</p><small>P25 54.7° · P95 113.0°</small></article>
+            <article><span class="kpi-label"><span class="lang-en">Pixel focal length</span><span class="lang-zh">像素焦距</span></span><strong class="focal-pair">621.7 / 621.7</strong><p>fx / fy · px</p><small>fx / fy = 1.0000 · 1,272 shards</small></article>
+          </div>
+
+          <div class="histogram-grid">
+            <article><header><h3 class="lang-en">Vertical FOV</h3><h3 class="lang-zh">垂直 FOV</h3><span>9 bins · 190,298 samples</span></header><div class="histogram" role="img" aria-label="Ego4D vertical field of view distribution">
+              <div><b>&lt;30°</b><i><span style="--value:3.86"></span></i><em>7,345 · 3.9%</em></div>
+              <div><b>30°–45°</b><i><span style="--value:24.96"></span></i><em>47,502 · 25.0%</em></div>
+              <div><b>45°–60°</b><i><span style="--value:17.43"></span></i><em>33,175 · 17.4%</em></div>
+              <div><b>60°–75°</b><i><span style="--value:18.01"></span></i><em>34,271 · 18.0%</em></div>
+              <div><b>75°–90°</b><i><span style="--value:20.77"></span></i><em>39,529 · 20.8%</em></div>
+              <div><b>90°–105°</b><i><span style="--value:14.21"></span></i><em>27,050 · 14.2%</em></div>
+              <div><b>105°–120°</b><i><span style="--value:.71"></span></i><em>1,356 · 0.7%</em></div>
+              <div><b>120°–150°</b><i><span style="--value:.04"></span></i><em>70 · 0.0%</em></div>
+              <div><b>≥150°</b><i><span style="--value:0"></span></i><em>0 · 0.0%</em></div>
+            </div></article>
+            <article><header><h3 class="lang-en">Horizontal FOV</h3><h3 class="lang-zh">水平 FOV</h3><span>9 bins · 190,298 samples</span></header><div class="histogram" role="img" aria-label="Ego4D horizontal field of view distribution">
+              <div><b>&lt;30°</b><i><span style="--value:.05"></span></i><em>91 · 0.1%</em></div>
+              <div><b>30°–45°</b><i><span style="--value:11.35"></span></i><em>21,591 · 11.3%</em></div>
+              <div><b>45°–60°</b><i><span style="--value:19.96"></span></i><em>37,989 · 20.0%</em></div>
+              <div><b>60°–75°</b><i><span style="--value:14.73"></span></i><em>28,036 · 14.7%</em></div>
+              <div><b>75°–90°</b><i><span style="--value:16.67"></span></i><em>31,729 · 16.7%</em></div>
+              <div><b>90°–105°</b><i><span style="--value:20.26"></span></i><em>38,548 · 20.3%</em></div>
+              <div><b>105°–120°</b><i><span style="--value:16.20"></span></i><em>30,831 · 16.2%</em></div>
+              <div><b>120°–150°</b><i><span style="--value:.78"></span></i><em>1,480 · 0.8%</em></div>
+              <div><b>≥150°</b><i><span style="--value:.002"></span></i><em>3 · 0.0%</em></div>
+            </div></article>
+          </div>
+
+          <aside class="intrinsic-observation" aria-label="Camera-intrinsic interpretation"><b class="lang-en">Why this matters</b><b class="lang-zh">为什么重要</b><p class="lang-en">Pretraining exposes MINT to a broad range of FOVs instead of one fixed camera. This is a plausible contributor to robustness across unseen egocentric intrinsics, but the distribution alone is descriptive evidence—not a causal ablation.</p><p class="lang-zh">预训练让 MINT 接触到广泛的 FOV，而不是单一固定相机。这可能是模型适应未见第一视角内参的一个原因；但该分布属于描述性证据，并非能证明因果关系的消融实验。</p></aside>
+
+          <details class="intrinsic-details">
+            <summary><span class="lang-en">Detailed focal-ratio distributions and common FOV pairs</span><span class="lang-zh">查看焦距比例分布与常见 FOV 组合</span><i aria-hidden="true">+</i></summary>
+            <div class="ratio-grid">
+              <article><h3>fx / <span class="lang-en">image width</span><span class="lang-zh">图宽</span></h3><div class="mini-distribution"><span><b>&lt;0.2×W</b><i style="--value:.02"></i><em>36 · 0.0%</em></span><span><b>0.2–0.3×W</b><i style="--value:1.28"></i><em>2,442 · 1.3%</em></span><span><b>0.3–0.4×W</b><i style="--value:19.36"></i><em>36,841 · 19.4%</em></span><span><b>0.4–0.5×W</b><i style="--value:16.58"></i><em>31,543 · 16.6%</em></span><span><b>0.5–0.75×W</b><i style="--value:23.85"></i><em>45,390 · 23.9%</em></span><span><b>0.75–1×W</b><i style="--value:16.01"></i><em>30,460 · 16.0%</em></span><span><b>1–1.5×W</b><i style="--value:21.12"></i><em>40,182 · 21.1%</em></span><span><b>≥1.5×W</b><i style="--value:1.79"></i><em>3,404 · 1.8%</em></span></div></article>
+              <article><h3>fy / <span class="lang-en">image height</span><span class="lang-zh">图高</span></h3><div class="mini-distribution"><span><b>&lt;0.2×H</b><i style="--value:0"></i><em>6 · 0.0%</em></span><span><b>0.2–0.3×H</b><i style="--value:.04"></i><em>77 · 0.0%</em></span><span><b>0.3–0.4×H</b><i style="--value:1.26"></i><em>2,395 · 1.3%</em></span><span><b>0.4–0.5×H</b><i style="--value:13.66"></i><em>25,998 · 13.7%</em></span><span><b>0.5–0.75×H</b><i style="--value:30.26"></i><em>57,590 · 30.3%</em></span><span><b>0.75–1×H</b><i style="--value:15.86"></i><em>30,186 · 15.9%</em></span><span><b>1–1.5×H</b><i style="--value:23.23"></i><em>44,210 · 23.2%</em></span><span><b>≥1.5×H</b><i style="--value:15.68"></i><em>29,836 · 15.7%</em></span></div></article>
+              <article class="fov-pairs"><h3><span class="lang-en">Most common FOV pairs</span><span class="lang-zh">常见 FOV 组合</span></h3><ol><li><b>88.9° × 105.2°</b><span>317 · 0.2%</span></li><li><b>85.2° × 101.6°</b><span>310 · 0.2%</span></li><li><b>85.3° × 101.7°</b><span>308 · 0.2%</span></li><li><b>91.5° × 107.7°</b><span>307 · 0.2%</span></li><li><b>85.4° × 101.8°</b><span>301 · 0.2%</span></li><li><b>36.2° × 47.1°</b><span>296 · 0.2%</span></li><li><b>34.6° × 45.1°</b><span>295 · 0.2%</span></li><li><b>33.4° × 43.6°</b><span>293 · 0.1%</span></li><li><b>35.8° × 46.6°</b><span>292 · 0.1%</span></li><li><b>93.4° × 109.5°</b><span>292 · 0.1%</span></li></ol></article>
+            </div>
+            <p class="intrinsic-assumptions lang-en">Derivation assumes cx=W/2, cy=H/2 and zero skew because these fields are not annotated; lens-distortion coefficients are unavailable. All 190,298 samples have fx/fy within 0.98–1.02 (median 1.0000). Inspect the <a href="assets/data/ego4d-intrinsics/result.json">machine-readable report</a>.</p>
+            <p class="intrinsic-assumptions lang-zh">由于标注未提供主点与 skew，反解时假设 cx=W/2、cy=H/2 且 skew=0；畸变系数不可用。190,298 个样本的 fx/fy 均位于 0.98–1.02（中位数 1.0000）。可查看<a href="assets/data/ego4d-intrinsics/result.json">机器可读报告</a>。</p>
+          </details>
+        </section>
+
         <section class="article-section section-shell" id="method" aria-labelledby="method-title">
           <div class="reading-column"><p class="section-kicker">METHOD</p><h2 id="method-title" class="lang-en">Label once offline. Infer with one shared model.</h2><h2 class="lang-zh">离线标注一次，用一个共享模型推理</h2><div class="prose"><p class="lang-en">EgoPipeline combines hand filtering, camera calibration, monocular depth, camera tracking, bimanual reconstruction, and trajectory cleanup. Its outputs are pseudo-label supervision, not ground truth.</p><p class="lang-zh">EgoPipeline 组合手部筛选、相机标定、单目深度、相机跟踪、双手重建与轨迹清理。它的输出是伪标签监督，而不是真值。</p></div></div>
           <figure class="paper-figure"><button type="button" data-lightbox-src="assets/egopipeline.webp" data-lightbox-alt="MINT paper Figure 2: EgoPipeline stages for structured supervision generation"><img src="assets/egopipeline.webp" alt="MINT paper Figure 2 showing EgoPipeline hand filtering, camera pose, hand reconstruction, and trajectory cleanup" width="1700" height="825" loading="lazy"><span><span class="lang-en">Enlarge figure</span><span class="lang-zh">放大图片</span> ↗</span></button><figcaption><b>FIGURE 2 · PAPER</b><p class="lang-en">The offline supervision generator, from video filtering to world-coordinate transformation.</p><p class="lang-zh">离线监督生成器：从视频筛选到世界坐标变换。</p></figcaption></figure>
@@ -133,10 +326,43 @@
         </section>
 
         <section class="article-section section-shell" id="results" aria-labelledby="results-title">
-          <div class="reading-column"><p class="section-kicker">ZERO-SHOT EVALUATION</p><h2 id="results-title" class="lang-en">Unseen datasets, shared coordinates</h2><h2 class="lang-zh">未见过的数据，同一个坐标系</h2><p class="section-lead lang-en">MINT is evaluated zero-shot on HOT3D and ARCTIC. The base model uses no external hand detector or test-time optimization.</p><p class="section-lead lang-zh">MINT 在 HOT3D 与 ARCTIC 上进行零样本评测。基础模型不使用外部手部检测器或测试时优化。</p></div>
-          <div class="result-grid"><article><p>HOT3D · HAND DETECTION</p><strong>0.950</strong><span>F1 ↑</span></article><article><p>HOT3D · HAND POSE</p><strong>10.70</strong><span>PA-MPJPE-p · mm ↓</span></article><article><p>HOT3D · CAMERA</p><strong>4.69</strong><span>RPE-T · mm ↓</span></article><article><p>ARCTIC · CAMERA</p><strong>3.39</strong><span>RPE-T · mm ↓</span></article></div>
-          <div class="table-wrap" tabindex="0" aria-label="Scrollable MINT result summary"><table><caption><span class="lang-en">Selected results reported in the manuscript</span><span class="lang-zh">论文稿件中报告的部分结果</span></caption><thead><tr><th scope="col"><span class="lang-en">Evaluation</span><span class="lang-zh">评测</span></th><th scope="col">HOT3D</th><th scope="col">ARCTIC</th><th scope="col"><span class="lang-en">Protocol</span><span class="lang-zh">协议</span></th></tr></thead><tbody><tr><td>Hand detection F1 ↑</td><td><b>0.950</b></td><td><b>0.978</b></td><td>Zero-shot</td></tr><tr><td>PA-MPJPE-p ↓</td><td><b>10.70 mm</b></td><td>27.71 mm</td><td>Zero-shot</td></tr><tr><td>Camera RPE-T ↓</td><td>4.69 mm</td><td><b>3.39 mm</b></td><td><span class="lang-en">All sequences</span><span class="lang-zh">全部序列</span></td></tr><tr><td><span class="lang-en">Four-GPU throughput</span><span class="lang-zh">四卡吞吐速度</span></td><td colspan="2"><b>44.1 fps · 3.67× vs EgoPipeline</b></td><td>512 × 384 · 30 fps</td></tr></tbody></table></div>
-          <details class="evaluation-note"><summary><span class="lang-en">Evaluation notes and current limitations</span><span class="lang-zh">评测说明与当前局限</span><i aria-hidden="true">+</i></summary><div><p class="lang-en">ViDiHand is an in-domain reference in the paper and is not used to claim a zero-shot win. The optional UKF reduces hand jitter by roughly 79%, but is a separate inference filter.</p><p class="lang-zh">ViDiHand 是论文中的域内参考，不用于宣称零样本胜出。可选的 UKF 可将手部抖动降低约 79%，但它属于额外推理滤波。</p><p class="lang-en">RPE-T measures local relative camera motion, not global drift. The current checkpoint reports 181.7 mm ATE on HOT3D and a 1.412 arc-length ratio on ARCTIC. Monocular scale error and long-horizon drift can accumulate when overlapping windows are fused.</p><p class="lang-zh">RPE-T 衡量局部相对相机运动，并不代表全局无漂移。当前权重在 HOT3D 上的 ATE 为 181.7 mm，在 ARCTIC 上的轨迹弧长比为 1.412。融合重叠窗口时，单目尺度误差与长时漂移可能累积。</p></div></details>
+          <div class="reading-column"><p class="section-kicker">ZERO-SHOT BENCHMARKS</p><h2 id="results-title" class="lang-en">HOT3D and ARCTIC, in both coordinate systems</h2><h2 class="lang-zh">HOT3D 与 ARCTIC：两种坐标系下的完整评测</h2><p class="section-lead lang-en">Neither benchmark contributes images, pseudo-labels, ground truth, hyper-parameter tuning, or checkpoint selection. The base model uses no external hand detector or test-time optimization.</p><p class="section-lead lang-zh">两个 benchmark 的图像、伪标签和真值均未参与训练、高精度校准、超参数选择或 checkpoint 选择。基础模型不使用外部手部检测器或测试时优化。</p></div>
+
+          <div class="benchmark-films">
+            <figure class="video-card"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="metadata" poster="assets/media/benchmark-hands-poster.webp" width="1920" height="1080"><source src="assets/media/benchmark-hands.webm" type="video/webm"><source src="assets/media/benchmark-hands.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Pause video"><span class="lang-en">Pause</span><span class="lang-zh">暂停</span></button></div><figcaption><span>01</span><div><h3 class="lang-en">Camera-frame bimanual reconstruction</h3><h3 class="lang-zh">相机系下的双手重建</h3><p class="lang-en">The complete eight-second benchmark segment from the latest project film.</p><p class="lang-zh">来自最新版宣传片的完整 8 秒 benchmark 片段。</p></div></figcaption></figure>
+            <figure class="video-card"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="metadata" poster="assets/media/benchmark-camera-poster.webp" width="1920" height="1080"><source src="assets/media/benchmark-camera.webm" type="video/webm"><source src="assets/media/benchmark-camera.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Pause video"><span class="lang-en">Pause</span><span class="lang-zh">暂停</span></button></div><figcaption><span>02</span><div><h3 class="lang-en">World-frame camera trajectory</h3><h3 class="lang-zh">世界系下的相机轨迹</h3><p class="lang-en">Full-sequence results with SE(3)-only alignment and no fitted scale.</p><p class="lang-zh">完整序列评测，仅做 SE(3) 对齐，不拟合尺度。</p></div></figcaption></figure>
+          </div>
+
+          <article class="benchmark-block">
+            <header><span>BENCHMARK 01</span><div><h3 class="lang-en">Camera-frame bimanual reconstruction</h3><h3 class="lang-zh">相机系下的双手重建</h3><p class="lang-en">MINT is zero-shot on both datasets. MINT + UKF is the same model with an optional inference-time filter; only the jitter row changes materially.</p><p class="lang-zh">MINT 在两个数据集上均为零样本。MINT + UKF 是同一模型加可选的推理时滤波，主要改变 jitter 指标。</p></div></header>
+            <div class="benchmark-dataset-grid">
+              <section><div class="benchmark-dataset-head"><h4>HOT3D</h4><span>zero-shot</span></div><dl class="metric-matrix"><div><dt>FAcc ↑</dt><dd>0.940</dd></div><div><dt>Recall ↑</dt><dd>0.977</dd></div><div><dt>F1 ↑</dt><dd>0.950</dd></div><div><dt>MPJPE-p ↓</dt><dd>23.61 <small>mm</small></dd></div><div><dt>PA-MPJPE-p ↓</dt><dd>10.70 <small>mm</small></dd></div><div><dt>GO-p ↓</dt><dd>16.78 <small>deg</small></dd></div><div><dt>CT-p ↓</dt><dd>0.073 <small>m</small></dd></div><div><dt>Jitter ↓</dt><dd>11.52 <small>mm/frame²</small></dd></div></dl><p class="filter-result"><span>MINT + UKF</span><b>2.39</b><small>jitter · mm/frame²</small></p></section>
+              <section><div class="benchmark-dataset-head"><h4>ARCTIC</h4><span>zero-shot</span></div><dl class="metric-matrix"><div><dt>FAcc ↑</dt><dd>0.916</dd></div><div><dt>Recall ↑</dt><dd>0.957</dd></div><div><dt>F1 ↑</dt><dd>0.978</dd></div><div><dt>MPJPE-p ↓</dt><dd>51.03 <small>mm</small></dd></div><div><dt>PA-MPJPE-p ↓</dt><dd>27.71 <small>mm</small></dd></div><div><dt>GO-p ↓</dt><dd>24.19 <small>deg</small></dd></div><div><dt>CT-p ↓</dt><dd>0.140 <small>m</small></dd></div><div><dt>Jitter ↓</dt><dd>12.26 <small>mm/frame²</small></dd></div></dl><p class="filter-result"><span>MINT + UKF</span><b>2.54</b><small>jitter · mm/frame²</small></p></section>
+            </div>
+            <p class="benchmark-reading lang-en">On HOT3D, MINT outperforms its HaWoR teacher on all eight listed metrics (for example, 23.61 vs 71.40 mm MPJPE-p and 0.950 vs 0.654 F1). On ARCTIC, the current checkpoint's joint error trails specialized hand-only methods because its hand branch learned from coarse EgoPipeline pseudo-labels and received no high-precision camera-frame hand fine-tuning.</p>
+            <p class="benchmark-reading lang-zh">在 HOT3D 上，MINT 的八项指标均优于其 HaWoR 教师（例如 MPJPE-p 为 23.61 对 71.40 mm，F1 为 0.950 对 0.654）。在 ARCTIC 上，当前 checkpoint 的关节误差落后于专用手部方法，原因是手部分支仅学习了 EgoPipeline 的粗糙伪标签，尚未用高精度相机系手部数据微调。</p>
+          </article>
+
+          <article class="benchmark-block">
+            <header><span>BENCHMARK 02</span><div><h3 class="lang-en">World-frame camera trajectory</h3><h3 class="lang-zh">世界系下的相机轨迹</h3><p class="lang-en">HOT3D uses 27 full sequences / 94,978 frames; ARCTIC uses 34 P2 validation sequences / 25,883 frames. Lower is better except arc-length ratio, whose target is 1.</p><p class="lang-zh">HOT3D 使用 27 条完整序列 / 94,978 帧；ARCTIC 使用 34 条 P2 验证序列 / 25,883 帧。除弧长比目标为 1 外，其余指标均越低越好。</p></div></header>
+            <div class="table-wrap benchmark-table-wrap" tabindex="0" aria-label="MINT full-sequence camera trajectory benchmark"><table><caption><span class="lang-en">MINT · full sequences · SE(3)-only alignment · no fitted scale</span><span class="lang-zh">MINT · 完整序列 · 仅 SE(3) 对齐 · 不拟合尺度</span></caption><thead><tr><th scope="col"><span class="lang-en">Dataset</span><span class="lang-zh">数据集</span></th><th scope="col">Cov.</th><th scope="col">ATE<br><small>mean / med. · mm</small></th><th scope="col">RPE-T<br><small>mean / med. · mm</small></th><th scope="col">RPE-R<br><small>mean / med. · deg</small></th><th scope="col">Arc len.<br><small>ratio → 1</small></th><th scope="col">ATE<br><small>%</small></th></tr></thead><tbody><tr><td><b>HOT3D</b><small>94,978 frames</small></td><td>27 / 27</td><td>181.7 / 155.5</td><td><b>4.69 / 4.78</b></td><td>0.284 / 0.259</td><td>1.094</td><td>1.15</td></tr><tr><td><b>ARCTIC P2</b><small>25,883 frames</small></td><td>34 / 34</td><td>81.9 / 83.2</td><td><b>3.39 / 3.37</b></td><td>0.256 / 0.251</td><td>1.412</td><td>3.40</td></tr></tbody></table></div>
+            <div class="trajectory-context"><p class="lang-en"><b>Local motion.</b> On ARCTIC, MINT has the lowest mean RPE-T in the README table (3.39 mm; next external method 8.73 mm). On HOT3D it ranks second at 4.69 mm behind MegaSaM's 3.18 mm, while MegaSaM completes 24 / 27 sequences.</p><p class="lang-zh"><b>局部运动。</b> 在 ARCTIC 上，MINT 的平均 RPE-T 在 README 表中最低（3.39 mm；次优外部方法 8.73 mm）。在 HOT3D 上为 4.69 mm，次于 MegaSaM 的 3.18 mm；后者完成 24 / 27 条序列。</p><p class="lang-en"><b>Global drift and scale.</b> For this checkpoint, HOT3D ATE is 181.7 mm versus DROID-SLAM's 49.1 mm. Arc-length ratios of 1.094 and 1.412 show remaining trajectory-scale enlargement after the limited Stage-2 trajectory correction; they do not establish an architectural limit.</p><p class="lang-zh"><b>全局漂移与尺度。</b> 当前 checkpoint 的 HOT3D ATE 为 181.7 mm，而 DROID-SLAM 为 49.1 mm。1.094 与 1.412 的弧长比表明，小规模 Stage 2 轨迹校正后仍有尺度放大；这并不能说明模型结构已达到上限。</p></div>
+          </article>
+
+          <aside class="benchmark-ceiling" aria-labelledby="benchmark-ceiling-title">
+            <header><span>READ THE NUMBERS IN CONTEXT</span><div><h3 id="benchmark-ceiling-title" class="lang-en">Current results are not an architectural ceiling</h3><h3 class="lang-zh">当前测评结果不是方法的结构上限</h3><p class="lang-en">These scores describe one checkpoint trained under the supervision currently available and measured against imperfect references. They should not be read as the maximum capability of the MINT architecture.</p><p class="lang-zh">这些数字描述的是一个 checkpoint 在现有监督条件下、相对于非完美评测参考所测得的结果，不应被理解为 MINT 架构能力的上限。</p></div></header>
+            <div class="ceiling-grid">
+              <article><span>01</span><h4 class="lang-en">The missing fine-tune</h4><h4 class="lang-zh">缺少的高精度微调</h4><p class="lang-en">Stage 1 learned hand motion from coarse EgoPipeline pseudo-labels. Stage 2 used a small high-precision trajectory set to correct only camera motion; the hand, presence, and FOV modules stayed frozen. No high-precision camera-frame hand supervision was available for a second-stage hand fine-tune.</p><p class="lang-zh">Stage 1 的手部监督来自 EgoPipeline 粗糙伪标签。Stage 2 只用小规模高精度轨迹数据校正相机运动，手部、存在性和 FOV 模块均被冻结；目前没有高精度相机系手部数据用于二阶段手部微调。</p></article>
+              <article><span>02</span><h4 class="lang-en">The teacher test</h4><h4 class="lang-zh">教师验证</h4><p class="lang-en">HaWoR generated every camera-frame MANO label used to train this checkpoint. MINT matches or surpasses that teacher: all eight listed HOT3D metrics improve, while ARCTIC orientation and translation improve with comparable Procrustes-aligned joint error. The unified student can reproduce—and sometimes improve—the cascade it distills.</p><p class="lang-zh">HaWoR 生成了该 checkpoint 训练所用的全部相机系 MANO 标签。MINT 已追平或超过这个教师：HOT3D 八项指标全部提升，ARCTIC 的朝向与平移更好，Procrustes 对齐关节误差相当。统一学生模型能够复现、并在部分指标上改进其蒸馏来源。</p></article>
+              <article><span>03</span><h4 class="lang-en">References are not infallible</h4><h4 class="lang-zh">评测参考并非绝对真值</h4><p class="lang-en">HOT3D and ARCTIC annotations are measured references, not error-free absolute truth. Hand labels, camera calibration, temporal synchronization, and protocol choices can all introduce uncertainty. The scores characterize this checkpoint under the stated protocol; they do not isolate the model's intrinsic capacity.</p><p class="lang-zh">HOT3D 与 ARCTIC 的标注是测量得到的评测参考，并非完全无误差的绝对真值；手部标注、相机标定、时间同步和协议选择都可能引入不确定性。因此，分数反映的是当前 checkpoint 在既定协议下的表现，不能单独等同于方法本身的能力。</p></article>
+            </div>
+            <p class="ceiling-conclusion lang-en"><b>The remaining gap is primarily a data problem, not evidence that the unified design has reached its limit.</b> High-precision camera-frame hand fine-tuning is the next step; it does not require redesigning the architecture.</p>
+            <p class="ceiling-conclusion lang-zh"><b>剩余差距首先是数据问题，并不说明统一模型设计已达到极限。</b> 下一步应使用高精度相机系手部数据继续微调，而不是重新设计模型结构。</p>
+          </aside>
+
+          <details class="evaluation-note"><summary><span class="lang-en">Evaluation protocol and metric notes</span><span class="lang-zh">评测协议与指标说明</span><i aria-hidden="true">+</i></summary><div><p class="lang-en">Official splits are made by original video ID before clipping and by participant where available. Camera trajectories are evaluated over complete sequences with SE(3)-only alignment. RPE-T measures local relative camera motion; it does not imply low global drift.</p><p class="lang-zh">官方划分在切片前按原始视频 ID 完成，在参与者 ID 可用时也按参与者隔离。相机轨迹在完整序列上仅做 SE(3) 对齐。RPE-T 衡量局部相对相机运动，并不代表全局漂移很低。</p><p class="lang-en">ViDiHand trained on most of both hand benchmarks and is reference-only. The optional UKF is a separate inference filter. Benchmark implementations and aggregation logic are available in the project repository.</p><p class="lang-zh">ViDiHand 在两个手部 benchmark 的大部分数据上训练过，因此仅作参考。可选 UKF 属于独立推理滤波。benchmark 实现与聚合逻辑均已在项目仓库公开。</p></div></details>
+
+          <aside class="benchmark-integrity" aria-labelledby="integrity-title"><span>REPRODUCIBILITY · INTEGRITY</span><div><h3 id="integrity-title" class="lang-en">Benchmark result integrity statement</h3><h3 class="lang-zh">Benchmark 结果诚信声明</h3><p class="lang-en">Every metric reported by this project is an actual result obtained under the stated evaluation protocol; no raw value has been manually altered. To reproduce another method or baseline exactly, use its official repository and original environment. MINT's metric definitions, alignment rules, aggregation logic, and reporting code are public in the <a href="https://github.com/wuji-technology/wuji-ego-mint/tree/main/eval/model_effect/benchmark" target="_blank" rel="noreferrer">benchmark implementation</a> for direct inspection. Acknowledging uncertainty in measured references does not change this reporting commitment.</p><p class="lang-zh">我们承诺，本项目报告的每一项测试指标均为按照所述评测协议实际运行所得的真实结果，不会对原始数值进行任何人为修改。如需精确复现其他方法或 baseline 的具体数值，请直接使用对应方法的官方仓库与原始环境。MINT 使用的指标定义、对齐规则、聚合逻辑和报告代码均公开在 <a href="https://github.com/wuji-technology/wuji-ego-mint/tree/main/eval/model_effect/benchmark" target="_blank" rel="noreferrer">benchmark 实现</a>中，可直接检查具体计算方式。承认测量参考存在不确定性，并不改变这一结果报告承诺。</p></div></aside>
         </section>
 
         <section class="article-section section-shell" id="resources" aria-labelledby="resources-title">
@@ -148,8 +374,8 @@
         <section class="article-section section-shell citation-section" id="citation" aria-labelledby="citation-title">
           <div class="reading-column"><p class="section-kicker">CITATION</p><h2 id="citation-title" class="lang-en">Cite MINT</h2><h2 class="lang-zh">引用 MINT</h2></div>
           <div class="bibtex-card"><div><span>BIBTEX</span><button type="button" data-copy-bibtex><span class="lang-en">Copy</span><span class="lang-zh">复制</span> <i aria-hidden="true">⧉</i></button></div><pre id="bibtex" tabindex="0" aria-label="BibTeX citation"><code>@misc{zhu2026mint,
-  title  = {MINT: Minting a Unified Model for World-Space Camera
-            and Hand Motion from Scalable Egocentric Pipeline Supervision},
+  title  = {MINT: A Unified Model for World-Space Camera and Hand Motion
+            Estimation from Scalable Egocentric Pipeline Supervision},
   author = {Zhu, Zijie and Cai, Weiren and Wang, Yizhou and Yang,
             Zhenjie and Liu, Yide and Chen, Jiahao and He, Guanqi},
   year   = {2026},
