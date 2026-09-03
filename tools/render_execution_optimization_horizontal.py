@@ -223,7 +223,7 @@ def main() -> None:
     parser.add_argument(
         "--out",
         type=Path,
-        default=Path("assets/pipeline/execution-optimization-horizontal.svg"),
+        default=Path("assets/pipeline/execution-optimization-horizontal.png"),
     )
     args = parser.parse_args()
 

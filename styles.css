@@ -1241,7 +1241,6 @@ blockquote p { margin: 0; font-size: 20px; line-height: 1.45; }
 .intrinsic-assumptions { margin: 0 0 14px; color: var(--muted); font-size: 13px; line-height: 1.45; }
 .intrinsic-assumptions a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 
-.benchmark-films { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 26px; }
 .article-section#samples > .reading-column { width: var(--page); }
 .article-section#samples > .reading-column h2 { max-width: none; font-size: clamp(32px, 3.5vw, 46px); white-space: nowrap; }
 .article-section#samples .section-lead { max-width: 1180px; }
@@ -1461,7 +1460,6 @@ td b { color: var(--accent); font-weight: 600; }
   .method-points,
   .corpus-total,
   .intrinsic-kpis,
-  .benchmark-films,
   .trajectory-context,
   .ceiling-grid,
   .ratio-grid { grid-template-columns: 1fr; }
