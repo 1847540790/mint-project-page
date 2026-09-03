@@ -483,6 +483,12 @@ h2 {
   line-height: 1.65;
 }
 
+.highlight-intro { width: var(--page); }
+.highlight-intro h2 { max-width: none; }
+.highlight-intro h2.lang-zh,
+.highlight-intro .section-lead.lang-zh { max-width: none; white-space: nowrap; }
+.highlight-intro .section-lead.lang-zh { font-size: clamp(13px, 1.9vw, 19px); }
+
 .highlight-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1058,6 +1064,9 @@ td b { color: var(--accent); font-weight: 600; }
   .section-kicker { margin-bottom: 16px; }
   h2 { font-size: 34px; }
   .section-lead { font-size: 17px; }
+  .highlight-intro h2.lang-zh,
+  .highlight-intro .section-lead.lang-zh { white-space: normal; }
+  .highlight-intro .section-lead.lang-zh { font-size: 17px; }
   .main-film figcaption,
   .paper-figure figcaption { grid-template-columns: 82px 1fr; gap: 12px; }
   .film-chapters { display: flex; padding-bottom: 7px; overflow-x: auto; scroll-snap-type: x mandatory; }
