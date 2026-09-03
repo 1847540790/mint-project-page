@@ -19,7 +19,7 @@ Source: `wuji_data_pipeline_distill.pdf`
 Source: `MINT_v2_revised_music_enhanced_compact.mp4`, 1920 x 1080 at 30 fps,
 133.434 seconds. `assets/media/mint-film-compact.mp4` is a byte-for-byte copy;
 both files have SHA-256
-`e25b67ffdc62cf326aed7cf63f837921733d02e9f0d48df55bdc66d3b254934d`.
+`af90f751556dc6fd9b06748710a0a0de8fae06ddd412d6d74b73b9e09a01a3d3`.
 
 | Website asset | Source interval or frame |
 | --- | --- |
