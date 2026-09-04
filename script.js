@@ -306,6 +306,7 @@ projectFilm?.addEventListener("timeupdate", () => {
 });
 
 const loopVideos = [...document.querySelectorAll("[data-loop-video]")];
+const challengingVideos = [...document.querySelectorAll("#videos > .video-grid--three [data-loop-video]")];
 const sampleTabs = [...document.querySelectorAll("[data-sample-tab]")];
 const samplePanels = [...document.querySelectorAll("[data-sample-panel]")];
 const sampleSection = document.querySelector("#samples");
@@ -378,6 +379,19 @@ function activeSamplePanel() {
 
 function activeSampleVideos() {
   return [...(activeSamplePanel()?.querySelectorAll("video") || [])];
+}
+
+function playChallengingVideos() {
+  challengingVideos.forEach((video) => {
+    video.muted = true;
+    video.play().catch(() => {});
+  });
+}
+
+function pauseNonChallengingVideos(except) {
+  loopVideos.forEach((video) => {
+    if (video !== except && !challengingVideos.includes(video)) video.pause();
+  });
 }
 
 function updateSamplePlayAll() {
@@ -516,15 +530,15 @@ function showSample(key) {
 }
 
 loopVideos.forEach((video) => {
-  video.preload = "none";
+  const isChallengingVideo = challengingVideos.includes(video);
+  video.preload = isChallengingVideo ? "auto" : "none";
+  video.autoplay = isChallengingVideo;
   const button = videoButton(video);
   const progress = videoProgress(video);
   button?.addEventListener("click", () => {
     if (video.paused) {
       stopSynchronizedPlayback();
-      loopVideos.forEach((otherVideo) => {
-        if (otherVideo !== video) otherVideo.pause();
-      });
+      pauseNonChallengingVideos(video);
       projectFilm?.pause();
       video.play().catch(() => {});
     } else {
@@ -546,7 +560,7 @@ loopVideos.forEach((video) => {
     }
   });
   video.addEventListener("play", () => {
-    stopSampleAdvance();
+    if (activeSampleVideos().includes(video)) stopSampleAdvance();
     updateVideoButton(video);
     updateSamplePlayAll();
   });
@@ -560,6 +574,7 @@ loopVideos.forEach((video) => {
   updateVideoButton(video);
   updateVideoProgress(video);
 });
+playChallengingVideos();
 
 if (sampleTabs.length) {
   sampleTabs.forEach((tab) => {
@@ -588,7 +603,7 @@ samplePlayAll?.addEventListener("click", async () => {
   }
   stopSampleAdvance();
   stopSynchronizedPlayback();
-  loopVideos.forEach((video) => video.pause());
+  pauseNonChallengingVideos();
   projectFilm?.pause();
   const generation = synchronizationGeneration;
   synchronizedPlaybackPending = true;
@@ -614,7 +629,7 @@ samplePlayAll?.addEventListener("click", async () => {
 
 projectFilm?.addEventListener("play", () => {
   stopSynchronizedPlayback();
-  loopVideos.forEach((video) => video.pause());
+  pauseNonChallengingVideos();
 });
 
 document.addEventListener("visibilitychange", () => {
@@ -624,6 +639,7 @@ document.addEventListener("visibilitychange", () => {
     stopSampleAdvance();
     stopDiversityAdvance();
   } else {
+    playChallengingVideos();
     scheduleSampleAdvance();
     scheduleDiversityAdvance();
   }
