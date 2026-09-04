@@ -1219,6 +1219,9 @@ blockquote p { margin: 0; font-size: 20px; line-height: 1.45; }
 .benchmark-ceiling > header h3 { max-width: none; margin: 0; font-size: clamp(24px, 2.75vw, 35px); font-weight: 570; letter-spacing: -.045em; line-height: 1.12; }
 .benchmark-ceiling > header h3.lang-en { font-size: clamp(22px, 2.1vw, 28px); }
 .ceiling-conclusion { margin: 0; padding: 16px 26px 18px; color: var(--soft); background: var(--muted); font-size: 17px; line-height: 1.45; }
+.benchmark-ceiling ul.ceiling-conclusion { padding-left: 50px; }
+.ceiling-conclusion li + li { margin-top: 10px; }
+.ceiling-conclusion li::marker { color: var(--white); }
 .ceiling-conclusion b { color: #fff; }
 
 .result-grid {
