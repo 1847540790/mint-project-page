@@ -415,6 +415,7 @@ h2 {
 .paper-figure figcaption {
   display: grid;
   grid-template-columns: 128px 1fr;
+  align-items: baseline;
   gap: 24px;
   padding: 12px 4px 0;
   color: var(--muted);
@@ -622,6 +623,7 @@ blockquote p { margin: 0; font-size: 20px; line-height: 1.45; }
 
 .sample-play-all:hover,
 .sample-play-all.is-playing { background: var(--accent-dark); border-color: var(--accent-dark); }
+.sample-play-all.is-loading { cursor: wait; opacity: .78; }
 
 .sample-views {
   display: grid;

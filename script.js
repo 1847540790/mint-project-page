@@ -315,6 +315,8 @@ let sampleAdvanceTimer;
 let samplesInView = false;
 let synchronizedVideos = [];
 let synchronizationFrame;
+let synchronizationGeneration = 0;
+let synchronizedPlaybackPending = false;
 
 function videoButton(video) {
   const frame = video.closest(".loop-frame");
@@ -383,15 +385,21 @@ function updateSamplePlayAll() {
   const videos = activeSampleVideos();
   const allPlaying = videos.length > 0 && videos.every((video) => !video.paused);
   samplePlayAll.classList.toggle("is-playing", allPlaying);
+  samplePlayAll.classList.toggle("is-loading", synchronizedPlaybackPending);
+  samplePlayAll.disabled = synchronizedPlaybackPending;
   samplePlayAll.setAttribute("aria-pressed", String(allPlaying));
-  samplePlayAll.querySelector(".lang-en").textContent = allPlaying
+  samplePlayAll.querySelector(".lang-en").textContent = synchronizedPlaybackPending
+    ? "Preparing 8 videos"
+    : allPlaying
     ? "Pause all 8 videos"
     : "Play all 8 synchronously";
-  samplePlayAll.querySelector(".lang-zh").textContent = allPlaying
+  samplePlayAll.querySelector(".lang-zh").textContent = synchronizedPlaybackPending
+    ? "正在准备 8 个视频"
+    : allPlaying
     ? "暂停全部 8 个视频"
     : "同步播放全部 8 个视频";
   const icon = samplePlayAll.querySelector("[data-sample-play-icon]");
-  if (icon) icon.textContent = allPlaying ? "Ⅱ" : "▶";
+  if (icon) icon.textContent = synchronizedPlaybackPending ? "..." : allPlaying ? "Ⅱ" : "▶";
 }
 
 function stopSampleAdvance() {
@@ -402,7 +410,7 @@ function stopSampleAdvance() {
 
 function scheduleSampleAdvance() {
   stopSampleAdvance();
-  if (!sampleTabs.length || !samplesInView || document.hidden || activeSampleVideos().some((video) => !video.paused)) return;
+  if (!sampleTabs.length || !samplesInView || document.hidden || synchronizedPlaybackPending || activeSampleVideos().some((video) => !video.paused)) return;
   const activeTab = sampleTabs.find((tab) => tab.classList.contains("is-active"));
   if (activeTab) {
     void activeTab.offsetWidth;
@@ -416,11 +424,65 @@ function scheduleSampleAdvance() {
 }
 
 function stopSynchronizedPlayback({ pause = true } = {}) {
+  synchronizationGeneration += 1;
+  synchronizedPlaybackPending = false;
   window.cancelAnimationFrame(synchronizationFrame);
   const previousVideos = synchronizedVideos;
   synchronizedVideos = [];
-  if (pause) previousVideos.forEach((video) => video.pause());
+  previousVideos.forEach((video) => {
+    video.playbackRate = 1;
+    if (pause) video.pause();
+  });
   updateSamplePlayAll();
+}
+
+function videoCanPlayThrough(video) {
+  if (video.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA) return true;
+  if (!Number.isFinite(video.duration) || video.duration <= 0) return false;
+  for (let index = 0; index < video.buffered.length; index += 1) {
+    if (video.buffered.start(index) <= 0.05 && video.buffered.end(index) >= video.duration - 0.05) return true;
+  }
+  return false;
+}
+
+function prepareSynchronizedVideo(video) {
+  video.pause();
+  video.preload = "auto";
+  if (videoCanPlayThrough(video)) return Promise.resolve();
+  return new Promise((resolve, reject) => {
+    const sources = [...video.querySelectorAll("source")];
+    const timeout = window.setTimeout(() => fail(new Error("Video loading timed out")), 30000);
+    const cleanup = () => {
+      window.clearTimeout(timeout);
+      video.removeEventListener("canplaythrough", check);
+      video.removeEventListener("progress", check);
+      video.removeEventListener("error", fail);
+      sources.forEach((source) => source.removeEventListener("error", fail));
+    };
+    const check = () => {
+      if (!videoCanPlayThrough(video)) return;
+      cleanup();
+      resolve();
+    };
+    const fail = () => {
+      cleanup();
+      reject(video.error || new Error("Video could not be loaded"));
+    };
+    video.addEventListener("canplaythrough", check);
+    video.addEventListener("progress", check);
+    video.addEventListener("error", fail);
+    sources.forEach((source) => source.addEventListener("error", fail));
+    video.load();
+    check();
+  });
+}
+
+function resetSynchronizedVideo(video) {
+  if (Math.abs(video.currentTime) < 0.001) return Promise.resolve();
+  return new Promise((resolve) => {
+    video.addEventListener("seeked", resolve, { once: true });
+    video.currentTime = 0;
+  });
 }
 
 function maintainSynchronization() {
@@ -428,7 +490,7 @@ function maintainSynchronization() {
   const leader = synchronizedVideos.find((video) => !video.paused);
   if (leader) {
     synchronizedVideos.forEach((video) => {
-      if (!video.paused && Math.abs(video.currentTime - leader.currentTime) > 0.12) {
+      if (!video.paused && Math.abs(video.currentTime - leader.currentTime) > 0.045) {
         video.currentTime = leader.currentTime;
       }
     });
@@ -516,7 +578,7 @@ if (sampleSection && "IntersectionObserver" in window) {
   sampleObserver.observe(sampleSection);
 }
 
-samplePlayAll?.addEventListener("click", () => {
+samplePlayAll?.addEventListener("click", async () => {
   const videos = activeSampleVideos();
   if (!videos.length) return;
   if (videos.every((video) => !video.paused)) {
@@ -528,13 +590,26 @@ samplePlayAll?.addEventListener("click", () => {
   stopSynchronizedPlayback();
   loopVideos.forEach((video) => video.pause());
   projectFilm?.pause();
+  const generation = synchronizationGeneration;
+  synchronizedPlaybackPending = true;
+  updateSamplePlayAll();
+  try {
+    await Promise.all(videos.map(prepareSynchronizedVideo));
+  } catch (_) {
+    if (generation === synchronizationGeneration) stopSynchronizedPlayback();
+    return;
+  }
+  if (generation !== synchronizationGeneration) return;
+  await Promise.all(videos.map(resetSynchronizedVideo));
+  if (generation !== synchronizationGeneration) return;
   synchronizedVideos = videos;
-  videos.forEach((video) => {
-    try { video.currentTime = 0; } catch (_) {}
-    video.play().catch(() => updateSamplePlayAll());
-  });
+  synchronizedPlaybackPending = false;
+  const playRequests = videos.map((video) => video.play());
   maintainSynchronization();
   updateSamplePlayAll();
+  Promise.all(playRequests).catch(() => {
+    if (generation === synchronizationGeneration) stopSynchronizedPlayback();
+  });
 });
 
 projectFilm?.addEventListener("play", () => {
