@@ -1258,8 +1258,9 @@ td b { color: var(--accent); font-weight: 600; }
 .resource-list b { font-size: 20px; }
 .resource-list i { font-style: normal; }
 
-.citation-section { display: grid; grid-template-columns: minmax(210px, 0.46fr) minmax(0, 1fr); gap: 36px; align-items: start; }
-.citation-section .reading-column { width: auto; margin: 0; }
+.citation-section { display: grid; grid-template-columns: 1fr; gap: 18px; align-items: start; }
+.citation-section .reading-column { width: 100%; margin: 0; }
+.citation-section h2 { font-size: clamp(26px, 2.6vw, 36px); }
 
 .bibtex-card { overflow: hidden; background: var(--ink); border-radius: var(--radius); }
 .bibtex-card > div { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; color: var(--line); border-bottom: 1px solid rgb(255 255 255 / 10%); font-family: "IBM Plex Mono", monospace; font-size: 14px; }
@@ -1388,7 +1389,7 @@ td b { color: var(--accent); font-weight: 600; }
   .paper-figure > button { padding: 10px; }
   .method-points { gap: 22px; }
   .result-grid article { min-height: 132px; }
-  .citation-section { grid-template-columns: 1fr; gap: 22px; }
+  .citation-section { gap: 16px; }
   .bibtex-card pre { font-size: 14px; }
   .footer-inner { align-items: flex-start; flex-direction: column; gap: 20px; }
   .footer-inner > div:last-child { flex-wrap: wrap; }
