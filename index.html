@@ -14,7 +14,7 @@
     <title>MINT — World-Space Camera and Hand Motion Estimation</title>
     <link rel="icon" href="assets/favicon.svg?v=3" type="image/svg+xml">
     <link rel="preload" href="assets/fonts/space-grotesk-variable.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.min.css?v=9">
+    <link rel="stylesheet" href="styles.min.css?v=10">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -137,12 +137,6 @@
         <section class="article-section section-shell pipeline-section" id="pipeline" aria-labelledby="pipeline-title">
           <div class="reading-column"><h2 id="pipeline-title" class="lang-en">Scalable pseudo-label generation with EgoPipeline</h2><h2 class="lang-zh">EgoPipeline 规模化生成伪标签</h2></div>
           <figure class="paper-figure pipeline-map"><button type="button" data-lightbox-src="assets/egopipeline.webp" data-lightbox-alt="MINT paper Figure 2: complete EgoPipeline with the world-frame hand-motion result in P4"><img src="assets/egopipeline.webp" alt="MINT paper Figure 2 showing hand filtering, camera calibration, depth, tracking, hand reconstruction, and trajectory cleanup, with the world-frame hand-motion visualization in P4" width="1700" height="825" loading="lazy"><span><span class="lang-en">Enlarge figure</span><span class="lang-zh">放大图片</span> ↗</span></button><figcaption><b>FIGURE 2</b><p class="lang-en">EgoPipeline stages.</p><p class="lang-zh">EgoPipeline 处理阶段。</p></figcaption></figure>
-
-          <div class="pipeline-callout">
-            <p class="lang-en">A Ray-based multi-GPU scheduler runs calibration, depth, SLAM, hand reconstruction, and trajectory cleanup to generate pseudo-labels.</p>
-            <p class="lang-zh">基于 Ray 的多 GPU 调度执行标定、深度估计、SLAM、手部重建与轨迹清理，用于生成伪标签。</p>
-            <div><span><b>1,021 h</b><small class="lang-en">structured supervision</small><small class="lang-zh">结构化监督</small></span><span><b>560,649</b><small class="lang-en">filtered episodes</small><small class="lang-zh">筛选后片段</small></span><span><b>110.3 M</b><small class="lang-en">frames retained</small><small class="lang-zh">保留帧数</small></span></div>
-          </div>
 
         </section>
 

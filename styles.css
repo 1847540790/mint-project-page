@@ -811,46 +811,6 @@ blockquote p { margin: 0; font-size: 20px; line-height: 1.45; }
 
 .pipeline-map { margin-top: 22px; }
 
-.pipeline-callout {
-  margin-top: 24px;
-  padding: clamp(20px, 2.4vw, 28px);
-  background: var(--soft-blue);
-  border-left: 4px solid var(--accent);
-  border-radius: 0 var(--radius) var(--radius) 0;
-}
-
-.pipeline-callout > p {
-  max-width: none;
-  margin: 0;
-  color: var(--ink);
-  font-size: clamp(21px, 2.7vw, 34px);
-  font-weight: 550;
-  line-height: 1.35;
-  letter-spacing: -.035em;
-}
-
-.pipeline-callout > div {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  margin-top: 18px;
-  overflow: hidden;
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-
-.pipeline-callout span {
-  display: grid;
-  min-height: 86px;
-  align-content: space-between;
-  padding: 14px;
-  background: rgb(255 255 255 / 72%);
-}
-
-.pipeline-callout b { color: var(--accent); font-size: clamp(25px, 3vw, 38px); letter-spacing: -.045em; }
-.pipeline-callout small { color: var(--muted); font-size: 16px; font-weight: 520; }
-
 .prose { margin-top: 20px; }
 .prose p { margin: 0 0 12px; color: var(--muted); font-size: 18px; line-height: 1.5; }
 
@@ -1401,9 +1361,6 @@ td b { color: var(--accent); font-weight: 600; }
   .corpus-total { grid-template-columns: 1fr; }
   .video-subhead { display: block; }
   .video-subhead h3 { margin-top: 9px; }
-  .pipeline-callout > p.lang-zh { white-space: normal; }
-  .pipeline-callout > div,
-  .pipeline-callout span { min-height: 82px; }
   .dataset-panel { padding: 20px 18px; }
   .diversity-tabs { grid-template-columns: repeat(2, 1fr); }
   .dataset-header { grid-template-columns: 1fr; gap: 16px; }
