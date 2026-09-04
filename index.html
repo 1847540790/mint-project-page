@@ -14,7 +14,7 @@
     <title>MINT — World-Space Camera and Hand Motion Estimation</title>
     <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
     <link rel="preload" href="assets/fonts/space-grotesk-variable.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.min.css?v=7">
+    <link rel="stylesheet" href="styles.min.css?v=8">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -46,12 +46,11 @@
 
     <header class="site-header" data-header>
       <div class="nav-shell">
-        <a class="wordmark" href="#top" aria-label="MINT home"><span class="wordmark-dot" aria-hidden="true"></span><b>MINT</b></a>
         <nav class="desktop-nav" aria-label="Primary navigation">
           <a href="#film"><span class="lang-en">Film</span><span class="lang-zh">影片</span></a>
           <a href="#videos"><span class="lang-en">Cases</span><span class="lang-zh">案例</span></a>
           <a href="#pipeline"><span class="lang-en">Pipeline</span><span class="lang-zh">管线</span></a>
-          <a href="#diversity"><span class="lang-en">Data</span><span class="lang-zh">数据</span></a>
+          <a href="#diversity"><span class="lang-en">Task composition</span><span class="lang-zh">任务组成</span></a>
           <a href="#method"><span class="lang-en">Method</span><span class="lang-zh">方法</span></a>
           <a href="#samples"><span class="lang-en">Samples</span><span class="lang-zh">样例</span></a>
           <a href="#results"><span class="lang-en">Benchmarks</span><span class="lang-zh">评测</span></a>
@@ -66,18 +65,19 @@
         <a href="#film"><span class="lang-en">Overview video</span><span class="lang-zh">概览视频</span><i>01</i></a>
         <a href="#videos"><span class="lang-en">Video examples</span><span class="lang-zh">视频样例</span><i>02</i></a>
         <a href="#pipeline"><span class="lang-en">EgoPipeline</span><span class="lang-zh">传统管线</span><i>03</i></a>
-        <a href="#diversity"><span class="lang-en">Data diversity</span><span class="lang-zh">数据多样性</span><i>04</i></a>
-        <a href="#intrinsics"><span class="lang-en">Camera intrinsics</span><span class="lang-zh">相机内参</span><i>05</i></a>
-        <a href="#method"><span class="lang-en">Method</span><span class="lang-zh">方法</span><i>06</i></a>
-        <a href="#samples"><span class="lang-en">HOT3D outputs</span><span class="lang-zh">HOT3D 输出</span><i>07</i></a>
-        <a href="#results"><span class="lang-en">Benchmarks</span><span class="lang-zh">评测</span><i>08</i></a>
+        <a href="#diversity"><span class="lang-en">Dataset task composition</span><span class="lang-zh">数据集任务组成</span><i>04</i></a>
+        <a href="#method"><span class="lang-en">Method</span><span class="lang-zh">方法</span><i>05</i></a>
+        <a href="#samples"><span class="lang-en">HOT3D outputs</span><span class="lang-zh">HOT3D 输出</span><i>06</i></a>
+        <a href="#results"><span class="lang-en">Benchmarks</span><span class="lang-zh">评测</span><i>07</i></a>
       </nav>
     </header>
 
     <main id="main">
       <article>
         <header class="article-hero" id="top">
-          <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"></span>舞肌 · 2026</p>
+          <p class="hero-vision lang-en"><span>We hope MINT can empower everyone to produce egocentric data,</span><span>scale its production and validation.</span></p>
+          <p class="hero-vision lang-zh"><span>我们希望 MINT 可以让所有人具备生产 Ego 数据的能力，推动 Ego 数据走向更大规模的生产与验证。</span></p>
+          <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"></span><span class="lang-en">WUJI · 2026</span><span class="lang-zh">舞肌 · 2026</span></p>
           <h1 class="hero-title lang-en">MINT: A Unified Model for World-Space Camera and Hand Motion Estimation from Scalable Egocentric Pipeline Supervision</h1>
           <h1 class="hero-title lang-zh">MINT：基于可扩展第一视角管线监督的世界坐标系相机与手部运动估计统一模型</h1>
           <p class="authors lang-en">Zijie Zhu<sup>1,3,4</sup>, Weiren Cai<sup>3</sup>, Yizhou Wang<sup>1,3</sup>, Zhenjie Yang<sup>4</sup>, Yide Liu<sup>3,5</sup>, Jiahao Chen<sup>3,*</sup>, Guanqi He<sup>2,3,*</sup></p>
@@ -152,8 +152,8 @@
 
         <section class="article-section section-shell diversity-section" id="diversity" aria-labelledby="diversity-title">
           <div class="reading-column">
-            <h2 id="diversity-title" class="lang-en">Data diversity</h2>
-            <h2 class="lang-zh">数据多样性</h2>
+            <h2 id="diversity-title" class="lang-en">Dataset task composition</h2>
+            <h2 class="lang-zh">数据集任务组成</h2>
           </div>
 
           <div class="corpus-total" role="group" aria-label="Combined corpus totals">
@@ -284,60 +284,6 @@
               </div>
             </article>
           </div>
-        </section>
-
-        <section class="article-section section-shell intrinsics-section" id="intrinsics" aria-labelledby="intrinsics-title">
-          <div class="reading-column">
-            <h2 id="intrinsics-title" class="lang-en">Ego4D camera-intrinsic distribution</h2>
-            <h2 class="lang-zh">Ego4D 相机内参分布</h2>
-            <p class="section-lead lang-en">One first-frame estimate per episode describes the camera fields of view represented in the pretraining data.</p>
-            <p class="section-lead lang-zh">每个片段取首帧估计，用于描述预训练数据覆盖的相机视场角。</p>
-          </div>
-
-          <div class="intrinsic-kpis">
-            <article><span class="kpi-label"><span class="lang-en">Sampling</span><span class="lang-zh">采样策略</span></span><strong>190,298</strong><p class="lang-en">first-frame FOV samples</p><p class="lang-zh">episode 首帧 FOV 样本</p><small>190,298 / 190,298 · 100.0%</small></article>
-            <article><span class="kpi-label"><span class="lang-en">Vertical FOV</span><span class="lang-zh">垂直 FOV</span></span><strong>63.40°</strong><p><span class="lang-en">median</span><span class="lang-zh">中位数</span></p><small>P25 42.4° · P95 97.1°</small></article>
-            <article><span class="kpi-label"><span class="lang-en">Horizontal FOV</span><span class="lang-zh">水平 FOV</span></span><strong>78.94°</strong><p><span class="lang-en">median</span><span class="lang-zh">中位数</span></p><small>P25 54.7° · P95 113.0°</small></article>
-            <article><span class="kpi-label"><span class="lang-en">Pixel focal length</span><span class="lang-zh">像素焦距</span></span><strong class="focal-pair">621.7 / 621.7</strong><p>fx / fy · px</p><small>fx / fy = 1.0000 · 1,272 shards</small></article>
-          </div>
-
-          <div class="histogram-grid">
-            <article><header><h3 class="lang-en">Vertical FOV</h3><h3 class="lang-zh">垂直 FOV</h3><span><span class="lang-en">9 bins · 190,298 samples</span><span class="lang-zh">9 个区间 · 190,298 个样本</span></span></header><div class="histogram" role="img" aria-label="Ego4D vertical field of view distribution">
-              <div><b>&lt;30°</b><i><span style="--value:3.86"></span></i><em>7,345 · 3.9%</em></div>
-              <div><b>30°–45°</b><i><span style="--value:24.96"></span></i><em>47,502 · 25.0%</em></div>
-              <div><b>45°–60°</b><i><span style="--value:17.43"></span></i><em>33,175 · 17.4%</em></div>
-              <div><b>60°–75°</b><i><span style="--value:18.01"></span></i><em>34,271 · 18.0%</em></div>
-              <div><b>75°–90°</b><i><span style="--value:20.77"></span></i><em>39,529 · 20.8%</em></div>
-              <div><b>90°–105°</b><i><span style="--value:14.21"></span></i><em>27,050 · 14.2%</em></div>
-              <div><b>105°–120°</b><i><span style="--value:.71"></span></i><em>1,356 · 0.7%</em></div>
-              <div><b>120°–150°</b><i><span style="--value:.04"></span></i><em>70 · 0.0%</em></div>
-              <div><b>≥150°</b><i><span style="--value:0"></span></i><em>0 · 0.0%</em></div>
-            </div></article>
-            <article><header><h3 class="lang-en">Horizontal FOV</h3><h3 class="lang-zh">水平 FOV</h3><span><span class="lang-en">9 bins · 190,298 samples</span><span class="lang-zh">9 个区间 · 190,298 个样本</span></span></header><div class="histogram" role="img" aria-label="Ego4D horizontal field of view distribution">
-              <div><b>&lt;30°</b><i><span style="--value:.05"></span></i><em>91 · 0.1%</em></div>
-              <div><b>30°–45°</b><i><span style="--value:11.35"></span></i><em>21,591 · 11.3%</em></div>
-              <div><b>45°–60°</b><i><span style="--value:19.96"></span></i><em>37,989 · 20.0%</em></div>
-              <div><b>60°–75°</b><i><span style="--value:14.73"></span></i><em>28,036 · 14.7%</em></div>
-              <div><b>75°–90°</b><i><span style="--value:16.67"></span></i><em>31,729 · 16.7%</em></div>
-              <div><b>90°–105°</b><i><span style="--value:20.26"></span></i><em>38,548 · 20.3%</em></div>
-              <div><b>105°–120°</b><i><span style="--value:16.20"></span></i><em>30,831 · 16.2%</em></div>
-              <div><b>120°–150°</b><i><span style="--value:.78"></span></i><em>1,480 · 0.8%</em></div>
-              <div><b>≥150°</b><i><span style="--value:.002"></span></i><em>3 · 0.0%</em></div>
-            </div></article>
-          </div>
-
-          <aside class="intrinsic-observation" aria-label="Camera-intrinsic interpretation"><b class="lang-en">Interpretation</b><b class="lang-zh">说明</b><p class="lang-en">Multiple FOVs are observed; causal effects require controlled ablation.</p><p class="lang-zh">数据覆盖多种视场角；其因果作用仍需受控消融验证。</p></aside>
-
-          <details class="intrinsic-details">
-            <summary><span class="lang-en">Detailed focal-ratio distributions and common FOV pairs</span><span class="lang-zh">查看焦距比例分布与常见 FOV 组合</span><i aria-hidden="true">+</i></summary>
-            <div class="ratio-grid">
-              <article><h3>fx / <span class="lang-en">image width</span><span class="lang-zh">图宽</span></h3><div class="mini-distribution"><span><b>&lt;0.2×W</b><i style="--value:.02"></i><em>36 · 0.0%</em></span><span><b>0.2–0.3×W</b><i style="--value:1.28"></i><em>2,442 · 1.3%</em></span><span><b>0.3–0.4×W</b><i style="--value:19.36"></i><em>36,841 · 19.4%</em></span><span><b>0.4–0.5×W</b><i style="--value:16.58"></i><em>31,543 · 16.6%</em></span><span><b>0.5–0.75×W</b><i style="--value:23.85"></i><em>45,390 · 23.9%</em></span><span><b>0.75–1×W</b><i style="--value:16.01"></i><em>30,460 · 16.0%</em></span><span><b>1–1.5×W</b><i style="--value:21.12"></i><em>40,182 · 21.1%</em></span><span><b>≥1.5×W</b><i style="--value:1.79"></i><em>3,404 · 1.8%</em></span></div></article>
-              <article><h3>fy / <span class="lang-en">image height</span><span class="lang-zh">图高</span></h3><div class="mini-distribution"><span><b>&lt;0.2×H</b><i style="--value:0"></i><em>6 · 0.0%</em></span><span><b>0.2–0.3×H</b><i style="--value:.04"></i><em>77 · 0.0%</em></span><span><b>0.3–0.4×H</b><i style="--value:1.26"></i><em>2,395 · 1.3%</em></span><span><b>0.4–0.5×H</b><i style="--value:13.66"></i><em>25,998 · 13.7%</em></span><span><b>0.5–0.75×H</b><i style="--value:30.26"></i><em>57,590 · 30.3%</em></span><span><b>0.75–1×H</b><i style="--value:15.86"></i><em>30,186 · 15.9%</em></span><span><b>1–1.5×H</b><i style="--value:23.23"></i><em>44,210 · 23.2%</em></span><span><b>≥1.5×H</b><i style="--value:15.68"></i><em>29,836 · 15.7%</em></span></div></article>
-              <article class="fov-pairs"><h3><span class="lang-en">Most common FOV pairs</span><span class="lang-zh">常见 FOV 组合</span></h3><ol><li><b>88.9° × 105.2°</b><span>317 · 0.2%</span></li><li><b>85.2° × 101.6°</b><span>310 · 0.2%</span></li><li><b>85.3° × 101.7°</b><span>308 · 0.2%</span></li><li><b>91.5° × 107.7°</b><span>307 · 0.2%</span></li><li><b>85.4° × 101.8°</b><span>301 · 0.2%</span></li><li><b>36.2° × 47.1°</b><span>296 · 0.2%</span></li><li><b>34.6° × 45.1°</b><span>295 · 0.2%</span></li><li><b>33.4° × 43.6°</b><span>293 · 0.1%</span></li><li><b>35.8° × 46.6°</b><span>292 · 0.1%</span></li><li><b>93.4° × 109.5°</b><span>292 · 0.1%</span></li></ol></article>
-            </div>
-            <p class="intrinsic-assumptions lang-en">Derivation assumes cx=W/2, cy=H/2 and zero skew because these fields are not annotated; lens-distortion coefficients are unavailable. All 190,298 samples have fx/fy within 0.98–1.02 (median 1.0000). Inspect the <a href="assets/data/ego4d-intrinsics/result.json">machine-readable report</a>.</p>
-            <p class="intrinsic-assumptions lang-zh">由于标注未提供主点与 skew，反解时假设 cx=W/2、cy=H/2 且 skew=0；畸变系数不可用。190,298 个样本的 fx/fy 均位于 0.98–1.02（中位数 1.0000）。可查看<a href="assets/data/ego4d-intrinsics/result.json">机器可读报告</a>。</p>
-          </details>
         </section>
 
         <section class="article-section section-shell" id="method" aria-labelledby="method-title">
