@@ -12,9 +12,9 @@
     <meta property="og:image" content="assets/media/film-poster.webp">
     <meta name="twitter:card" content="summary_large_image">
     <title>MINT — World-Space Camera and Hand Motion Estimation</title>
-    <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
+    <link rel="icon" href="assets/favicon.svg?v=3" type="image/svg+xml">
     <link rel="preload" href="assets/fonts/space-grotesk-variable.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.min.css?v=8">
+    <link rel="stylesheet" href="styles.min.css?v=9">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -46,6 +46,7 @@
 
     <header class="site-header" data-header>
       <div class="nav-shell">
+        <a class="wuji-mark" href="#top" aria-label="WUJI home"><img src="assets/wuji-logo.svg" alt="WUJI" width="129" height="36"></a>
         <nav class="desktop-nav" aria-label="Primary navigation">
           <a href="#film"><span class="lang-en">Film</span><span class="lang-zh">影片</span></a>
           <a href="#videos"><span class="lang-en">Cases</span><span class="lang-zh">案例</span></a>
@@ -164,14 +165,14 @@
           </div>
 
           <nav class="diversity-tabs" role="tablist" aria-label="Dataset view">
-            <button id="diversity-tab-ego4d" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="diversity-panel-ego4d" data-diversity-tab="ego4d" style="--tab-color:#36aaa8"><i>01</i><b>Ego4D</b></button>
-            <button id="diversity-tab-egodex" type="button" role="tab" aria-selected="false" aria-controls="diversity-panel-egodex" data-diversity-tab="egodex" style="--tab-color:#e98245"><i>02</i><b>EgoDex</b></button>
-            <button id="diversity-tab-epic" type="button" role="tab" aria-selected="false" aria-controls="diversity-panel-epic" data-diversity-tab="epic" style="--tab-color:#6da53f"><i>03</i><b>EPIC</b></button>
-            <button id="diversity-tab-combined" type="button" role="tab" aria-selected="false" aria-controls="diversity-panel-combined" data-diversity-tab="combined" style="--tab-color:#5651df"><i>04</i><b><span class="lang-en">All</span><span class="lang-zh">综合</span></b></button>
+            <button id="diversity-tab-ego4d" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="diversity-panel-ego4d" data-diversity-tab="ego4d" style="--tab-color:#7596CA"><i>01</i><b>Ego4D</b></button>
+            <button id="diversity-tab-egodex" type="button" role="tab" aria-selected="false" aria-controls="diversity-panel-egodex" data-diversity-tab="egodex" style="--tab-color:#EEBC46"><i>02</i><b>EgoDex</b></button>
+            <button id="diversity-tab-epic" type="button" role="tab" aria-selected="false" aria-controls="diversity-panel-epic" data-diversity-tab="epic" style="--tab-color:#90AE77"><i>03</i><b>EPIC</b></button>
+            <button id="diversity-tab-combined" type="button" role="tab" aria-selected="false" aria-controls="diversity-panel-combined" data-diversity-tab="combined" style="--tab-color:#207FFF"><i>04</i><b><span class="lang-en">All</span><span class="lang-zh">综合</span></b></button>
           </nav>
 
           <div class="dataset-panels" data-diversity-panels>
-            <article class="dataset-panel" id="diversity-panel-ego4d" role="tabpanel" aria-labelledby="diversity-tab-ego4d" data-diversity-panel="ego4d" style="--dataset-color:#36aaa8" tabindex="0">
+            <article class="dataset-panel" id="diversity-panel-ego4d" role="tabpanel" aria-labelledby="diversity-tab-ego4d" data-diversity-panel="ego4d" style="--dataset-color:#7596CA" tabindex="0">
               <header class="dataset-header">
                 <div><h3>Ego4D</h3></div>
                 <strong>332.874 <small>h</small></strong>
@@ -207,7 +208,7 @@
               <div class="motion-strip"><span><small class="lang-en">sample</small><small class="lang-zh">样本</small><b>14,274 ep.</b></span><span><small class="lang-en">camera · P50 / P90</small><small class="lang-zh">相机 · P50 / P90</small><b>0.421 / 1.510 m</b></span><span><small class="lang-en">head · P50 / P90</small><small class="lang-zh">头部 · P50 / P90</small><b>26.7° / 73.7°</b></span><span><small class="lang-en">hand · P50 / P90</small><small class="lang-zh">手部 · P50 / P90</small><b>0.442 / 0.806 m</b></span></div>
             </article>
 
-            <article class="dataset-panel" id="diversity-panel-egodex" role="tabpanel" aria-labelledby="diversity-tab-egodex" data-diversity-panel="egodex" style="--dataset-color:#e98245" tabindex="0" hidden>
+            <article class="dataset-panel" id="diversity-panel-egodex" role="tabpanel" aria-labelledby="diversity-tab-egodex" data-diversity-panel="egodex" style="--dataset-color:#EEBC46" tabindex="0" hidden>
               <header class="dataset-header">
                 <div><h3>EgoDex</h3></div>
                 <strong>633.446 <small>h</small></strong>
@@ -243,7 +244,7 @@
               <div class="motion-strip"><span><small class="lang-en">sample</small><small class="lang-zh">样本</small><b>8,236 ep.</b></span><span><small class="lang-en">camera · P50 / P90</small><small class="lang-zh">相机 · P50 / P90</small><b>0.117 / 0.288 m</b></span><span><small class="lang-en">head · P50 / P90</small><small class="lang-zh">头部 · P50 / P90</small><b>4.4° / 13.1°</b></span><span><small class="lang-en">hand · P50 / P90</small><small class="lang-zh">手部 · P50 / P90</small><b>0.319 / 0.553 m</b></span></div>
             </article>
 
-            <article class="dataset-panel" id="diversity-panel-epic" role="tabpanel" aria-labelledby="diversity-tab-epic" data-diversity-panel="epic" style="--dataset-color:#6da53f" tabindex="0" hidden>
+            <article class="dataset-panel" id="diversity-panel-epic" role="tabpanel" aria-labelledby="diversity-tab-epic" data-diversity-panel="epic" style="--dataset-color:#90AE77" tabindex="0" hidden>
               <header class="dataset-header">
                 <div><h3>EPIC-KITCHENS-100</h3></div>
                 <strong>55.194 <small>h</small></strong>
