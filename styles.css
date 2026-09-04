@@ -507,6 +507,8 @@ blockquote {
 blockquote p { margin: 0; font-size: 20px; line-height: 1.45; }
 
 .video-section { padding-bottom: clamp(32px, 2.8vw, 42px); }
+.video-section > .reading-column { width: 100%; }
+.video-section > .reading-column h2 { font-size: clamp(24px, 2.8vw, 36px); }
 
 .video-grid {
   display: grid;
@@ -1338,7 +1340,7 @@ td b { color: var(--accent); font-weight: 600; }
   .hero-title { font-size: clamp(28px, 8.2vw, 34px); line-height: 1.08; }
   .hero-vision { margin-bottom: 22px; padding: 20px 18px; border-radius: 13px; font-size: 27px; }
   .pipeline-section > .reading-column h2 { white-space: normal; }
-  #videos-title { font-size: clamp(23px, 7.2vw, 28px); white-space: nowrap; text-wrap: nowrap; }
+  #videos-title { white-space: nowrap; text-wrap: nowrap; }
   .article-section#results > .reading-column h2,
   .article-section#samples > .reading-column h2 { white-space: normal; }
   .authors { font-size: 20px; }

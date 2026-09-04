@@ -14,7 +14,7 @@
     <title>MINT — World-Space Camera and Hand Motion Estimation</title>
     <link rel="icon" href="assets/favicon.svg?v=4" type="image/svg+xml">
     <link rel="preload" href="assets/fonts/space-grotesk-variable.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.min.css?v=14">
+    <link rel="stylesheet" href="styles.min.css?v=15">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -63,13 +63,12 @@
         </div>
       </div>
       <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Mobile navigation" hidden>
-        <a href="#film"><span class="lang-en">Overview video</span><span class="lang-zh">概览视频</span><i>01</i></a>
-        <a href="#videos"><span class="lang-en">Challenging examples</span><span class="lang-zh">挑战性样例</span><i>02</i></a>
-        <a href="#pipeline"><span class="lang-en">EgoPipeline</span><span class="lang-zh">传统管线</span><i>03</i></a>
-        <a href="#method"><span class="lang-en">Method</span><span class="lang-zh">方法</span><i>04</i></a>
-        <a href="#diversity"><span class="lang-en">Dataset task composition</span><span class="lang-zh">数据集任务组成</span><i>05</i></a>
-        <a href="#samples"><span class="lang-en">HOT3D comparison</span><span class="lang-zh">HOT3D 对比</span><i>06</i></a>
-        <a href="#results"><span class="lang-en">Benchmarks</span><span class="lang-zh">评测</span><i>07</i></a>
+        <a href="#videos"><span class="lang-en">Challenging examples</span><span class="lang-zh">挑战性样例</span><i>01</i></a>
+        <a href="#pipeline"><span class="lang-en">EgoPipeline</span><span class="lang-zh">传统管线</span><i>02</i></a>
+        <a href="#method"><span class="lang-en">Method</span><span class="lang-zh">方法</span><i>03</i></a>
+        <a href="#diversity"><span class="lang-en">Dataset task composition</span><span class="lang-zh">数据集任务组成</span><i>04</i></a>
+        <a href="#samples"><span class="lang-en">HOT3D comparison</span><span class="lang-zh">HOT3D 对比</span><i>05</i></a>
+        <a href="#results"><span class="lang-en">Benchmarks</span><span class="lang-zh">评测</span><i>06</i></a>
       </nav>
     </header>
 
@@ -93,8 +92,7 @@
           </div>
         </header>
 
-        <section class="project-film section-shell" id="film" aria-labelledby="film-title">
-          <div class="section-heading film-heading"><div><h2 id="film-title" class="lang-en">Overview video</h2><h2 class="lang-zh">概览视频</h2></div></div>
+        <section class="project-film section-shell" id="film" aria-label="MINT film">
           <figure class="main-film">
             <div class="main-film-frame"><video id="project-film" data-project-film controls playsinline preload="none" poster="assets/media/film-poster.webp" width="1920" height="1080"><source src="assets/media/mint-film-compact.mp4" type="video/mp4"><source src="assets/media/mint-film-720p.webm" type="video/webm"><track kind="chapters" src="assets/media/mint-film-chapters-en.vtt" srclang="en" label="English" default><track kind="chapters" src="assets/media/mint-film-chapters-zh.vtt" srclang="zh" label="中文"><p class="lang-en">Your browser does not support HTML video. <a href="assets/media/mint-film-compact.mp4">Download the film.</a></p><p class="lang-zh">你的浏览器不支持 HTML 视频。<a href="assets/media/mint-film-compact.mp4">下载影片。</a></p></video></div>
           </figure>
@@ -145,8 +143,7 @@
           <div class="highlight-grid"><article><strong>1,021 h</strong><p class="lang-en">egocentric supervision</p><p class="lang-zh">第一视角监督</p></article><article><strong>1.131 B</strong><p class="lang-en">trainable parameters</p><p class="lang-zh">可训练参数</p></article><article><strong>4 heads</strong><p class="lang-en">camera · FOV · MANO&nbsp;·&nbsp;presence</p><p class="lang-zh">相机 · FOV · MANO&nbsp;·&nbsp;手部存在性</p></article><article><strong>32 frames</strong><p class="lang-en">training-window length</p><p class="lang-zh">训练窗口长度</p></article></div>
         </section>
 
-        <section class="article-section section-shell" id="method" aria-labelledby="method-title">
-          <div class="reading-column"><h2 id="method-title" class="lang-en">MINT network architecture</h2><h2 class="lang-zh">MINT 的网络结构</h2><p class="section-lead lang-en">A shared spatiotemporal representation predicts camera extrinsics, field of view, camera-frame MANO parameters, and hand presence.</p><p class="section-lead lang-zh">共享时空表征预测相机外参、FOV、相机系 MANO 与手部存在性。</p></div>
+        <section class="article-section section-shell" id="method" aria-label="MINT method">
           <figure class="paper-figure"><button type="button" data-lightbox-src="assets/architecture.webp?v=3" data-lightbox-alt="MINT paper Figure 3: shared GCT backbone and four prediction heads"><img src="assets/architecture.webp?v=3" alt="MINT paper Figure 3 showing a shared GCT feeding camera, field-of-view, MANO, and presence heads" width="1800" height="679" loading="lazy"><span><span class="lang-en">Enlarge figure</span><span class="lang-zh">放大图片</span> ↗</span></button><figcaption><b>FIGURE 3</b><p class="lang-en">Shared backbone and four prediction heads.</p><p class="lang-zh">共享骨干网络与四个预测头。</p></figcaption></figure>
           <div class="method-points"><article><b>01</b><h3 class="lang-en">Spatiotemporal backbone</h3><h3 class="lang-zh">时空骨干网络</h3><p class="lang-en">Alternating frame-wise and global attention processes appearance and motion.</p><p class="lang-zh">帧内与全局注意力处理外观及运动。</p></article><article><b>02</b><h3 class="lang-en">World-space composition</h3><h3 class="lang-zh">世界坐标组合</h3><p class="lang-en">Rigid transformations compose camera extrinsics with camera-frame hand estimates.</p><p class="lang-zh">刚体变换组合相机与相机系手部预测。</p></article><article><b>03</b><h3 class="lang-en">Windowed inference</h3><h3 class="lang-zh">分窗推理</h3><p class="lang-en">Long videos use overlapping windows with camera alignment and hand-prediction fusion.</p><p class="lang-zh">长视频采用重叠窗口，并对齐相机轨迹、融合手部预测。</p></article></div>
         </section>
