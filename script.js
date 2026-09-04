@@ -94,6 +94,34 @@ function distributionRow(label, count, total) {
   return row;
 }
 
+function effectiveCategoryCount(counts) {
+  const values = Object.values(counts).filter((count) => count > 0);
+  const total = values.reduce((sum, count) => sum + count, 0);
+  if (!total) return 0;
+  const entropy = -values.reduce((sum, count) => {
+    const probability = count / total;
+    return sum + probability * Math.log(probability);
+  }, 0);
+  return Math.exp(entropy);
+}
+
+function updateDistributionSummary(list, counts) {
+  const effectiveCount = effectiveCategoryCount(counts).toFixed(2);
+  const isActionDistribution = list.dataset.distributionKey === "action_counts";
+  const summaries = list.closest("section")?.querySelectorAll("[data-distribution-summary]") || [];
+  summaries.forEach((summary) => {
+    if (summary.classList.contains("lang-zh")) {
+      summary.textContent = isActionDistribution
+        ? `有效 ${effectiveCount} · 多标签`
+        : `有效 ${effectiveCount}`;
+    } else {
+      summary.textContent = isActionDistribution
+        ? `effective ${effectiveCount} · multi-label`
+        : `effective ${effectiveCount}`;
+    }
+  });
+}
+
 const completeDistributionLists = [...document.querySelectorAll("[data-distribution-dataset]")];
 if (completeDistributionLists.length) {
   fetch("assets/data/diversity/result.json")
@@ -113,11 +141,86 @@ if (completeDistributionLists.length) {
           .forEach(([label, count]) => fragment.append(distributionRow(label, count, total)));
         list.replaceChildren(fragment);
         list.classList.add("is-complete");
+        updateDistributionSummary(list, counts);
       });
     })
     .catch(() => {
       // The six-row HTML fallback remains visible if the report cannot be loaded.
     });
+}
+
+const diversityTabs = [...document.querySelectorAll("[data-diversity-tab]")];
+const diversityPanels = [...document.querySelectorAll("[data-diversity-panel]")];
+const diversitySection = document.querySelector("#diversity");
+const diversityAdvanceDelay = 10000;
+const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+let diversityAdvanceTimer;
+let diversityInView = false;
+
+function stopDiversityAdvance() {
+  window.clearTimeout(diversityAdvanceTimer);
+  diversityAdvanceTimer = undefined;
+  diversityTabs.forEach((tab) => tab.classList.remove("is-auto-counting"));
+}
+
+function scheduleDiversityAdvance() {
+  stopDiversityAdvance();
+  if (!diversityTabs.length || !diversityInView || document.hidden || reduceMotion) return;
+  const activeTab = diversityTabs.find((tab) => tab.classList.contains("is-active"));
+  if (!activeTab) return;
+  void activeTab.offsetWidth;
+  activeTab.classList.add("is-auto-counting");
+  diversityAdvanceTimer = window.setTimeout(() => {
+    const activeIndex = diversityTabs.indexOf(activeTab);
+    const nextTab = diversityTabs[(activeIndex + 1) % diversityTabs.length];
+    showDiversityPanel(nextTab.dataset.diversityTab);
+  }, diversityAdvanceDelay);
+}
+
+function showDiversityPanel(key) {
+  diversityPanels.forEach((panel) => {
+    panel.hidden = panel.dataset.diversityPanel !== key;
+  });
+  diversityTabs.forEach((tab) => {
+    const active = tab.dataset.diversityTab === key;
+    tab.classList.toggle("is-active", active);
+    tab.setAttribute("aria-selected", String(active));
+    tab.tabIndex = active ? 0 : -1;
+  });
+  scheduleDiversityAdvance();
+}
+
+if (diversityTabs.length) {
+  diversityTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => showDiversityPanel(tab.dataset.diversityTab));
+    tab.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      const direction = event.key === "ArrowRight" ? 1 : -1;
+      const nextTab = diversityTabs[(index + direction + diversityTabs.length) % diversityTabs.length];
+      showDiversityPanel(nextTab.dataset.diversityTab);
+      nextTab.focus();
+    });
+  });
+  diversityPanels.forEach((panel) => {
+    panel.addEventListener("mouseenter", stopDiversityAdvance);
+    panel.addEventListener("mouseleave", scheduleDiversityAdvance);
+    panel.addEventListener("pointerdown", stopDiversityAdvance);
+    panel.addEventListener("wheel", stopDiversityAdvance, { passive: true });
+  });
+  showDiversityPanel(diversityTabs[0].dataset.diversityTab);
+}
+
+if (diversitySection && "IntersectionObserver" in window) {
+  const diversityObserver = new IntersectionObserver(([entry]) => {
+    diversityInView = entry.isIntersecting;
+    if (diversityInView) scheduleDiversityAdvance();
+    else stopDiversityAdvance();
+  }, { threshold: 0.12 });
+  diversityObserver.observe(diversitySection);
+} else if (diversitySection) {
+  diversityInView = true;
+  scheduleDiversityAdvance();
 }
 
 function toggleLanguage() {
@@ -444,8 +547,10 @@ document.addEventListener("visibilitychange", () => {
     stopSynchronizedPlayback();
     loopVideos.forEach((video) => video.pause());
     stopSampleAdvance();
+    stopDiversityAdvance();
   } else {
     scheduleSampleAdvance();
+    scheduleDiversityAdvance();
   }
 });
 
