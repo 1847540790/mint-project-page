@@ -29,6 +29,7 @@
   --chart-yellow: #eebc46;
   --chart-green: #90ae77;
   --chart-red: #e15d54;
+  --section-title-size: clamp(30px, 3.2vw, 42px);
   --page: min(1280px, calc(100vw - 64px));
   --reading: min(1080px, calc(100vw - 64px));
   --radius: 12px;
@@ -390,7 +391,7 @@ html[data-language="zh"] .affiliations.lang-zh { display: flex !important; }
 
 h2 {
   margin: 0;
-  font-size: clamp(34px, 4.2vw, 52px);
+  font-size: var(--section-title-size);
   font-weight: 590;
   line-height: 1.12;
   letter-spacing: -0.048em;
@@ -472,7 +473,7 @@ h2 {
 .highlight-intro { width: var(--page); }
 .highlight-intro h2 {
   max-width: none;
-  font-size: clamp(32px, 3.4vw, 44px);
+  font-size: var(--section-title-size);
 }
 .highlight-intro .section-lead { max-width: none; }
 .highlight-intro h2.lang-zh,
@@ -811,7 +812,7 @@ blockquote p { margin: 0; font-size: 20px; line-height: 1.45; }
 
 .pipeline-section > .reading-column h2 {
   max-width: none;
-  font-size: clamp(29px, 4.2vw, 52px);
+  font-size: var(--section-title-size);
 }
 
 .pipeline-map { margin-top: 22px; }
@@ -1186,14 +1187,14 @@ blockquote p { margin: 0; font-size: 20px; line-height: 1.45; }
 .comparison-row i b { position: absolute; left: calc(100% + 8px); color: var(--ink); font: 14px/17px "IBM Plex Mono", monospace; font-style: normal; white-space: nowrap; }
 
 .article-section#samples > .reading-column { width: var(--page); }
-.article-section#samples > .reading-column h2 { max-width: none; font-size: clamp(32px, 3.5vw, 46px); }
+.article-section#samples > .reading-column h2 { max-width: none; font-size: var(--section-title-size); }
 .article-section#samples .section-lead { max-width: 1180px; }
 .article-section#results > .reading-column { width: var(--page); }
-.article-section#results > .reading-column h2 { max-width: none; font-size: clamp(32px, 3.5vw, 46px); }
+.article-section#results > .reading-column h2 { max-width: none; font-size: var(--section-title-size); }
 .article-section#results .section-lead { max-width: 1180px; }
 .article-section#method > .reading-column { width: var(--page); }
 .article-section#method > .reading-column h2 {
-  font-size: clamp(32px, 3.3vw, 42px);
+  font-size: var(--section-title-size);
 }
 .article-section#method .section-lead { max-width: 1240px; }
 .benchmark-block { margin-top: 30px; }
@@ -1219,15 +1220,15 @@ blockquote p { margin: 0; font-size: 20px; line-height: 1.45; }
 .benchmark-table-wrap td:first-child small { display: block; }
 .benchmark-table-wrap td:first-child small { margin-top: 3px; color: var(--muted); font-size: 14px; }
 .benchmark-source { margin: 8px 4px 0; color: var(--muted); font-size: 15px; line-height: 1.4; }
-.benchmark-ceiling { margin-top: 28px; overflow: hidden; color: #fff; background: var(--black); border-radius: 12px; }
-.benchmark-ceiling > header { padding: 22px 26px 20px; border-bottom: 1px solid rgba(255,255,255,.16); }
+.benchmark-ceiling { margin-top: 28px; overflow: hidden; color: var(--ink); background: var(--soft); border: 1px solid var(--line); border-radius: 12px; }
+.benchmark-ceiling > header { padding: 22px 26px 20px; border-bottom: 1px solid var(--line); }
 .benchmark-ceiling > header h3 { max-width: none; margin: 0; font-size: clamp(24px, 2.75vw, 35px); font-weight: 570; letter-spacing: -.045em; line-height: 1.12; }
 .benchmark-ceiling > header h3.lang-en { font-size: clamp(22px, 2.1vw, 28px); }
-.ceiling-conclusion { margin: 0; padding: 16px 26px 10px; color: var(--soft); background: var(--muted); font-size: 17px; line-height: 1.45; }
+.ceiling-conclusion { margin: 0; padding: 16px 26px 10px; color: var(--ink); background: var(--soft); font-size: 17px; line-height: 1.45; }
 .benchmark-ceiling ul.ceiling-conclusion { padding-left: 50px; }
 .ceiling-conclusion li + li { margin-top: 10px; }
-.ceiling-conclusion li::marker { color: var(--white); }
-.ceiling-future { margin: 0; padding: 2px 26px 18px; color: var(--soft); background: var(--muted); font-size: 17px; line-height: 1.45; }
+.ceiling-conclusion li::marker { color: var(--accent); }
+.ceiling-future { margin: 0; padding: 2px 26px 18px; color: var(--ink); background: var(--soft); font-size: 17px; line-height: 1.45; }
 .ceiling-conclusion b { color: #fff; }
 
 .result-grid {
@@ -1350,7 +1351,7 @@ td b { color: var(--accent); font-weight: 600; }
   .project-film,
   .article-section { padding: 34px 0; }
   .section-kicker { margin-bottom: 12px; }
-  h2 { font-size: 34px; }
+  h2 { font-size: var(--section-title-size); }
   .section-lead { font-size: 17px; }
   .highlight-intro h2.lang-zh,
   .highlight-intro .section-lead.lang-zh { white-space: normal; }
