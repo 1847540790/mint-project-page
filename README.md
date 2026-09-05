@@ -22,7 +22,7 @@ but may download an entire video before a distant chapter seek completes.
 - `script.js` / `script.min.js` — interaction source and deployed minified JavaScript
 - `assets/media/` — responsive WebM/MP4 video, posters, and chapter tracks
 - `assets/data/` — machine-readable diversity and Ego4D intrinsic reports
-- `assets/paper/mint-paper.pdf` — compressed paper for web delivery
+- `assets/paper/mint-paper.pdf` — latest supplied manuscript (2026-09-05)
 - `ASSET_SOURCES.md` — provenance of every displayed image and video
 
 All displayed raster imagery comes from the manuscript figures or from

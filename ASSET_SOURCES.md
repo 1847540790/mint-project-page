@@ -6,6 +6,13 @@ and EgoPipeline material directories. Dataset plots, decorative layout,
 borders, and the favicon are code-native HTML/CSS/SVG rather than externally
 sourced imagery.
 
+## Downloadable paper
+
+`assets/paper/mint-paper.pdf` is a byte-for-byte copy of
+`../new_out/wuji_data_pipeline_distill (1).pdf`, generated on 2026-09-05 at
+21:47 (UTC+08:00), with 10 pages. SHA-256:
+`08634fda6e8a4afe014cbabf12cb207f197ce3cd21e63e7cae6547a1c0435d0a`.
+
 ## Manuscript figures
 
 Source: `wuji_data_pipeline_distill.pdf`
@@ -13,7 +20,7 @@ Source: `wuji_data_pipeline_distill.pdf`
 | Website asset | Manuscript source |
 | --- | --- |
 | `assets/overview.webp` | Figure 1, page 1 |
-| `assets/egopipeline.webp` | Figure 2, page 3; the P4 thumbnail is replaced with the supplied stage-5 world-frame hand-motion visual |
+| `assets/egopipeline.webp` | Supplied `../new_out/egopipeline.pdf` (2026-09-05), complete page rendered at 2400 x 1165 pixels and encoded as WebP |
 | `assets/architecture.webp` | MINT architecture figure recolored from neutral gray to the page's lavender palette, with the Camera Trajectory panel replaced by the supplied `assets/world_trajectory_subplot/camera_trajectory_black.png`; the source plot's lightness is inverted and lightly lavender-tinted |
 | `assets/world-frame-hand-motion.webp` | EgoPipeline stage 5 world-frame hand-motion figure |
 
@@ -155,12 +162,12 @@ camera protocol uses complete sequences, SE(3)-only alignment, and no fitted
 scale. The benchmark videos listed above show the matching tables from the
 latest project film.
 
-The two complete tables in the `#results` section are generated verbatim from
+The two complete tables in the `#results` section are based on
 `lib/mp/facts.py` in this repository: `CAM_HAND_TABLE` (camera-frame hands, 11
 methods per dataset) and `CAM_TRAJ_TABLE` (world-frame trajectory, 7 methods per
 dataset). Bold marks the best value per column, computed with `facts.best_set`
 and its column goals in `CAM_HAND_COLS` / `CAM_TRAJ_COLS`; no row is excluded
 from the comparison, so the in-domain reference row `ViDiHand*` carries the bold
 where it wins. Non-MINT camera-frame rows are the values reported in the
-ViDiHand paper. `MegaSaM†` runs without depth refinement and runs out of memory
-on the three longest HOT3D sequences, which is why its HOT3D coverage is 24/27.
+ViDiHand paper. `MegaSaM†` runs without depth refinement. Its HOT3D coverage
+is updated to 27/27 in the homepage following the supplied correction.

@@ -575,6 +575,7 @@ loopVideos.forEach((video) => {
   updateVideoProgress(video);
 });
 playChallengingVideos();
+window.addEventListener("pageshow", playChallengingVideos);
 
 if (sampleTabs.length) {
   sampleTabs.forEach((tab) => {
@@ -635,7 +636,7 @@ projectFilm?.addEventListener("play", () => {
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "hidden") {
     stopSynchronizedPlayback();
-    loopVideos.forEach((video) => video.pause());
+    pauseNonChallengingVideos();
     stopSampleAdvance();
     stopDiversityAdvance();
   } else {
