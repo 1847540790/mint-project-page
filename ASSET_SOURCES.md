@@ -19,7 +19,7 @@ Source: `wuji_data_pipeline_distill.pdf`
 
 | Website asset | Manuscript source |
 | --- | --- |
-| `assets/overview.webp` | Figure 1, page 1 |
+| `assets/overview.webp` | Supplied `../new_out/Teaser.pdf` (2026-09-05), complete page rendered at 2400 x 922 pixels and encoded as WebP |
 | `assets/egopipeline.webp` | Supplied `../new_out/egopipeline.pdf` (2026-09-05), complete page rendered at 2400 x 1165 pixels and encoded as WebP |
 | `assets/architecture.webp` | MINT architecture figure recolored from neutral gray to the page's lavender palette, with the Camera Trajectory panel replaced by the supplied `assets/world_trajectory_subplot/camera_trajectory_black.png`; the source plot's lightness is inverted and lightly lavender-tinted |
 | `assets/world-frame-hand-motion.webp` | EgoPipeline stage 5 world-frame hand-motion figure |
