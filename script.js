@@ -381,10 +381,20 @@ function activeSampleVideos() {
   return [...(activeSamplePanel()?.querySelectorAll("video") || [])];
 }
 
+function setChallengingVideoPlayback(video, visible) {
+  video.dataset.inViewport = visible ? "true" : "false";
+  if (!visible || document.hidden) {
+    video.pause();
+    return;
+  }
+  video.muted = true;
+  video.preload = "auto";
+  video.play().catch(() => {});
+}
+
 function playChallengingVideos() {
   challengingVideos.forEach((video) => {
-    video.muted = true;
-    video.play().catch(() => {});
+    if (video.dataset.inViewport === "true") setChallengingVideoPlayback(video, true);
   });
 }
 
@@ -531,8 +541,9 @@ function showSample(key) {
 
 loopVideos.forEach((video) => {
   const isChallengingVideo = challengingVideos.includes(video);
-  video.preload = isChallengingVideo ? "auto" : "none";
-  video.autoplay = isChallengingVideo;
+  video.preload = "none";
+  video.autoplay = false;
+  if (isChallengingVideo) video.dataset.inViewport = "false";
   const button = videoButton(video);
   const progress = videoProgress(video);
   button?.addEventListener("click", () => {
@@ -574,6 +585,18 @@ loopVideos.forEach((video) => {
   updateVideoButton(video);
   updateVideoProgress(video);
 });
+
+if (challengingVideos.length && "IntersectionObserver" in window) {
+  const challengingVideoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      setChallengingVideoPlayback(entry.target, entry.isIntersecting);
+    });
+  }, { rootMargin: "200px 0px", threshold: 0.01 });
+  challengingVideos.forEach((video) => challengingVideoObserver.observe(video));
+} else {
+  challengingVideos.forEach((video) => { video.dataset.inViewport = "true"; });
+}
+
 playChallengingVideos();
 window.addEventListener("pageshow", playChallengingVideos);
 
@@ -637,6 +660,7 @@ document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "hidden") {
     stopSynchronizedPlayback();
     pauseNonChallengingVideos();
+    challengingVideos.forEach((video) => video.pause());
     stopSampleAdvance();
     stopDiversityAdvance();
   } else {

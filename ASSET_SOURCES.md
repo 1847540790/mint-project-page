@@ -27,14 +27,19 @@ Source: `wuji_data_pipeline_distill.pdf`
 ## Project film
 
 Source: `MINT_v2_revised_music_enhanced_compact.mp4`, 1920 x 1080 at 30 fps,
-133.434 seconds. `assets/media/mint-film-compact.mp4` is a byte-for-byte copy;
-both files have SHA-256
+133.434 seconds, with SHA-256
 `af90f751556dc6fd9b06748710a0a0de8fae06ddd412d6d74b73b9e09a01a3d3`.
+The public 720p encodes retain the complete film. The H.264/AAC MP4 preserves
+the source audio and has SHA-256
+`791373a81f3ca3f67db28b8e407c5ac2eea8f7467262a780800d980b72888435`;
+the VP9/Opus WebM has SHA-256
+`b2073e9c845ed45ed7ec2b4537b1d0f848429a8fa93eb4a7ad2bb8311bdcb8a9`.
 
 | Website asset | Source interval or frame |
 | --- | --- |
 | `assets/media/film-poster.webp` | 00:14.500 frame |
-| `assets/media/mint-film-720p.webm` | Complete film, browser fallback |
+| `assets/media/mint-film-compact.mp4` | Complete film, H.264 compatibility encode |
+| `assets/media/mint-film-720p.webm` | Complete film, preferred modern-browser encode |
 | `assets/media/feature-in-wild.*` | 00:00.000-00:09.800 |
 | `assets/media/feature-in-wild-poster.webp` | 00:02.000 frame |
 | `assets/media/feature-zero-shot.*` | 00:20.200-00:30.000 |
@@ -52,6 +57,11 @@ The feature wildcard denotes the `.mp4` and `.webm` versions of the same cut.
 The benchmark wildcard follows the same convention. No repository screenshots,
 generated illustrations, or imagery from the two visual-reference websites are
 displayed.
+
+The six challenging case clips are H.264 re-encodes with the same 8-second
+duration and frame dimensions as their project sources. They use a web-friendly
+constant-rate-factor encode with the MP4 index at the front of each file, while
+the original project material remains the provenance source listed below.
 
 ## Qualitative videos
 
