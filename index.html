@@ -353,26 +353,26 @@
           </article>
 
           <article class="benchmark-block">
-            <header><span>BENCHMARK 02</span><div><h3 class="lang-en">World-frame camera trajectory</h3><h3 class="lang-zh">世界系下的相机轨迹</h3><p class="lang-en">HOT3D uses 27 full sequences / 94,978 frames; ARCTIC uses 34 P2 validation sequences / 25,883 frames. Lower is better except arc-length ratio, whose target is 1.</p><p class="lang-zh">HOT3D 使用 27 条完整序列 / 94,978 帧；ARCTIC 使用 34 条 P2 验证序列 / 25,883 帧。除弧长比目标为 1 外，其余指标均越低越好。</p></div></header>
+            <header><span>BENCHMARK 02</span><div><h3 class="lang-en">World-frame camera trajectory</h3><h3 class="lang-zh">世界系下的相机轨迹</h3></div></header>
             <div class="table-wrap benchmark-table-wrap benchmark-complete-table" tabindex="0" aria-label="Complete full-sequence world-frame camera trajectory benchmark">
               <table>
                 <caption><span class="lang-en">World-frame camera trajectory, complete table · full sequences · SE(3)-only alignment · no fitted scale, so scale error is charged and the arc-length ratio exposes it · bold marks the best value in each column · † MegaSaM runs without depth refinement</span><span class="lang-zh">世界系相机轨迹完整表 · 完整序列 · 仅 SE(3) 对齐 · 不拟合尺度，因此尺度误差会被计入，并由弧长比暴露 · 加粗为每列最优 · † MegaSaM 未启用深度精修</span></caption>
-                <thead><tr><th scope="col"><span class="lang-en">Dataset</span><span class="lang-zh">数据集</span></th><th scope="col"><span class="lang-en">Method</span><span class="lang-zh">方法</span></th><th scope="col">Cov.<br><small>seq.</small></th><th scope="col">ATE ↓<br><small>mean / med. · mm</small></th><th scope="col">RPE-T ↓<br><small>mean / med. · mm</small></th><th scope="col">RPE-R ↓<br><small>mean / med. · deg</small></th><th scope="col">Arc len.<br><small>ratio → 1</small></th><th scope="col">ATE<br><small>% ↓</small></th></tr></thead>
+                <thead><tr><th scope="col"><span class="lang-en">Dataset</span><span class="lang-zh">数据集</span></th><th scope="col"><span class="lang-en">Method</span><span class="lang-zh">方法</span></th><th scope="col">ATE ↓<br><small>mean / med. · mm</small></th><th scope="col">RPE-T ↓<br><small>mean / med. · mm</small></th><th scope="col">RPE-R ↓<br><small>mean / med. · deg</small></th><th scope="col">Arc len.<br><small>ratio → 1</small></th><th scope="col">ATE<br><small>% ↓</small></th></tr></thead>
                 <tbody>
-                  <tr><th scope="rowgroup" rowspan="7">HOT3D<br><small>94,978 <span class="lang-en">frames</span><span class="lang-zh">帧</span></small></th><td>DROID-SLAM</td><td>27 / 27</td><td><b>49.1</b> / <b>39.6</b></td><td>5.36 / 3.52</td><td>0.227 / 0.146</td><td>0.778</td><td><b>0.36</b></td></tr>
-                  <tr><td>HaWoR</td><td>27 / 27</td><td>200.3 / 179.2</td><td>8.60 / 7.33</td><td>1.098 / 0.928</td><td><b>0.950</b></td><td>1.28</td></tr>
-                  <tr><td>InfiniteVGGT</td><td>27 / 27</td><td>124.8 / 100.0</td><td>13.52 / 9.67</td><td>1.492 / 0.392</td><td>0.556</td><td>0.80</td></tr>
-                  <tr><td>LingBot-Map</td><td>27 / 27</td><td>85.5 / 51.0</td><td>7.56 / 6.18</td><td>0.684 / 0.253</td><td>0.712</td><td>0.55</td></tr>
-                  <tr><td>MegaSaM†</td><td>27 / 27</td><td>94.4 / 65.3</td><td><b>3.18</b> / <b>2.13</b></td><td><b>0.082</b> / <b>0.063</b></td><td>0.716</td><td>0.69</td></tr>
-                  <tr class="mint-row"><td>MINT w/o stage 2</td><td>27 / 27</td><td>524.7 / 434.6</td><td>8.75 / 8.37</td><td>0.234 / 0.229</td><td>0.466</td><td>3.29</td></tr>
-                  <tr class="mint-row"><td>MINT</td><td>27 / 27</td><td>181.7 / 155.5</td><td>4.69 / 4.78</td><td>0.284 / 0.259</td><td>1.094</td><td>1.15</td></tr>
-                  <tr class="dataset-divider"><th scope="rowgroup" rowspan="7">ARCTIC P2<br><small>25,883 <span class="lang-en">frames</span><span class="lang-zh">帧</span></small></th><td>DROID-SLAM</td><td>34 / 34</td><td>181.5 / 49.6</td><td>33.84 / 14.25</td><td>1.006 / 0.423</td><td><b>0.964</b></td><td>8.07</td></tr>
-                  <tr><td>HaWoR</td><td>34 / 34</td><td>66.2 / <b>29.4</b></td><td>24.08 / 4.16</td><td>0.298 / <b>0.151</b></td><td>0.759</td><td>2.87</td></tr>
-                  <tr><td>InfiniteVGGT</td><td>34 / 34</td><td>79.0 / 69.1</td><td>16.21 / 12.63</td><td>1.265 / 0.655</td><td>0.284</td><td>3.23</td></tr>
-                  <tr><td>LingBot-Map</td><td>34 / 34</td><td>59.6 / 62.0</td><td>9.17 / 8.47</td><td>0.980 / 0.717</td><td>0.591</td><td>2.46</td></tr>
-                  <tr><td>MegaSaM†</td><td>34 / 34</td><td><b>51.4</b> / 50.4</td><td>8.73 / 5.58</td><td>0.779 / 0.725</td><td>1.956</td><td><b>2.15</b></td></tr>
-                  <tr class="mint-row"><td>MINT w/o stage 2</td><td>34 / 34</td><td>63.7 / 59.3</td><td>3.53 / 3.62</td><td><b>0.251</b> / 0.243</td><td>0.755</td><td>2.63</td></tr>
-                  <tr class="mint-row"><td>MINT</td><td>34 / 34</td><td>81.9 / 83.2</td><td><b>3.39</b> / <b>3.37</b></td><td>0.256 / 0.251</td><td>1.412</td><td>3.40</td></tr>
+                  <tr><th scope="rowgroup" rowspan="7">HOT3D<br><small>94,978 <span class="lang-en">frames</span><span class="lang-zh">帧</span></small></th><td>DROID-SLAM</td><td><b>49.1</b> / <b>39.6</b></td><td>5.36 / 3.52</td><td>0.227 / 0.146</td><td>0.778</td><td><b>0.36</b></td></tr>
+                  <tr><td>HaWoR</td><td>200.3 / 179.2</td><td>8.60 / 7.33</td><td>1.098 / 0.928</td><td><b>0.950</b></td><td>1.28</td></tr>
+                  <tr><td>InfiniteVGGT</td><td>124.8 / 100.0</td><td>13.52 / 9.67</td><td>1.492 / 0.392</td><td>0.556</td><td>0.80</td></tr>
+                  <tr><td>LingBot-Map</td><td>85.5 / 51.0</td><td>7.56 / 6.18</td><td>0.684 / 0.253</td><td>0.712</td><td>0.55</td></tr>
+                  <tr><td>MegaSaM†</td><td>94.4 / 65.3</td><td><b>3.18</b> / <b>2.13</b></td><td><b>0.082</b> / <b>0.063</b></td><td>0.716</td><td>0.69</td></tr>
+                  <tr class="mint-row"><td>MINT w/o stage 2</td><td>524.7 / 434.6</td><td>8.75 / 8.37</td><td>0.234 / 0.229</td><td>0.466</td><td>3.29</td></tr>
+                  <tr class="mint-row"><td>MINT</td><td>181.7 / 155.5</td><td>4.69 / 4.78</td><td>0.284 / 0.259</td><td>1.094</td><td>1.15</td></tr>
+                  <tr class="dataset-divider"><th scope="rowgroup" rowspan="7">ARCTIC P2<br><small>25,883 <span class="lang-en">frames</span><span class="lang-zh">帧</span></small></th><td>DROID-SLAM</td><td>181.5 / 49.6</td><td>33.84 / 14.25</td><td>1.006 / 0.423</td><td><b>0.964</b></td><td>8.07</td></tr>
+                  <tr><td>HaWoR</td><td>66.2 / <b>29.4</b></td><td>24.08 / 4.16</td><td>0.298 / <b>0.151</b></td><td>0.759</td><td>2.87</td></tr>
+                  <tr><td>InfiniteVGGT</td><td>79.0 / 69.1</td><td>16.21 / 12.63</td><td>1.265 / 0.655</td><td>0.284</td><td>3.23</td></tr>
+                  <tr><td>LingBot-Map</td><td>59.6 / 62.0</td><td>9.17 / 8.47</td><td>0.980 / 0.717</td><td>0.591</td><td>2.46</td></tr>
+                  <tr><td>MegaSaM†</td><td><b>51.4</b> / 50.4</td><td>8.73 / 5.58</td><td>0.779 / 0.725</td><td>1.956</td><td><b>2.15</b></td></tr>
+                  <tr class="mint-row"><td>MINT w/o stage 2</td><td>63.7 / 59.3</td><td>3.53 / 3.62</td><td><b>0.251</b> / 0.243</td><td>0.755</td><td>2.63</td></tr>
+                  <tr class="mint-row"><td>MINT</td><td>81.9 / 83.2</td><td><b>3.39</b> / <b>3.37</b></td><td>0.256 / 0.251</td><td>1.412</td><td>3.40</td></tr>
                 </tbody>
               </table>
             </div>

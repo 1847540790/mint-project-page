@@ -169,5 +169,5 @@ dataset). Bold marks the best value per column, computed with `facts.best_set`
 and its column goals in `CAM_HAND_COLS` / `CAM_TRAJ_COLS`; no row is excluded
 from the comparison, so the in-domain reference row `ViDiHand*` carries the bold
 where it wins. Non-MINT camera-frame rows are the values reported in the
-ViDiHand paper. `MegaSaM†` runs without depth refinement. Its HOT3D coverage
-is updated to 27/27 in the homepage following the supplied correction.
+ViDiHand paper. `MegaSaM†` runs without depth refinement. The homepage omits
+the camera-trajectory sequence coverage column.
