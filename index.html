@@ -14,7 +14,7 @@
     <title>MINT — World-Space Camera and Hand Motion Estimation</title>
     <link rel="icon" href="assets/favicon.svg?v=4" type="image/svg+xml">
     <link rel="preload" href="assets/fonts/space-grotesk-variable.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.min.css?v=17">
+    <link rel="stylesheet" href="styles.min.css?v=18">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -386,7 +386,18 @@
             <p class="ceiling-future lang-zh">未来将优先扩充更准确、更多样且具有度量尺度的监督数据，进一步提升模型的泛化能力和数据生成质量，使预测结果更加逼近真值，并着力解决长视频中的轨迹漂移问题。</p>
           </aside>
 
-          <aside class="benchmark-integrity" aria-labelledby="integrity-title"><div><h3 id="integrity-title" class="lang-en">Benchmark integrity statement</h3><h3 class="lang-zh">Benchmark 结果诚信声明</h3><p class="lang-en">We commit that every metric reported by this project is an authentic result produced under the stated evaluation protocol; we do not alter the original numeric results. To reproduce a baseline or another method's exact values, use that method's official repository and environment. The metric definitions, alignment rules, aggregation logic, and reporting code used by MINT are available in <a href="https://github.com/wuji-technology/wuji-ego-mint/tree/main/eval/model_effect/benchmark" target="_blank" rel="noreferrer"><code>eval/model_effect/benchmark/</code></a> for inspection.</p><p class="lang-zh">我们承诺，本项目报告的每一项测试指标均为按照所述评测协议实际运行所得的真实结果，不会对原始数值进行人为修改。如需精确复现其他方法或 baseline 的具体数值，请直接使用对应方法的官方仓库与原始环境。MINT 使用的指标定义、对齐规则、聚合逻辑和报告代码均公开在 <a href="https://github.com/wuji-technology/wuji-ego-mint/tree/main/eval/model_effect/benchmark" target="_blank" rel="noreferrer"><code>eval/model_effect/benchmark/</code></a> 中，可直接检查具体计算方式。</p></div></aside>
+          <aside class="benchmark-integrity" aria-labelledby="integrity-title">
+            <div>
+              <h3 id="integrity-title" class="lang-en">Integrity statement</h3>
+              <h3 class="lang-zh">诚信声明</h3>
+              <p class="lang-en">We are committed to transparency, authenticity, and reproducibility across EgoPipeline data generation, MINT training, inference, and evaluation. Every metric reported by this project is an authentic result produced under the stated evaluation protocol; we do not alter the original numeric results. Results cited from other methods retain their sources and evaluation conditions.</p>
+              <p class="lang-zh">我们坚持 EgoPipeline 数据生成、MINT 模型训练、推理与评测全过程的透明、真实与可复现。本项目报告的每一项测试指标均为按照所述评测协议实际运行所得的真实结果，不会对原始数值进行人为修改。引用其他方法的结果时，我们保留其来源与评测条件。</p>
+              <p class="lang-en">We publish EgoPipeline orchestration, trajectory cleaning, and data export code, together with MINT's two-stage training configurations, inference implementation, and evaluation code, to support reproduction and inspection from data generation through evaluation. Reproduction requires the corresponding datasets, weights, dependencies, and upstream interface adaptations described in the <a href="https://github.com/wuji-technology/wuji-ego-mint/blob/main/docs/data-pipeline.md" target="_blank" rel="noreferrer">EgoPipeline documentation</a> and <a href="https://github.com/wuji-technology/wuji-ego-mint/blob/main/docs/training.md" target="_blank" rel="noreferrer">training documentation</a>, subject to the applicable third-party licenses.</p>
+              <p class="lang-zh">我们公开 EgoPipeline 的任务编排、轨迹清理与数据导出代码，以及 MINT 两阶段训练配置、推理实现与评测代码，支持从数据生成、模型训练到结果评测的复现与核查。复现时需按照 <a href="https://github.com/wuji-technology/wuji-ego-mint/blob/main/docs/data-pipeline.md" target="_blank" rel="noreferrer">EgoPipeline 文档</a>和<a href="https://github.com/wuji-technology/wuji-ego-mint/blob/main/docs/training.md" target="_blank" rel="noreferrer">训练文档</a>准备对应数据集、权重与依赖，完成必要的上游接口适配，并遵守第三方许可要求。</p>
+              <p class="lang-en">To reproduce a baseline or another method's exact values, use that method's official repository and environment. MINT's metric definitions, alignment rules, aggregation logic, and reporting code are available in <a href="https://github.com/wuji-technology/wuji-ego-mint/tree/main/eval/model_effect/benchmark" target="_blank" rel="noreferrer"><code>eval/model_effect/benchmark/</code></a> for inspection.</p>
+              <p class="lang-zh">如需精确复现其他方法或 baseline 的具体数值，请使用对应方法的官方仓库与原始环境。MINT 的指标定义、对齐规则、聚合逻辑和报告代码均公开在 <a href="https://github.com/wuji-technology/wuji-ego-mint/tree/main/eval/model_effect/benchmark" target="_blank" rel="noreferrer"><code>eval/model_effect/benchmark/</code></a> 中，可直接检查具体计算方式。</p>
+            </div>
+          </aside>
         </section>
 
         <section class="article-section section-shell" id="resources" aria-label="MINT resources">
