@@ -9,9 +9,9 @@ sourced imagery.
 ## Downloadable paper
 
 `assets/paper/mint-paper.pdf` is a byte-for-byte copy of
-`../new_out/wuji_data_pipeline_distill (1).pdf`, generated on 2026-09-05 at
-21:47 (UTC+08:00), with 10 pages. SHA-256:
-`08634fda6e8a4afe014cbabf12cb207f197ce3cd21e63e7cae6547a1c0435d0a`.
+`../new_out/wuji_ego_mint.pdf`, generated on 2026-09-06 at 18:44 (UTC+08:00),
+with 9 pages. SHA-256:
+`b453cfd8f36f06e9c166c614e634020c52c0eabb4590233233bf9f435193df74`.
 
 ## Manuscript figures
 
