@@ -6,12 +6,10 @@ and EgoPipeline material directories. Dataset plots, decorative layout,
 borders, and the favicon are code-native HTML/CSS/SVG rather than externally
 sourced imagery.
 
-## Downloadable paper
+## Paper
 
-`assets/paper/mint-paper.pdf` is a byte-for-byte copy of
-`../new_out/wuji_ego_mint.pdf`, generated on 2026-09-06 at 18:44 (UTC+08:00),
-with 9 pages. SHA-256:
-`b453cfd8f36f06e9c166c614e634020c52c0eabb4590233233bf9f435193df74`.
+The project page links to the current manuscript on arXiv:
+`https://arxiv.org/pdf/2609.04958`.
 
 ## Manuscript figures
 
@@ -74,6 +72,12 @@ frames but crop the source renderers' 48-pixel title and footer strips; their
 posters are sampled at 6 seconds where the pipeline/model difference is clear.
 Unless noted otherwise, the displayed video is `model_prediction.mp4` from the
 source directory.
+
+Every clip under `assets/media/cases/` and `assets/media/samples/` was
+re-encoded in place at CRF 24 by `../tools/compress_clips.py`, which preserves
+each source's resolution, frame count, frame rate, and silent track: 50.9 MB
+down to 28.8 MB across 45 files. The worst case in the set measures SSIM 0.98
+against its original.
 
 | Website asset | Project material source |
 | --- | --- |
@@ -172,12 +176,8 @@ camera protocol uses complete sequences, SE(3)-only alignment, and no fitted
 scale. The benchmark videos listed above show the matching tables from the
 latest project film.
 
-The two complete tables in the `#results` section are based on
-`lib/mp/facts.py` in this repository: `CAM_HAND_TABLE` (camera-frame hands, 11
-methods per dataset) and `CAM_TRAJ_TABLE` (world-frame trajectory, 7 methods per
-dataset). Bold marks the best value per column, computed with `facts.best_set`
-and its column goals in `CAM_HAND_COLS` / `CAM_TRAJ_COLS`; no row is excluded
-from the comparison, so the in-domain reference row `ViDiHand*` carries the bold
-where it wins. Non-MINT camera-frame rows are the values reported in the
-ViDiHand paper. `MegaSaM†` runs without depth refinement. The homepage omits
-the camera-trajectory sequence coverage column.
+The camera-frame table contains the eight public methods reported by ViDiHand
+Table 1 plus the latest MINT and MINT + UKF records. The world-frame trajectory
+table keeps the paper's full-sequence, SE(3)-only protocol. `MegaSaM†` runs without depth
+refinement, and the homepage omits the camera-trajectory sequence coverage
+column.
